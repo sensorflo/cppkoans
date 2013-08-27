@@ -1,4 +1,4 @@
-#include "gtest/gtest.h"
+#include "cppkoans.h"
 
 // We shall contemplate truth by testing reality, via asserts.
 TEST(about_asserts,test_assert_truth)

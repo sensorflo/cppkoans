@@ -11,4 +11,7 @@
       <UniqueIdentifier>{b73237a9-cf8f-4975-93b2-5298c812ea7f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\cppkoans.h" />
+  </ItemGroup>
 </Project>

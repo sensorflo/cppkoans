@@ -7,6 +7,8 @@ CPPFLAGS +=
 CXXFLAGS += -g -Wall -Wextra
 INC_DIR = ../../src
 SRC_DIR = ../../src
+INCLUDES = ${INC_DIR}/cppkoans.h
+
 
 all: cppkoans run
 
@@ -15,10 +17,10 @@ all: cppkoans run
 clean:
 	rm -f cppkoans *.o
 
-cppkoans.o: $(SRC_DIR)/cppkoans.cpp
+cppkoans.o: $(SRC_DIR)/cppkoans.cpp ${INCLUDES}
 	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/cppkoans.cpp
 
-asserts.o: $(SRC_DIR)/koans/asserts.cpp
+asserts.o: $(SRC_DIR)/koans/asserts.cpp ${INCLUDES}
 	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/asserts.cpp
 
 cppkoans: cppkoans.o asserts.o
