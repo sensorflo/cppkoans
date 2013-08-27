@@ -2,5 +2,13 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\..\src\cppkoans.cpp" />
+    <ClCompile Include="..\..\src\koans\asserts.cpp">
+      <Filter>koans</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="koans">
+      <UniqueIdentifier>{b73237a9-cf8f-4975-93b2-5298c812ea7f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

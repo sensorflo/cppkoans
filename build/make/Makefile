@@ -18,5 +18,8 @@ clean:
 cppkoans.o: $(SRC_DIR)/cppkoans.cpp
 	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/cppkoans.cpp
 
-cppkoans: cppkoans.o
+asserts.o: $(SRC_DIR)/koans/asserts.cpp
+	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/asserts.cpp
+
+cppkoans: cppkoans.o asserts.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -pthread ${GTEST_LIB_DIR}/libgtest.a  -o $@

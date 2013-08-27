@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\cppkoans.cpp" />
+    <ClCompile Include="..\..\src\koans\asserts.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BC68594A-DC9B-4772-AFF8-C6CB2936AAFC}</ProjectGuid>
