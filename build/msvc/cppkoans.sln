@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cppkoans", "cppkoans.vcxproj", "{BC68594A-DC9B-4772-AFF8-C6CB2936AAFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC68594A-DC9B-4772-AFF8-C6CB2936AAFC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BC68594A-DC9B-4772-AFF8-C6CB2936AAFC}.Debug|Win32.Build.0 = Debug|Win32
+		{BC68594A-DC9B-4772-AFF8-C6CB2936AAFC}.Release|Win32.ActiveCfg = Release|Win32
+		{BC68594A-DC9B-4772-AFF8-C6CB2936AAFC}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

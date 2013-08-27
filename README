@@ -1,0 +1,7 @@
+// The markup langague of this file is AsciiDoc, see
+// http://www.methods.co.nz/asciidoc/
+
+cppkoans
+========
+
+Learn C++ by little exercises. Inspired by http://rubykoans.com/[ruby koans].
