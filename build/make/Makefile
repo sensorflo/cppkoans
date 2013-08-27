@@ -25,4 +25,4 @@ cppkoans: cppkoans.o asserts.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -pthread ${GTEST_LIB_DIR}/libgtest.a  -o $@
 
 run:
-	./cppkoans
+	./cppkoans --gtest_break_on_failure
