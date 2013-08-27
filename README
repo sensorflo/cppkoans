@@ -12,12 +12,14 @@ build
 Currently supported build tools are make and microsoft visual studio C++ 2010,
 also known as msvc.
 
+Building by default also runs the koans.
+
 make
 ~~~~
 In build/make/Makefile, set GTEST_INC_DIR to the directory containing gtest's
 include folder (named gtest). Set GTEST_LIB_DIR to the directory containing
 gtest's library (libgtest.a). In the shell, in directory build/make, run just
-+make+ with no arguments.
++make+ with no arguments. The cppkoans executable is generated in build/make.
 
 msvc 2010
 ~~~~~~~~~
@@ -25,3 +27,10 @@ In cppkoan's project settings, for all configurations, add the directory
 containing gtest's include folder to `C/C++ | General | Additional Include
 Directories', and add the directory containing gtest's library (gtestd.lib and
 gtest.lib respectively) to `Linker | General | Additional Library Directories'.
+The cppkoans.exe executable is generated in build/msvc/{Debug,Release}.
+
+running the koans
+-----------------
+Building, see chapter `build', by default also runs the koans. If you want to
+run them explicitely, execute the cppkoans executable from your command line
+shell. See the chapter `build' where the executables are.

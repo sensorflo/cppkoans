@@ -8,7 +8,7 @@ CXXFLAGS += -g -Wall -Wextra
 INC_DIR = ../../src
 SRC_DIR = ../../src
 
-all: cppkoans
+all: cppkoans run
 
 .PHONY: clean
 
@@ -23,3 +23,6 @@ asserts.o: $(SRC_DIR)/koans/asserts.cpp
 
 cppkoans: cppkoans.o asserts.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -pthread ${GTEST_LIB_DIR}/libgtest.a  -o $@
+
+run:
+	./cppkoans
