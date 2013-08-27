@@ -14,8 +14,11 @@ PARTICULAR PURPOSE. See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with
 this program. If not, see <http://www.gnu.org/licenses/>.*/
 
-int main(int /*argc*/, char* /*argv*/[])
+#include "gtest/gtest.h"
+
+int main(int argc, char* argv[])
 {
-	return 0;
+  ::testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
 }
 

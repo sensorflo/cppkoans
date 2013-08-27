@@ -5,3 +5,23 @@ cppkoans
 ========
 
 Learn C++ by little exercises. Inspired by http://rubykoans.com/[ruby koans].
+
+
+build
+-----
+Currently supported build tools are make and microsoft visual studio C++ 2010,
+also known as msvc.
+
+make
+~~~~
+In build/make/Makefile, set GTEST_INC_DIR to the directory containing gtest's
+include folder (named gtest). Set GTEST_LIB_DIR to the directory containing
+gtest's library (libgtest.a). In the shell, in directory build/make, run just
++make+ with no arguments.
+
+msvc 2010
+~~~~~~~~~
+In cppkoan's project settings, for all configurations, add the directory
+containing gtest's include folder to `C/C++ | General | Additional Include
+Directories', and add the directory containing gtest's library (gtestd.lib and
+gtest.lib respectively) to `Linker | General | Additional Library Directories'.
