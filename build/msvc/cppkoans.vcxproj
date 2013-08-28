@@ -12,10 +12,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\cppkoans.cpp" />
+    <ClCompile Include="..\..\src\koangtestprinter.cpp" />
     <ClCompile Include="..\..\src\koans\asserts.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\cppkoans.h" />
+    <ClInclude Include="..\..\src\koangtestprinter.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BC68594A-DC9B-4772-AFF8-C6CB2936AAFC}</ProjectGuid>

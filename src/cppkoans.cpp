@@ -14,6 +14,7 @@ PARTICULAR PURPOSE. See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with
 this program. If not, see <http://www.gnu.org/licenses/>.*/
 
+#include "koangtestprinter.h"
 #include "gtest/gtest.h"
 using namespace testing;
 
@@ -31,8 +32,10 @@ int main(int argc, char* argv[])
 
   TestEventListeners& listeners =
       ::UnitTest::GetInstance()->listeners();
+  delete listeners.Release(listeners.default_result_printer());
   listeners.Append(new StopOnFirstFailureListener);
-  
+  listeners.Append(new KoanGTestPrinter);
+
   return RUN_ALL_TESTS();
 }
 

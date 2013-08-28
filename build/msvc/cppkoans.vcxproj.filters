@@ -5,6 +5,7 @@
     <ClCompile Include="..\..\src\koans\asserts.cpp">
       <Filter>koans</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\koangtestprinter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="koans">
@@ -13,5 +14,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\cppkoans.h" />
+    <ClInclude Include="..\..\src\koangtestprinter.h" />
   </ItemGroup>
 </Project>

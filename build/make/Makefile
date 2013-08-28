@@ -7,7 +7,7 @@ CPPFLAGS +=
 CXXFLAGS += -g -Wall -Wextra
 INC_DIR = ../../src
 SRC_DIR = ../../src
-INCLUDES = ${INC_DIR}/cppkoans.h
+INCLUDES = ${INC_DIR}/cppkoans.h ${INC_DIR}/koangtestprinter.h
 
 
 all: cppkoans run
@@ -20,10 +20,13 @@ clean:
 cppkoans.o: $(SRC_DIR)/cppkoans.cpp ${INCLUDES}
 	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/cppkoans.cpp
 
+koangtestprinter.o: $(SRC_DIR)/koangtestprinter.cpp ${INCLUDES}
+	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koangtestprinter.cpp
+
 asserts.o: $(SRC_DIR)/koans/asserts.cpp ${INCLUDES}
 	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/asserts.cpp
 
-cppkoans: cppkoans.o asserts.o
+cppkoans: cppkoans.o asserts.o koangtestprinter.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -pthread ${GTEST_LIB_DIR}/libgtest.a  -o $@
 
 run:
