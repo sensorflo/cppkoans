@@ -27,13 +27,13 @@ void KoanGTestPrinter::OnTestEnd(const TestInfo& test_info)
 
   if (test_result.Passed()) {
     ColoredPrintf(COLOR_GREEN,
-      "koan %s %s has expanded your awareness.\n",
-      test_info.test_case_name(), test_info.name());
+      "Koan %s in area %s has expanded your awareness.\n",
+      test_info.name(), test_info.test_case_name() );
     m_PassedKoansCount++;
   } else { 
     ColoredPrintf(COLOR_RED,
-      "\n\nkoan %s %s has damaged your karma.\n",
-      test_info.test_case_name(), test_info.name());
+      "\n\nYour answer to koan %s in area %s has damaged your karma.\n",
+      test_info.name(), test_info.test_case_name());
 
     for (int i=0; i<test_result.total_part_count(); i++) {
       const TestPartResult& part_result =
