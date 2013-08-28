@@ -32,9 +32,8 @@ The cppkoans.exe executable is generated in build/msvc/{Debug,Release}.
 running the koans
 -----------------
 Building, see chapter `build', by default also runs the koans. If you want to
-run them explicitely, execute the cppkoans executable from your command line
-shell like this: +cppkoans --gtest_break_on_failure+. See the chapter `build'
-where the executables are.
+run them explicitely, execute the cppkoans executable from your command line.
+See the chapter `build' where the executables are.
 
 To make this a little bit more convenient, you can run them also as explained in
 the following:
@@ -44,6 +43,4 @@ In directory build/make/, run +make run+.
 
 msvc::
 In msvc, you can run the executable explicitely via menu `Debug | Start
-Debugging' (F5) or `Debug | Start Without Debugging' (Ctrl+F5). Edit the
-properties of the cppkoans project. For all configurations, set `Configur
-Properties | Debugging | Command Arguments' to `--gtest_break_on_failure'.
+Debugging' (F5) or `Debug | Start Without Debugging' (Ctrl+F5).

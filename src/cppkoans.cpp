@@ -15,10 +15,24 @@ You should have received a copy of the GNU General Public License along with
 this program. If not, see <http://www.gnu.org/licenses/>.*/
 
 #include "gtest/gtest.h"
+using namespace testing;
+
+class StopOnFirstFailureListener : public EmptyTestEventListener {
+  virtual void OnTestEnd(const TestInfo& test_info) {
+    if (test_info.result()->Failed()) {
+      exit(1);
+    }
+  }
+};
 
 int main(int argc, char* argv[])
 {
-  ::testing::InitGoogleTest(&argc, argv);
+  InitGoogleTest(&argc, argv);
+
+  TestEventListeners& listeners =
+      ::UnitTest::GetInstance()->listeners();
+  listeners.Append(new StopOnFirstFailureListener);
+  
   return RUN_ALL_TESTS();
 }
 
