@@ -17,17 +17,17 @@ TEST(about_asserts,test_assert_with_message)
 // reality.
 TEST(about_asserts,test_assert_equality)
 {
-  int expected_value = __;
+  int your_expected_value = __;
   int actual_value = 1 + 1;
-  EXPECT_TRUE( expected_value == actual_value);
+  EXPECT_TRUE( your_expected_value == actual_value);
 }
 
 // Some ways of asserting equality are better than others.
 TEST(about_asserts,test_a_better_way_of_asserting_equality)
 {
-  int expected_value = __;
+  int your_expected_value = __;
   int actual_value = 1 + 1;
-  EXPECT_EQ( expected_value, actual_value);
+  EXPECT_EQ( your_expected_value, actual_value);
 }
 
 // Sometimes we will ask you to fill in the values.
