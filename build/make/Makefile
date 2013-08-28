@@ -27,4 +27,5 @@ cppkoans: cppkoans.o asserts.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -pthread ${GTEST_LIB_DIR}/libgtest.a  -o $@
 
 run:
-	./cppkoans
+	@echo "make: autorun of cppkoans:"
+	@./cppkoans
