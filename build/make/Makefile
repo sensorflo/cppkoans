@@ -23,10 +23,20 @@ cppkoans.o: $(SRC_DIR)/cppkoans.cpp ${INCLUDES}
 koangtestprinter.o: $(SRC_DIR)/koangtestprinter.cpp ${INCLUDES}
 	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koangtestprinter.cpp
 
+pathtoenlightenment.o: $(SRC_DIR)/koans/pathtoenlightenment.cpp ${INCLUDES}
+	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/pathtoenlightenment.cpp
+
+
 asserts.o: $(SRC_DIR)/koans/asserts.cpp ${INCLUDES}
 	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/asserts.cpp
+arrays.o: $(SRC_DIR)/koans/arrays.cpp ${INCLUDES}
+	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/arrays.cpp
+strings.o: $(SRC_DIR)/koans/strings.cpp ${INCLUDES}
+	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/strings.cpp
 
-cppkoans: cppkoans.o asserts.o koangtestprinter.o
+# It is important that pathtoenlightenment.o comes before the list of the koan
+# .o's, see comment in pathtoenlightenment.cpp
+cppkoans: cppkoans.o koangtestprinter.o pathtoenlightenment.o asserts.o arrays.o strings.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $^ -pthread ${GTEST_LIB_DIR}/libgtest.a  -o $@
 
 run:
