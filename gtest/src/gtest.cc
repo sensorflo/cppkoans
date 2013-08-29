@@ -2442,7 +2442,11 @@ void TestCase::Run() {
 
   const internal::TimeInMillis start = internal::GetTimeInMillis();
   for (int i = 0; i < total_test_count(); i++) {
-    GetMutableTestInfo(i)->Run();
+    TestInfo* test_info = GetMutableTestInfo(i);
+    test_info->Run();
+    if (test_info->result()->Failed()) {
+      break;
+    }
   }
   elapsed_time_ = internal::GetTimeInMillis() - start;
 
@@ -4255,11 +4259,15 @@ bool UnitTestImpl::RunAllTests() {
       repeater->OnEnvironmentsSetUpEnd(*parent_);
 
       // Runs the tests only if there was no fatal failure during global
-      // set-up.
+      // set-up.      
       if (!Test::HasFatalFailure()) {
         for (int test_index = 0; test_index < total_test_case_count();
              test_index++) {
-          GetMutableTestCase(test_index)->Run();
+          TestCase* test_case = GetMutableTestCase(test_index);
+          test_case->Run();
+          if (test_case->Failed()) {
+            break;
+          }
         }
       }
 

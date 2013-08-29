@@ -18,14 +18,6 @@ this program. If not, see <http://www.gnu.org/licenses/>.*/
 #include "gtest/gtest.h"
 using namespace testing;
 
-class StopOnFirstFailureListener : public EmptyTestEventListener {
-  virtual void OnTestEnd(const TestInfo& test_info) {
-    if (test_info.result()->Failed()) {
-      exit(1);
-    }
-  }
-};
-
 int main(int argc, char* argv[])
 {
   InitGoogleTest(&argc, argv);
@@ -33,7 +25,6 @@ int main(int argc, char* argv[])
   TestEventListeners& listeners =
       ::UnitTest::GetInstance()->listeners();
   delete listeners.Release(listeners.default_result_printer());
-  listeners.Append(new StopOnFirstFailureListener);
   listeners.Append(new KoanGTestPrinter);
 
   return RUN_ALL_TESTS();
