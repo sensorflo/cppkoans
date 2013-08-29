@@ -1003,19 +1003,19 @@ AssertionResult EqFailure(const char* expected_expression,
                           const std::string& actual_value,
                           bool ignoring_case) {
   Message msg;
-  msg << "Value of: " << actual_expression;
-  if (actual_value != actual_expression) {
-    msg << "\n  Actual: " << actual_value;
-  }
 
-  msg << "\nExpected: " << expected_expression;
+  msg << "Expected  : " << expected_expression;
   if (ignoring_case) {
     msg << " (ignoring case)";
   }
   if (expected_value != expected_expression) {
-    msg << "\nWhich is: " << expected_value;
+    msg << "\n  Which is: " << expected_value;
   }
 
+  msg << "\nActual    : " << actual_expression;
+  if (actual_value != actual_expression) {
+    msg << "\n  Which is: " << actual_value;
+  }
   return AssertionFailure() << msg;
 }
 
@@ -1027,11 +1027,12 @@ std::string GetBoolAssertionFailureMessage(
     const char* expected_predicate_value) {
   const char* actual_message = assertion_result.message();
   Message msg;
-  msg << "Value of: " << expression_text
-      << "\n  Actual: " << actual_predicate_value;
+  msg <<  "Expected  : " << expected_predicate_value;
+
+  msg << "\nActual    : " << expression_text
+      << "\n  Which is: " << actual_predicate_value;
   if (actual_message[0] != '\0')
     msg << " (" << actual_message << ")";
-  msg << "\nExpected: " << expected_predicate_value;
   return msg.GetString();
 }
 
