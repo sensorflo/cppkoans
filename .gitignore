@@ -1,8 +1,12 @@
-/build/msvc/Debug
-/build/msvc/Release
-/build/msvc/ipch
+build/msvc/Debug
+build/msvc/Release
+build/msvc/ipch
+gtest/msvc/Debug
+gtest/msvc/Release
+gtest/msvc/ipch
 /build/make/cppkoans
 *.o
+*.a
 *.opensdf
 *.sdf
 *.suo
