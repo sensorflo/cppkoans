@@ -17,6 +17,9 @@ this program. If not, see <http://www.gnu.org/licenses/>.*/
 #include "koangtestprinter.h"
 #include "gtest/gtest.h"
 using namespace testing;
+using namespace std;
+
+extern const char* path_to_enligthenment[];
 
 int main(int argc, char* argv[])
 {
@@ -26,6 +29,9 @@ int main(int argc, char* argv[])
       ::UnitTest::GetInstance()->listeners();
   delete listeners.Release(listeners.default_result_printer());
   listeners.Append(new KoanGTestPrinter);
+
+
+  UnitTest::GetInstance()->SetTestCaseOrder(path_to_enligthenment);
 
   return RUN_ALL_TESTS();
 }

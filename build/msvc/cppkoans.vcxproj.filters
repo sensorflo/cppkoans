@@ -3,9 +3,6 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\cppkoans.cpp" />
     <ClCompile Include="..\..\src\koangtestprinter.cpp" />
-    <ClCompile Include="..\..\src\koans\pathtoenlightenment.cpp">
-      <Filter>koans</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\koans\arrays.cpp">
       <Filter>koans</Filter>
     </ClCompile>
@@ -15,6 +12,7 @@
     <ClCompile Include="..\..\src\koans\strings.cpp">
       <Filter>koans</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\pathtoenlightenment.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="koans">
