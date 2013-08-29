@@ -629,6 +629,8 @@ class GTEST_API_ UnitTestImpl {
   // trace but Bar() and CurrentOsStackTraceExceptTop() won't.
   std::string CurrentOsStackTraceExceptTop(int skip_count) GTEST_NO_INLINE_;
 
+  int GetTestCaseIndex(const char* test_case_name);
+
   // Finds and returns a TestCase with the given name.  If one doesn't
   // exist, creates one and returns it.
   //
@@ -799,6 +801,8 @@ class GTEST_API_ UnitTestImpl {
 
   // Gets the random number generator.
   internal::Random* random() { return &random_; }
+
+  void SetTestCaseOrder(const char* const test_case_names[]);
 
   // Shuffles all test cases, and the tests within each test case,
   // making sure that death tests are still run first.

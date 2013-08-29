@@ -3709,6 +3709,10 @@ const TestCase* UnitTest::GetTestCase(int i) const {
   return impl()->GetTestCase(i);
 }
 
+void UnitTest::SetTestCaseOrder(const char* const test_case_names[]) {
+  return impl()->SetTestCaseOrder(test_case_names);
+}
+
 // Returns the TestResult containing information on test failures and
 // properties logged outside of individual test cases.
 const TestResult& UnitTest::ad_hoc_test_result() const {
@@ -4108,6 +4112,22 @@ class TestCaseNameIs {
  private:
   std::string name_;
 };
+
+// Returns the index in test_cases_ of the test case with the given name, or
+// -1 if no such test case exists.
+int UnitTestImpl::GetTestCaseIndex(const char* test_case_name) {
+  std::vector<TestCase*>::const_iterator test_case = test_cases_.begin();
+  int i = 0;
+  for ( /*nop*/; test_case!=test_cases_.end(); ++i, ++test_case) {
+    if (NULL!=(*test_case) &&
+        strcmp((*test_case)->name(), test_case_name)==0)
+      break;
+  }
+  if (test_case==test_cases_.end())
+    return -1;
+  else
+    return i;
+}
 
 // Finds and returns a TestCase with the given name.  If one doesn't
 // exist, creates one and returns it.  It's the CALLER'S
@@ -4549,6 +4569,19 @@ OsStackTraceGetterInterface* UnitTestImpl::os_stack_trace_getter() {
 TestResult* UnitTestImpl::current_test_result() {
   return current_test_info_ ?
       &(current_test_info_->result_) : &ad_hoc_test_result_;
+}
+
+void UnitTestImpl::SetTestCaseOrder(const char* const test_case_names[]) {
+  int i=0;
+  test_case_indices_.clear();
+  for (/*nop*/; test_case_names[i]; ++i) {
+    int index = GetTestCaseIndex(test_case_names[i]);
+    if (index < 0) {
+      printf("Test case %s does not exist",test_case_names[i]);
+      exit(1);
+    }
+    test_case_indices_.push_back(index);
+  }
 }
 
 // Shuffles all test cases, and the tests within each test case,

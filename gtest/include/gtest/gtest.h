@@ -1209,6 +1209,8 @@ class GTEST_API_ UnitTest {
   // total_test_case_count() - 1. If i is not in that range, returns NULL.
   const TestCase* GetTestCase(int i) const;
 
+  void SetTestCaseOrder(const char* const test_case_names[]);
+
   // Returns the TestResult containing information on test failures and
   // properties logged outside of individual test cases.
   const TestResult& ad_hoc_test_result() const;
