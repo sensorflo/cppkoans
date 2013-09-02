@@ -1,15 +1,19 @@
-// The markup langague of this file is AsciiDoc, see
+// The markup language of this file is AsciiDoc, see
 // http://www.methods.co.nz/asciidoc/
 
 cppkoans
 ========
 
-Learn C++ by little exercises. Inspired by http://rubykoans.com/[ruby koans].
+cppkoans are a set of little exercise to improve and strengthen your knowledge
+of C\\++. As with most things, humans learn stuff by repetition and hands-on
+practice. The provided koans are intended for intermediate to advanced C++
+programmers.
 
+cppkoans are inspired by http://rubykoans.com/[ruby koans]. 
 
 build
 -----
-Currently supported build tools are make and microsoft visual studio C++ 2010,
+Currently supported build tools are make and Microsoft visual studio C++ 2010,
 also known as msvc. Building by default also runs the koans.
 
 make
@@ -24,7 +28,7 @@ The cppkoans.exe executable is generated in build/msvc/{Debug,Release}.
 running the koans
 -----------------
 Building, see chapter `build', by default also runs the koans. If you want to
-run them explicitely, execute the cppkoans executable from your command line.
+run them explicitly, execute the cppkoans executable from your command line.
 See the chapter `build' where the executables are.
 
 To make this a little bit more convenient, you can run them also as explained in
@@ -34,5 +38,5 @@ make / *nix::
 In directory build/make/, run +make run+.
 
 msvc::
-In msvc, you can run the executable explicitely via menu `Debug | Start
+In msvc, you can run the executable explicitly via menu `Debug | Start
 Debugging' (F5) or `Debug | Start Without Debugging' (Ctrl+F5).
