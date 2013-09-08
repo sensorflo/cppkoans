@@ -11,6 +11,7 @@
     <ClCompile Include="..\..\src\koangtestprinter.cpp" />
     <ClCompile Include="..\..\src\koans\arrays.cpp" />
     <ClCompile Include="..\..\src\koans\asserts.cpp" />
+    <ClCompile Include="..\..\src\koans\booleans.cpp" />
     <ClCompile Include="..\..\src\koans\strings.cpp" />
     <ClCompile Include="..\..\src\pathtoenlightenment.cpp" />
   </ItemGroup>

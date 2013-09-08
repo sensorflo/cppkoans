@@ -9,6 +9,9 @@
     <ClCompile Include="..\..\src\koans\asserts.cpp">
       <Filter>koans</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\koans\booleans.cpp">
+      <Filter>koans</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\src\koans\strings.cpp">
       <Filter>koans</Filter>
     </ClCompile>
