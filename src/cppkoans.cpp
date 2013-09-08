@@ -16,6 +16,7 @@ this program. If not, see <http://www.gnu.org/licenses/>.*/
 
 #include "koangtestprinter.h"
 #include "gtest/gtest.h"
+#include <list>
 using namespace testing;
 using namespace std;
 
@@ -32,6 +33,10 @@ int main(int argc, char* argv[])
 
 
   UnitTest::GetInstance()->SetTestCaseOrder(path_to_enligthenment);
+
+  list<string> impl_spec_expressions;
+  impl_spec_expressions.push_back("sizeof(int)");
+  SetImplementationSpecificExpressions(impl_spec_expressions);
 
   return RUN_ALL_TESTS();
 }

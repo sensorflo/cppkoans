@@ -54,6 +54,7 @@
 #include <limits>
 #include <ostream>
 #include <vector>
+#include <list>
 
 #include "gtest/internal/gtest-internal.h"
 #include "gtest/internal/gtest-string.h"
@@ -167,6 +168,12 @@ void ReportFailureInUnknownLocation(TestPartResult::Type result_type,
                                     const std::string& message);
 
 }  // namespace internal
+
+void SetImplementationSpecificExpressions(const std::list<std::string>& expressions);
+// Returns true iff the given expression is 'implementation specific' according
+// to what was defined by SetImplementationSpecificExpressions.
+bool IsImplementationSpecific(const char* expression);
+
 
 // The friend relationship of some of these classes is cyclic.
 // If we don't forward declare them the compiler might confuse the classes
@@ -1451,8 +1458,8 @@ AssertionResult CmpHelperEQ(const char* expected_expression,
     success = false;
   }
   
-  else if (strcmp(actual_expression,"sizeof(int)")==0) {
-    success = implementation_specific==expected;
+  else if (IsImplementationSpecific(actual_expression)) {
+    success = strcmp("implementation_specific",expected_expression)==0;
   }
 
 #ifdef _MSC_VER

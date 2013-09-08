@@ -49,6 +49,7 @@
 #include <ostream>  // NOLINT
 #include <sstream>
 #include <vector>
+#include <list>
 
 #if GTEST_OS_LINUX
 
@@ -181,6 +182,20 @@ const char kStackTraceMarker[] = "\nStack trace:\n";
 bool g_help_flag = false;
 
 }  // namespace internal
+
+static std::list<std::string> ImplSpecExpressions;
+
+void SetImplementationSpecificExpressions(const std::list<std::string>& expressions)
+{
+  ImplSpecExpressions = expressions;
+}
+
+bool IsImplementationSpecific(const char* expression)
+{
+  return
+    std::find( ImplSpecExpressions.begin(), ImplSpecExpressions.end(), expression) !=
+    ImplSpecExpressions.end();
+}
 
 static const char* GetDefaultFilter() {
   return kUniversalFilter;
@@ -1025,8 +1040,8 @@ AssertionResult EqFailure(const char* expected_expression,
     msg << "\nActual    : " << actual_expression;
     if (actual_value != actual_expression) {
       msg << "\n  Which is: ";
-      if (strcmp(actual_expression,"sizeof(int)")==0) {
-        msg << "implementation_specific";
+      if (IsImplementationSpecific(actual_expression)) {
+        msg << "implementation_specific"
       } else {
         msg << actual_value;
       }
