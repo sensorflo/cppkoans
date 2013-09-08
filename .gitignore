@@ -11,3 +11,4 @@ gtest/msvc/ipch
 *.sdf
 *.suo
 *.vcxproj.user
+README.html
