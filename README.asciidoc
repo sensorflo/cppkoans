@@ -9,7 +9,14 @@ of C\\++. As with most things, humans learn stuff by repetition and hands-on
 practice. The provided koans are intended for intermediate to advanced C++
 programmers.
 
-cppkoans are inspired by http://rubykoans.com/[ruby koans]. 
+cppkoans are inspired by http://rubykoans.com/[ruby koans]. There are also
+further cppkoans projects. The way they can interrogate the disciple and react
+to the disciple's answers is in general more limited than this cppkoans. Also
+their koans are in general less amended with information on the current topic
+and usually lack references to further documentation.
+
+- https://github.com/bkleinen/CPPKoans
+- https://github.com/torbjoernk/CppKoans
 
 build
 -----
