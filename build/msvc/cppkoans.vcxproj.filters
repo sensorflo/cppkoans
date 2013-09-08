@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\..\src\cppkoans.cpp" />
@@ -10,6 +10,9 @@
       <Filter>koans</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\koans\booleans.cpp">
+      <Filter>koans</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\koans\characters.cpp">
       <Filter>koans</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\koans\strings.cpp">

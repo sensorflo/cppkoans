@@ -36,6 +36,10 @@ int main(int argc, char* argv[])
 
   list<string> impl_spec_expressions;
   impl_spec_expressions.push_back("sizeof(int)");
+  impl_spec_expressions.push_back("int(char(uchar_max))");
+  impl_spec_expressions.push_back("int(char(std::numeric_limits<unsigned char>::max()))");
+  impl_spec_expressions.push_back("std::numeric_limits<char>::is_signed");
+  impl_spec_expressions.push_back("std::numeric_limits<unsigned char>::digits");
   SetImplementationSpecificExpressions(impl_spec_expressions);
 
   return RUN_ALL_TESTS();
