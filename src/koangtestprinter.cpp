@@ -31,23 +31,47 @@ void KoanGTestPrinter::OnTestEnd(const TestInfo& test_info)
       test_info.name(), test_info.test_case_name() );
     m_PassedKoansCount++;
   } else { 
-    ColoredPrintf(COLOR_RED,
-      "\n\nYour answer to koan %s in area %s has damaged your karma.\n",
-      test_info.name(), test_info.test_case_name());
-
+    bool all_failed = true;
+    bool all_passed = true;
+    bool all_not_yet_ansered = true;
     for (int i=0; i<test_result.total_part_count(); i++) {
-      const TestPartResult& part_result =
-        test_result.GetTestPartResult(i);
-      
-      if ( part_result.failed() ) {
-        printf("\nYour expectation did not match actual reality:\n%s\n",
-          part_result.summary());
+      const TestPartResult& part_result = test_result.GetTestPartResult(i);
+      bool failed = part_result.failed();
+      all_failed &= failed;
+      all_passed &= !failed;
+      if ( failed ) {
+        all_not_yet_ansered &= (strcmp(part_result.summary(),"_")==0);
+      }
+    }
 
-        // the file_name(line_number) format is currently only optimized for
-        // msvc, so one can easily jump to the file/line in the IDE by double
-        // clicking on that line in the output
-        printf("You must continue to meditate on the following code:\n");
-        printf("%s(%d):\n", part_result.file_name(), part_result.line_number());
+    if (all_failed && all_not_yet_ansered) {
+      ColoredPrintf(COLOR_RED,
+        "Koan %s in area %s shall be your next step on your path to enlightenment.\n",
+        test_info.name(), test_info.test_case_name());
+      const TestPartResult& part_result = test_result.GetTestPartResult(0);
+      printf("Meditate on the following code:\n");
+      printf("%s(%d):\n", part_result.file_name(), part_result.line_number());
+    }
+
+    else {
+      ColoredPrintf(COLOR_RED,
+        "Your answer to koan %s in area %s has damaged your karma.\n",
+        test_info.name(), test_info.test_case_name());
+
+      for (int i=0; i<test_result.total_part_count(); i++) {
+        const TestPartResult& part_result =
+          test_result.GetTestPartResult(i);
+      
+        if ( part_result.failed() ) {
+          printf("\nYour expectation did not match actual reality:\n%s\n",
+            part_result.summary());
+
+          // the file_name(line_number) format is currently only optimized for
+          // msvc, so one can easily jump to the file/line in the IDE by double
+          // clicking on that line in the output
+          printf("You must continue to meditate on the following code:\n");
+          printf("%s(%d):\n", part_result.file_name(), part_result.line_number());
+        }
       }
     }
 

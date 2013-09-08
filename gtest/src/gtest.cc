@@ -1003,24 +1003,33 @@ AssertionResult EqFailure(const char* expected_expression,
                           const std::string& actual_value,
                           bool ignoring_case) {
   Message msg;
-
-  msg << "Expected  : " << expected_expression;
-  if (ignoring_case) {
-    msg << " (ignoring case)";
+  if (
+    strcmp(expected_expression,"__")==0 ||
+    strcmp(expected_expression,"___")==0 ||
+    strcmp(expected_expression,"____")==0 ||
+    strcmp(expected_expression,"_____")==0 ||
+    strcmp(expected_expression,"______")==0 ) {
+    msg << "_"; 
   }
-  if ( (expected_value != expected_expression) &&
-       (strcmp(expected_expression,"implementation_specific")!=0) ) {
-    msg << "\n  Which is: " << expected_value;
-  }
-
-  msg << "\nActual    : " << actual_expression;
-  if (actual_value != actual_expression) {
-    msg << "\n  Which is: ";
-    if (strcmp(actual_expression,"sizeof(int)")==0) {
-      msg << "implementation_specific";
-    } else {
-      msg << actual_value;
+  else {
+    msg << "Expected  : " << expected_expression;
+    if (ignoring_case) {
+      msg << " (ignoring case)";
     }
+    if ( (expected_value != expected_expression) &&
+         (strcmp(expected_expression,"implementation_specific")!=0) ) {
+      msg << "\n  Which is: " << expected_value;
+    }
+
+    msg << "\nActual    : " << actual_expression;
+    if (actual_value != actual_expression) {
+      msg << "\n  Which is: ";
+      if (strcmp(actual_expression,"sizeof(int)")==0) {
+        msg << "implementation_specific";
+      } else {
+        msg << actual_value;
+      }
+    }  
   }
   return AssertionFailure() << msg;
 }
