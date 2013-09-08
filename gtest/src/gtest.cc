@@ -1003,12 +1003,10 @@ AssertionResult EqFailure(const char* expected_expression,
                           const std::string& actual_value,
                           bool ignoring_case) {
   Message msg;
-  if (
-    strcmp(expected_expression,"__")==0 ||
-    strcmp(expected_expression,"___")==0 ||
-    strcmp(expected_expression,"____")==0 ||
-    strcmp(expected_expression,"_____")==0 ||
-    strcmp(expected_expression,"______")==0 ) {
+  // We also want to catch expressions such as "typeid(________)". I.e. what we
+  // really want is to dedect occurences of identifiers named "__+" and for the 
+  // cases where macros are named "__+" their substitution
+  if ( strstr(expected_expression,"__")!=NULL ) {
     msg << "_"; 
   }
   else if ( strcmp(expected_expression,actual_expression)==0 ) {
