@@ -1042,10 +1042,10 @@ AssertionResult EqFailure(const char* expected_expression,
       msg << "\n  Which is: ";
       if (IsImplementationSpecific(actual_expression)) {
         msg << "implementation_specific"
-      } else {
-        msg << actual_value;
-      }
-    }  
+            << "\n          : in your current implementation it is: ";
+      } 
+      msg << actual_value;
+    }
   }
   return AssertionFailure() << msg;
 }
