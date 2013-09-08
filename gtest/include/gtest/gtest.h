@@ -1444,7 +1444,14 @@ AssertionResult CmpHelperEQ(const char* expected_expression,
                             const T1& expected,
                             const T2& actual) {
   bool success = false;
-  if (strcmp(actual_expression,"sizeof(int)")==0) {
+  
+  // cppkoan tailored modification to gtest: it is not allowed that the disciple
+  // just retypes the actual expresssion as his expected expression
+  if (strcmp(expected_expression,actual_expression)==0) {
+    success = false;
+  }
+  
+  else if (strcmp(actual_expression,"sizeof(int)")==0) {
     success = implementation_specific==expected;
   }
 

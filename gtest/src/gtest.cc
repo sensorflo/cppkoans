@@ -1011,6 +1011,9 @@ AssertionResult EqFailure(const char* expected_expression,
     strcmp(expected_expression,"______")==0 ) {
     msg << "_"; 
   }
+  else if ( strcmp(expected_expression,actual_expression)==0 ) {
+    msg << "__schelte__";  
+  }
   else {
     msg << "Expected  : " << expected_expression;
     if (ignoring_case) {

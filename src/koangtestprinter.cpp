@@ -63,14 +63,23 @@ void KoanGTestPrinter::OnTestEnd(const TestInfo& test_info)
           test_result.GetTestPartResult(i);
       
         if ( part_result.failed() ) {
-          printf("\nYour expectation did not match actual reality:\n%s\n",
-            part_result.summary());
+          const char* summary = part_result.summary();
 
-          // the file_name(line_number) format is currently only optimized for
-          // msvc, so one can easily jump to the file/line in the IDE by double
-          // clicking on that line in the output
-          printf("You must continue to meditate on the following code:\n");
-          printf("%s(%d):\n", part_result.file_name(), part_result.line_number());
+          if (strcmp(summary,"__schelte__")==0) {
+            printf("\nDon't try to cheat me - you will succeed eventually.\n");
+            printf("However mind that you will not reach enlightenment by going this path.\n");
+            printf("Continue to faithfully meditate on the following code:\n");
+            printf("%s(%d):\n", part_result.file_name(), part_result.line_number());
+            
+          } else {
+            printf("\nYour expectation did not match actual reality:\n%s\n",
+              summary);
+            // the file_name(line_number) format is currently only optimized for
+            // msvc, so one can easily jump to the file/line in the IDE by double
+            // clicking on that line in the output
+            printf("You must continue to meditate on the following code:\n");
+            printf("%s(%d):\n", part_result.file_name(), part_result.line_number());
+          }
         }
       }
     }
