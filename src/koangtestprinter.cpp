@@ -30,21 +30,21 @@ void KoanGTestPrinter::OnTestEnd(const TestInfo& test_info)
       "Koan %s in area %s has expanded your awareness.\n",
       test_info.name(), test_info.test_case_name() );
     m_PassedKoansCount++;
+
   } else { 
-    bool all_failed = true;
-    bool all_passed = true;
-    bool all_not_yet_ansered = true;
+    bool all_unanswered = true;
     for (int i=0; i<test_result.total_part_count(); i++) {
       const TestPartResult& part_result = test_result.GetTestPartResult(i);
-      bool failed = part_result.failed();
-      all_failed &= failed;
-      all_passed &= !failed;
-      if ( failed ) {
-        all_not_yet_ansered &= (strcmp(part_result.summary(),"_")==0);
+      if ( part_result.failed() ) {
+        bool answered = strcmp(part_result.summary(),"_")!=0;
+        all_unanswered &= !answered;
+      } else {
+        all_unanswered = false;
+        break;
       }
     }
 
-    if (all_failed && all_not_yet_ansered) {
+    if (all_unanswered) {
       ColoredPrintf(COLOR_RED,
         "Koan %s in area %s shall be your next step on your path to enlightenment.\n",
         test_info.name(), test_info.test_case_name());
@@ -71,7 +71,14 @@ void KoanGTestPrinter::OnTestEnd(const TestInfo& test_info)
             printf("Continue to faithfully meditate on the following code:\n");
             printf("%s(%d):\n", part_result.file_name(), part_result.line_number());
             
-          } else {
+          }
+
+          else if (strcmp(summary,"_")==0) {
+            printf("\nYou did not yet answer the following question, continue to meditate on it:\n");
+            printf("%s(%d):\n", part_result.file_name(), part_result.line_number());
+          }
+
+          else {
             printf("\nYour expectation did not match actual reality:\n%s\n",
               summary);
             // the file_name(line_number) format is currently only optimized for
