@@ -35,3 +35,11 @@ TEST(about_asserts,fill_in_values)
 {
   EXPECT_EQ( __, 1+1);
 }
+
+// Some things such as sizeof(int) are defined as implementation specific by the
+// C++ standard. The correct answer for such an expression is the identifier
+// implementation_specific.
+TEST(about_asserts,implementation_specific)
+{
+  EXPECT_EQ( __, sizeof(int) );
+}

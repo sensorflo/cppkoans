@@ -1008,13 +1008,19 @@ AssertionResult EqFailure(const char* expected_expression,
   if (ignoring_case) {
     msg << " (ignoring case)";
   }
-  if (expected_value != expected_expression) {
+  if ( (expected_value != expected_expression) &&
+       (strcmp(expected_expression,"implementation_specific")!=0) ) {
     msg << "\n  Which is: " << expected_value;
   }
 
   msg << "\nActual    : " << actual_expression;
   if (actual_value != actual_expression) {
-    msg << "\n  Which is: " << actual_value;
+    msg << "\n  Which is: ";
+    if (strcmp(actual_expression,"sizeof(int)")==0) {
+      msg << "implementation_specific";
+    } else {
+      msg << actual_value;
+    }
   }
   return AssertionFailure() << msg;
 }

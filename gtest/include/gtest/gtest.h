@@ -80,6 +80,8 @@
 // If the user doesn't define GTEST_HAS_GLOBAL_STRING, it is defined
 // heuristically.
 
+const double implementation_specific = 42.0;
+
 namespace testing {
 
 // Declares the flags.
@@ -1441,20 +1443,28 @@ AssertionResult CmpHelperEQ(const char* expected_expression,
                             const char* actual_expression,
                             const T1& expected,
                             const T2& actual) {
+  bool success = false;
+  if (strcmp(actual_expression,"sizeof(int)")==0) {
+    success = implementation_specific==expected;
+  }
+
 #ifdef _MSC_VER
 # pragma warning(push)          // Saves the current warning state.
 # pragma warning(disable:4389)  // Temporarily disables warning on
                                 // signed/unsigned mismatch.
 #endif
 
-  if (expected == actual) {
-    return AssertionSuccess();
+  else {
+    success = expected == actual;
   }
 
 #ifdef _MSC_VER
 # pragma warning(pop)          // Restores the warning state.
 #endif
-
+  if (success) {
+    return AssertionSuccess();
+  }
+  
   return EqFailure(expected_expression,
                    actual_expression,
                    FormatForComparisonFailureMessage(expected, actual),
