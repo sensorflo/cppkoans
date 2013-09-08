@@ -36,3 +36,8 @@ int main(int argc, char* argv[])
   return RUN_ALL_TESTS();
 }
 
+::std::ostream& operator<<(::std::ostream& os, const std::type_info& ti)
+{
+  return os << ti.name() << " [the name printed is implementation specific, see std::type_info::name()]";
+}
+
