@@ -1453,7 +1453,7 @@ AssertionResult CmpHelperEQ(const char* expected_expression,
   bool success = false;
   
   // cppkoan tailored modification to gtest: it is not allowed that the disciple
-  // just retypes the actual expresssion as his expected expression
+  // just retypes the actual expression as his expected expression
   if (strcmp(expected_expression,actual_expression)==0) {
     success = false;
   }

@@ -12,7 +12,7 @@ TEST(about_booleans,false_has_the_value_zero_when_convertet_to_an_integer)
 }
 
 // TC++PL chapter 10.5.2.5 Boolean conversions
-// Pointer, integral and floating-point values can be implicitely converted to
+// Pointer, integral and floating-point values can be implicitly converted to
 // bool ($6.2.2). A nonzero value converts to true; a zero value converts to
 // false.
 TEST(about_booleans,non_zero_is_true__zero_is_false)
