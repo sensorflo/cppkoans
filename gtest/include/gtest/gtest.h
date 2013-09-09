@@ -1458,6 +1458,11 @@ AssertionResult CmpHelperEQ(const char* expected_expression,
     success = false;
   }
   
+  // a contained identifier __, ___ etc is always a failure
+  else if (strstr(expected_expression,"__")!=NULL) {
+    success = false;
+  }
+
   else if (IsImplementationSpecific(actual_expression)) {
     success = strcmp("implementation_defined",expected_expression)==0;
   }
