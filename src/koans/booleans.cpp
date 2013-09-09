@@ -11,6 +11,10 @@ TEST(about_booleans,false_has_the_value_zero_when_convertet_to_an_integer)
   EXPECT_EQ(__,int(false)); 
 }
 
+#ifdef _MSC_VER
+# pragma warning(push) 
+# pragma warning(disable:4800)
+#endif
 // TC++PL chapter 10.5.2.5 Boolean conversions
 // Pointer, integral and floating-point values can be implicitly converted to
 // bool ($6.2.2). A nonzero value converts to true; a zero value converts to
@@ -29,4 +33,6 @@ TEST(about_booleans,non_zero_is_true__zero_is_false)
   int* p = &i;
   EXPECT_EQ(__,bool(p));
 }
-
+#ifdef _MSC_VER
+# pragma warning(pop)
+#endif
