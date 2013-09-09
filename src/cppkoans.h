@@ -11,6 +11,7 @@ static const wchar_t* const _____ = L"123456";
 static const char           ______ = '@'; 
 static const wchar_t        _______ = L'@'; 
 typedef dummytype           ________;
+static const int            _________ = 0;
 
 ::std::ostream& operator<<(::std::ostream& os, const std::type_info& ti);
 
