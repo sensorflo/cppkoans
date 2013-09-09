@@ -1058,13 +1058,21 @@ std::string GetBoolAssertionFailureMessage(
     const char* expected_predicate_value) {
   const char* actual_message = assertion_result.message();
   Message msg;
-  msg <<  "Expected  : " << expected_predicate_value;
 
-  msg << "\nActual    : " << expression_text
-      << "\n  Which is: " << actual_predicate_value;
-  if (actual_message[0] != '\0')
-    msg << " (" << actual_message << ")";
-  return msg.GetString();
+  // see method EqFailure
+  if ( strstr(expression_text,"__")!=NULL ) {
+    msg << "_"; 
+  }  
+
+  else {
+    msg <<  "Expected  : " << expected_predicate_value;
+
+    msg << "\nActual    : " << expression_text
+        << "\n  Which is: " << actual_predicate_value;
+    if (actual_message[0] != '\0')
+      msg << " (" << actual_message << ")";
+    return msg.GetString();
+  }
 }
 
 // Helper function for implementing ASSERT_NEAR.
