@@ -81,7 +81,7 @@
 // If the user doesn't define GTEST_HAS_GLOBAL_STRING, it is defined
 // heuristically.
 
-const double implementation_specific = 42.0;
+const double implementation_defined = 42.0;
 
 namespace testing {
 
@@ -1459,7 +1459,7 @@ AssertionResult CmpHelperEQ(const char* expected_expression,
   }
   
   else if (IsImplementationSpecific(actual_expression)) {
-    success = strcmp("implementation_specific",expected_expression)==0;
+    success = strcmp("implementation_defined",expected_expression)==0;
   }
 
 #ifdef _MSC_VER

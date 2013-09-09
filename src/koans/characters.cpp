@@ -21,7 +21,7 @@ TEST(about_characters,char_and_signed_char_and_unsigned_char_are_distinct_types)
 // TC++PL 6.2.3.1 Signed and Unsigned Characters
 // ... A char must behave identically to either a signed char or an unsigned
 // char.
-TEST(about_characters,wheter_char_is_signed_or_unsigned_is_implementation_specific)
+TEST(about_characters,wheter_char_is_signed_or_unsigned_is_implementation_defined)
 {
   EXPECT_EQ(__,std::numeric_limits<char>::is_signed);
   EXPECT_EQ(__,int(char(std::numeric_limits<unsigned char>::max())));
@@ -50,7 +50,7 @@ TEST(about_characters,type_of_single_quote_literal_prefixed_by_L_is_wchar_t)
 // http://en.wikipedia.org/wiki/Code_point
 TEST(about_characters,the_integer_value_of_a_char_is_its_code_point)
 {
-  // To be precise, the answers are implementation specific, but that is not the
+  // To be precise, the answers are implementation defined, but that is not the
   // point here. Almost certainly for the characters below your implementation
   // will use a superset of the ASCII encoding, which you can find here:
   // http://en.wikipedia.org/wiki/Ascii#ASCII_printable_characters

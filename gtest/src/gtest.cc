@@ -1033,7 +1033,7 @@ AssertionResult EqFailure(const char* expected_expression,
       msg << " (ignoring case)";
     }
     if ( (expected_value != expected_expression) &&
-         (strcmp(expected_expression,"implementation_specific")!=0) ) {
+         (strcmp(expected_expression,"implementation_defined")!=0) ) {
       msg << "\n  Which is: " << expected_value;
     }
 
@@ -1041,7 +1041,7 @@ AssertionResult EqFailure(const char* expected_expression,
     if (actual_value != actual_expression) {
       msg << "\n  Which is: ";
       if (IsImplementationSpecific(actual_expression)) {
-        msg << "implementation_specific"
+        msg << "implementation_defined"
             << "\n          : in your current implementation it is: ";
       } 
       msg << actual_value;

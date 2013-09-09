@@ -34,9 +34,9 @@ TEST(introduction,koans_are_amended_with_info_and_references)
   EXPECT_TRUE(__);
 }
 
-// Some things such as sizeof(int) are defined as being implementation specific
+// Some things such as sizeof(int) are defined as being implementation defined
 // by the C++ standard. The correct answer for such an expression is the
-// identifier implementation_specific.
+// identifier implementation_defined.
 //
 // TC++PL C.2 The Standard
 // ... implementation-defined ... This means that each implementation must
@@ -46,7 +46,7 @@ TEST(introduction,koans_are_amended_with_info_and_references)
 // TStd 3.4.1 1 implementation-defined behavior
 // unspecified behavior where each implementation documents how the choice is
 // made
-TEST(introduction,implementation_specific)
+TEST(introduction,implementation_defined)
 {
   EXPECT_EQ( __, sizeof(int) );
 }
