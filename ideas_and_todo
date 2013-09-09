@@ -5,6 +5,11 @@ todo
 - TC++PL 6.2.7 void
 - TC++PL 6.2.8 sizes
 - TC++PL 6.2.9 alignment
-
-
-  
+- size_t (???) to address memory
+- character types
+ * char and character are 'not' the same thing
+- conversions to T. They syntactically works always(?) with any type, i.e. also
+  built-in
+ * T(...)  
+ * static_cast<T>(...)
+ * (T)...
