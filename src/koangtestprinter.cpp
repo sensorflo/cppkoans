@@ -21,6 +21,16 @@ KoanGTestPrinter::KoanGTestPrinter() :
 {
 }
 
+void KoanGTestPrinter::OnTestProgramStart(const UnitTest&)
+{
+  // since running the koans is normally preceded by building them which also
+  // produced output, make a banner so start of the koans is more easily
+  // recognized.
+  printf("-------------------------------------------------------\n");
+  printf("------ setting off on your path to enlightenment ------\n");
+  printf("-------------------------------------------------------\n");
+}
+
 void KoanGTestPrinter::OnTestEnd(const TestInfo& test_info)
 {
   const TestResult& test_result = *test_info.result();
@@ -106,6 +116,7 @@ void KoanGTestPrinter::OnTestEnd(const TestInfo& test_info)
 
     printf("Your path to enlightenment thus far: %d of %d koans\n",
       m_PassedKoansCount, UnitTest::GetInstance()->test_to_run_count());
+    printf("-----------------------------------------------------\n");
   }
 }
 

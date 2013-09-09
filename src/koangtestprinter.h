@@ -8,6 +8,7 @@ public:
   KoanGTestPrinter();
 
 private:
+  virtual void OnTestProgramStart(const ::testing::UnitTest&);
   virtual void OnTestEnd(const ::testing::TestInfo&);
   virtual void OnTestProgramEnd(const ::testing::UnitTest&);
 
