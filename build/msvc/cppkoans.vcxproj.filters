@@ -12,6 +12,9 @@
     <ClCompile Include="..\..\src\koans\characters.cpp">
       <Filter>koans</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\koans\integer_types.cpp">
+      <Filter>koans</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\src\koans\strings.cpp">
       <Filter>koans</Filter>
     </ClCompile>
