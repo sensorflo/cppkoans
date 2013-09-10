@@ -10,8 +10,9 @@ static const char* const    ____ = "123456";
 static const wchar_t* const _____ = L"123456"; 
 static const char           ______ = '@'; 
 static const wchar_t        _______ = L'@'; 
-typedef dummytype           ________;
+typedef dummytype    ________;
 static const int            _________ = 0;
+static const void* const    __________ = "123456";
 
 /** Pass variables which otherwise would make the compiler output warnings about
 unreferenced variables.*/ 
