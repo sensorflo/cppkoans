@@ -32,3 +32,17 @@ TEST(about_booleans,non_zero_is_true__zero_is_false)
 #ifdef _MSC_VER
 # pragma warning(pop)
 #endif
+
+// TC++PL 6.2.8 Sizes
+//   1 <= sizeof(bool) <= sizeof(long)
+//   
+// TStd 5.3.3/1
+//   sizeof(char), sizeof(signed char) and sizeof(unsigned char) are 1; the
+//   result of sizeof applied to any other fundamental type is
+//   implementation-defined. In particular, sizeof(bool) and ... are
+//   implementation-defined
+TEST(about_booleans,sizeof_bool_is_implementation_defined)
+{
+  EXPECT_EQ(__,sizeof(bool));
+  EXPECT_EQ(__,sizeof(bool)==sizeof(int));
+}
