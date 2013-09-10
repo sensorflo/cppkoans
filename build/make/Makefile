@@ -53,12 +53,14 @@ integer_types.o: $(SRC_DIR)/koans/integer_types.cpp ${INCLUDES}
 	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/integer_types.cpp
 pointers.o: $(SRC_DIR)/koans/pointers.cpp ${INCLUDES}
 	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/pointers.cpp
+expressions.o: $(SRC_DIR)/koans/expressions.cpp ${INCLUDES}
+	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/expressions.cpp
 arrays.o: $(SRC_DIR)/koans/arrays.cpp ${INCLUDES}
 	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/arrays.cpp
 strings.o: $(SRC_DIR)/koans/strings.cpp ${INCLUDES}
 	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/strings.cpp
 
-cppkoans: cppkoans.o koangtestprinter.o pathtoenlightenment.o introduction.o characters.o integer_types.o booleans.o pointers.o arrays.o strings.o gtest.a
+cppkoans: cppkoans.o koangtestprinter.o pathtoenlightenment.o introduction.o characters.o integer_types.o booleans.o pointers.o expressions.o arrays.o strings.o gtest.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
 
 run:
