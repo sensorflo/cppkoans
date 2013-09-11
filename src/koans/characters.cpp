@@ -28,24 +28,24 @@ TEST(about_characters,wheter_char_is_signed_or_unsigned_is_implementation_define
 }
 
 // TC++PL 6.2.3.2 Character Literals
-// A character literal is a single character enclosed in single quotes. The type
-// of a character literal is char.
+//   A character literal is a single character enclosed in single quotes. The
+//   type of a character literal is char.
 TEST(about_characters,type_of_single_quote_literal_is_char)
 {
   EXPECT_EQ(typeid(________),typeid('x'));
 }
 
 // TC++PL 6.2.3.2 Character Literals
-// Wide character literals are of the form L'ab' and are of type wchar_t
+//   Wide character literals are of the form L'ab' and are of type wchar_t
 TEST(about_characters,type_of_single_quote_literal_prefixed_by_L_is_wchar_t)
 {
   EXPECT_EQ(typeid(________),typeid(L'x'));
 }
 
 // TC++PL 6.2.3 Character Types
-// Each character has an integer value in the character set used by the
-// implementation. For example, the value of 'b' is 98 in the ASCII character
-// set.
+//   Each character has an integer value in the character set used by the
+//   implementation. For example, the value of 'b' is 98 in the ASCII character
+//   set.
 //
 // http://en.wikipedia.org/wiki/Code_point
 TEST(about_characters,the_integer_value_of_a_char_is_its_code_point)
@@ -59,21 +59,21 @@ TEST(about_characters,the_integer_value_of_a_char_is_its_code_point)
 }
 
 // TC++PL 6.2.3.2 Character Literals
-// ... A few characters have standart names that use the backslash, \, as an
-// escape character:
-// Newline             NL (LF)  \n
-// Horizontal tab      HT       \t   
-// Vertical tab        VT       \v
-// Backspace           BS       \b
-// Carriage return     CR       \r
-// Form feed           FF       \f
-// Alert               BEL      \a
-// Backslash           \        \\                  .
-// Question mark       ?        \?
-// Single quote        '        \'
-// Double quote        "        \"
-// Octal number                 \ooo
-// Hexadecimal number           \xhhh...
+//   ... A few characters have standart names that use the backslash, \, as an
+//   escape character:
+//   Newline             NL (LF)  \n
+//   Horizontal tab      HT       \t   
+//   Vertical tab        VT       \v
+//   Backspace           BS       \b
+//   Carriage return     CR       \r
+//   Form feed           FF       \f
+//   Alert               BEL      \a
+//   Backslash           \        \\                  .
+//   Question mark       ?        \?
+//   Single quote        '        \'
+//   Double quote        "        \"
+//   Octal number                 \ooo
+//   Hexadecimal number           \xhhh...
 // 
 // http://en.wikipedia.org/wiki/Ascii#ASCII_control_code_chart
 TEST(about_characters,escape_sequences)
@@ -86,27 +86,37 @@ TEST(about_characters,escape_sequences)
 }
 
 // TC++PL chapter 6.2.3 Character Types
-// ... the character types are integral types ($6.2.1) so that arithemtic and
-// bitwise logical operations ($10.3) apply.
+//   ... the character types are integral types ($6.2.1) so that arithemtic and
+//   bitwise logical operations ($10.3) apply.
 TEST(about_characters,character_types_are_integral_types)
 {
+  // To be precise, the answer is implementation specific, but that is not the
+  // point here. Almost certainly for the characters below your implementation
+  // will use a superset of the ASCII encoding, which you can find here:
+  // http://en.wikipedia.org/wiki/Ascii#ASCII_printable_characters
   EXPECT_EQ(__,'c' - 'a');
 }
 
-// TC++PL 6.2.8: Sizes of C++ objects are expressed in terms of multiples of the
-// size of a char, so by definition the size of a char is 1.
+// TC++PL 6.2.8 Sizes
+//   Sizes of C++ objects are expressed in terms of multiples of the size of a
+//   char, so by definition the size of a char is 1.
+//   
+// TStd 5.3.3/1
+//   sizeof(char), sizeof(signed char) and sizeof(unsigned char) are 1; the
+//   result of sizeof applied to any other fundamental type is
+//   implementation-defined.
 // 
-// C++FAQ 26.1: sizeof(char) is always 1. Always. It is never 2. Never, never,
-// never.
+// C++FAQ 26.1:
+//   sizeof(char) is always 1. Always. It is never 2. Never, never, never.
 TEST(about_characters,size_of_char_is_always_one)
 {
   EXPECT_EQ(__,sizeof(char));
 }
 
-// TC++PL 40.2.1 Limit Macros: 
-//   CHAR_BIT Number of bits in a char (usually 8)
+// TC++PL 40.2.1 Limit Macros
+//   CHAR_BIT: Number of bits in a char (usually 8)
 // 
-// C++FAQ 26.2:
+// C++FAQ 26.2
 // - Each of these things that the C++ language calls a byte has at least 8
 //   bits, but might have more than 8 bits.
 // - The C++ language gives you a way to find out how many bits are in a byte in
@@ -114,8 +124,8 @@ TEST(about_characters,size_of_char_is_always_one)
 //   actual number of bits per byte will be given by the CHAR_BIT macro.
 //
 // http://www.cplusplus.com/reference/limits/numeric_limits/
-//   about numeric_limits<>::digits: For integer types: number of non-sign bits
-//   (radix base digits) in the representation
+//   numeric_limits<>::digits: For integer types: number of non-sign bits (radix
+//   base digits) in the representation
 TEST(about_characters,a_char_has_at_least_8_bits)
 {
   // two ways how to retreive the number of bits in a char in the current
