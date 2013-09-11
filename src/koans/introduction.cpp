@@ -31,7 +31,7 @@ TEST(introduction,assert_equality)
 //   book 'C++ FAQs' by Cline, Lomow, and Girou.
 TEST(introduction,koans_are_amended_with_info_and_references)
 {
-  EXPECT_TRUE(__);
+  EXPECT_TRUE(_________);
 }
 
 // Some things such as sizeof(int) are defined as being implementation defined
