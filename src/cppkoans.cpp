@@ -34,15 +34,15 @@ int main(int argc, char* argv[])
 
   UnitTest::GetInstance()->SetTestCaseOrder(path_to_enligthenment);
 
-  list<string> impl_spec_expressions;
-  impl_spec_expressions.push_back("sizeof(int)");
-  impl_spec_expressions.push_back("sizeof(bool)");
-  impl_spec_expressions.push_back("sizeof(bool)==sizeof(int)");
-  impl_spec_expressions.push_back("int(char(uchar_max))");
-  impl_spec_expressions.push_back("int(char(std::numeric_limits<unsigned char>::max()))");
-  impl_spec_expressions.push_back("std::numeric_limits<char>::is_signed");
-  impl_spec_expressions.push_back("std::numeric_limits<unsigned char>::digits");
-  SetImplementationSpecificExpressions(impl_spec_expressions);
+  list<string> impl_def_expressions;
+  impl_def_expressions.push_back("sizeof(int)");
+  impl_def_expressions.push_back("sizeof(bool)");
+  impl_def_expressions.push_back("sizeof(bool)==sizeof(int)");
+  impl_def_expressions.push_back("int(char(uchar_max))");
+  impl_def_expressions.push_back("int(char(std::numeric_limits<unsigned char>::max()))");
+  impl_def_expressions.push_back("std::numeric_limits<char>::is_signed");
+  impl_def_expressions.push_back("std::numeric_limits<unsigned char>::digits");
+  SetImplementationDefinedExpressions(impl_def_expressions);
 
   return RUN_ALL_TESTS();
 }

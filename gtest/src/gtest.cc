@@ -185,12 +185,12 @@ bool g_help_flag = false;
 
 static std::list<std::string> ImplSpecExpressions;
 
-void SetImplementationSpecificExpressions(const std::list<std::string>& expressions)
+void SetImplementationDefinedExpressions(const std::list<std::string>& expressions)
 {
   ImplSpecExpressions = expressions;
 }
 
-bool IsImplementationSpecific(const char* expression)
+bool IsImplementationDefined(const char* expression)
 {
   return
     std::find( ImplSpecExpressions.begin(), ImplSpecExpressions.end(), expression) !=
@@ -1040,7 +1040,7 @@ AssertionResult EqFailure(const char* expected_expression,
     msg << "\nActual    : " << actual_expression;
     if (actual_value != actual_expression) {
       msg << "\n  Which is: ";
-      if (IsImplementationSpecific(actual_expression)) {
+      if (IsImplementationDefined(actual_expression)) {
         msg << "implementation_defined"
             << "\n          : in your current implementation it is: ";
       } 

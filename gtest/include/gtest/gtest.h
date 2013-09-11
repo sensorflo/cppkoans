@@ -169,10 +169,10 @@ void ReportFailureInUnknownLocation(TestPartResult::Type result_type,
 
 }  // namespace internal
 
-void SetImplementationSpecificExpressions(const std::list<std::string>& expressions);
-// Returns true iff the given expression is 'implementation specific' according
-// to what was defined by SetImplementationSpecificExpressions.
-bool IsImplementationSpecific(const char* expression);
+void SetImplementationDefinedExpressions(const std::list<std::string>& expressions);
+// Returns true iff the given expression is 'implementation defined' according
+// to what was defined by SetImplementationDefinedExpressions.
+bool IsImplementationDefined(const char* expression);
 
 
 // The friend relationship of some of these classes is cyclic.
@@ -1463,7 +1463,7 @@ AssertionResult CmpHelperEQ(const char* expected_expression,
     success = false;
   }
 
-  else if (IsImplementationSpecific(actual_expression)) {
+  else if (IsImplementationDefined(actual_expression)) {
     success = strcmp("implementation_defined",expected_expression)==0;
   }
 
