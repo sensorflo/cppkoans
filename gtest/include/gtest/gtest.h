@@ -1467,6 +1467,11 @@ AssertionResult CmpHelperEQ(const char* expected_expression,
     success = strcmp("implementation_defined",expected_expression)==0;
   }
 
+  // the identifier implementation_defined within the expected expression is a
+  // failure iff the actual expression is not implementation defined
+  else if (strstr(expected_expression,"implementation_defined")!=NULL) {
+    success = false;
+  }
 #ifdef _MSC_VER
 # pragma warning(push)          // Saves the current warning state.
 # pragma warning(disable:4389)  // Temporarily disables warning on
