@@ -13,6 +13,10 @@ static const wchar_t        _______ = L'@';
 typedef dummytype           ________;
 static const int            _________ = 0;
 
+/** Pass variables which otherwise would make the compiler output warnings about
+unreferenced variables.*/ 
+inline void DontWarnAboutUnreferencedVars(...) {};
+
 ::std::ostream& operator<<(::std::ostream& os, const std::type_info& ti);
 
 #define KOAN_AREA(area) TEST(area,DISABLED_dummy) {}
