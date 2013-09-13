@@ -4643,7 +4643,7 @@ void UnitTestImpl::ShuffleTests() {
 
 // Restores the test cases and tests to their order before the first shuffle.
 void UnitTestImpl::UnshuffleTests() {
-  for (size_t i = 0; i < test_cases_.size(); i++) {
+  for (size_t i = 0; i < test_case_indices_.size(); i++) {
     // Unshuffles the tests in each test case.
     test_cases_[i]->UnshuffleTests();
     // Resets the index of each test case.
