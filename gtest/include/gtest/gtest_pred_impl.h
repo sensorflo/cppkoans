@@ -75,7 +75,7 @@
 #define GTEST_ASSERT_(expression, on_failure) \
   GTEST_AMBIGUOUS_ELSE_BLOCKER_ \
   if (const ::testing::AssertionResult gtest_ar = (expression)) \
-    ; \
+    ::testing::internal::AssertHelper(::testing::TestPartResult::kSuccess, __FILE__, __LINE__, "") = ::testing::Message();\
   else \
     on_failure(gtest_ar.failure_message())
 

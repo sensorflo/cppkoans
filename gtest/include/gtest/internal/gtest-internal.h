@@ -1098,7 +1098,7 @@ class NativeArray {
   GTEST_AMBIGUOUS_ELSE_BLOCKER_ \
   if (const ::testing::AssertionResult gtest_ar_ = \
       ::testing::AssertionResult(expression)) \
-    ; \
+    ::testing::internal::AssertHelper(::testing::TestPartResult::kSuccess, __FILE__, __LINE__, "") = ::testing::Message();\
   else \
     fail(::testing::internal::GetBoolAssertionFailureMessage(\
         gtest_ar_, text, #actual, #expected).c_str())
