@@ -50,3 +50,44 @@ TEST(introduction,implementation_defined)
 {
   EXPECT_EQ( __, sizeof(int) );
 }
+
+// typeid(...)'s return type is std::type_info (from #include <typeinfo>), which
+// has a member method 'const char* name() const'. What it returns is
+// implementation defined. But since the following koans often make use of
+// typeid(), and the framework !!!!!!, it makes sense that you know what
+// std::type_info::name() in your implementation returns;
+//
+// http://www.cplusplus.com/reference/typeinfo/type_info/name/
+//   Returns a null-terminated character sequence that may identify the type.
+// 
+//   The particular representation pointed by the returned value is
+//   implementation-defined, and may or may not be different for different
+//   types. 
+TEST(introduction,know_your_implementations_type_info_name_scheme)
+{
+  // the point is to get a feeling, a sense of how the scheme works in your
+  // implementation. It's not the point to actually remember the exact answers.
+
+  // fundamental types
+  EXPECT_STREQ( ____, typeid(char).name() );
+  EXPECT_STREQ( ____, typeid(signed char).name() );
+  EXPECT_STREQ( ____, typeid(unsigned char).name() );
+  EXPECT_STREQ( ____, typeid(wchar_t).name() );
+
+  EXPECT_STREQ( ____, typeid(short).name() );
+  EXPECT_STREQ( ____, typeid(unsigned short).name() );
+  EXPECT_STREQ( ____, typeid(int).name() );
+  EXPECT_STREQ( ____, typeid(unsigned int).name() );
+  EXPECT_STREQ( ____, typeid(long).name() );
+  EXPECT_STREQ( ____, typeid(unsigned long).name() );
+
+  EXPECT_STREQ( ____, typeid(unsigned int).name() );
+
+  // compound
+  EXPECT_STREQ( ____, typeid(int*).name() );
+  EXPECT_STREQ( ____, typeid(char*).name() );
+  EXPECT_STREQ( ____, typeid(int[]).name() );
+  EXPECT_STREQ( ____, typeid(int[3]).name() );
+
+  // qualifiers: const, volatile, register, mutable, ...
+}
