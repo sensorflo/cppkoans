@@ -7,9 +7,7 @@
 // - char
 // - unsigned char
 // - signed char
-// - wchar_t
-// - char16_t
-// - char32_t 
+// - wchar_t  (there is no 'unsigned wchar_t' or 'signed wchar_t')
 // 
 // TC++PL chapter 6.2.3 Character Types
 TEST(about_characters,char_and_signed_char_and_unsigned_char_are_distinct_types)
