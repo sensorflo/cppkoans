@@ -81,8 +81,6 @@ TEST(introduction,know_your_implementations_type_info_name_scheme)
   EXPECT_STREQ( ____, typeid(long).name() );
   EXPECT_STREQ( ____, typeid(unsigned long).name() );
 
-  EXPECT_STREQ( ____, typeid(unsigned int).name() );
-
   // compound
   EXPECT_STREQ( ____, typeid(int*).name() );
   EXPECT_STREQ( ____, typeid(char*).name() );
