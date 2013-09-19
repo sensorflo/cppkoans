@@ -19,7 +19,7 @@ TEST(about_characters,char_and_signed_char_and_unsigned_char_are_distinct_types)
 // TC++PL 6.2.3.1 Signed and Unsigned Characters
 // ... A char must behave identically to either a signed char or an unsigned
 // char.
-TEST(about_characters,wheter_char_is_signed_or_unsigned_is_implementation_defined)
+TEST(about_characters,whether_char_is_signed_or_unsigned_is_implementation_defined)
 {
   EXPECT_EQ(__,std::numeric_limits<char>::is_signed);
   EXPECT_EQ(__,int(char(std::numeric_limits<unsigned char>::max())));
@@ -57,7 +57,7 @@ TEST(about_characters,the_integer_value_of_a_char_is_its_code_point)
 }
 
 // TC++PL 6.2.3.2 Character Literals
-//   ... A few characters have standart names that use the backslash, \, as an
+//   ... A few characters have standard names that use the backslash, \, as an
 //   escape character:
 //   Newline             NL (LF)  \n
 //   Horizontal tab      HT       \t   
@@ -88,7 +88,7 @@ TEST(about_characters,escape_sequences)
 //   bitwise logical operations ($10.3) apply.
 TEST(about_characters,character_types_are_integral_types)
 {
-  // To be precise, the answer is implementation specific, but that is not the
+  // To be precise, the answer is implementation defined, but that is not the
   // point here. Almost certainly for the characters below your implementation
   // will use a superset of the ASCII encoding, which you can find here:
   // http://en.wikipedia.org/wiki/Ascii#ASCII_printable_characters
@@ -123,7 +123,7 @@ TEST(about_characters,size_of_char_is_always_one)
 //
 // http://www.cplusplus.com/reference/limits/numeric_limits/
 //   numeric_limits<>::digits: For integer types: number of non-sign bits (radix
-//   base digits) in the representation
+//   base digits) in the representation.
 TEST(about_characters,a_char_has_at_least_8_bits)
 {
   // two ways how to retreive the number of bits in a char in the current
