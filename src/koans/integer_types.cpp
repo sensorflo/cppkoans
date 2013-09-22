@@ -1,7 +1,7 @@
 #include "cppkoans.h"
 #include <climits>
 
-// Like char, each integer type type comes in three forms: "plain", signed, and
+// Like char, each integer type comes in three forms: "plain", signed, and
 // unsigned. Unlike plain char s, plain integers s are always signed and are
 // just aliases for their signed form, i.e. no distinct type. In addition,
 // orthogonally, integers come in four sizes: short, int, long and long long.
