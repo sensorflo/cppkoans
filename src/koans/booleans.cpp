@@ -1,7 +1,7 @@
 #include "cppkoans.h"
 
 // TC++PL chapter 6.2.2 Booleans
-TEST(about_booleans,when_convertet_to_an_integer_true_is_one_and_false_is_zero)
+TEST(about_booleans,when_converted_to_an_integer_true_is_one_and_false_is_zero)
 {
   EXPECT_EQ(__,int(true));
   EXPECT_EQ(__,int(false));
