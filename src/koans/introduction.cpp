@@ -53,9 +53,10 @@ TEST(introduction,implementation_defined)
 
 // typeid(...)'s return type is std::type_info (from #include <typeinfo>), which
 // has a member method 'const char* name() const'. What it returns is
-// implementation defined. But since the following koans often make use of
-// typeid(), and the framework !!!!!!, it makes sense that you know what
-// std::type_info::name() in your implementation returns;
+// implementation defined. Many koans make use of typeid to teach you type
+// related knowledge. In case you give a wrong answer, you get printed what
+// std::type_info::name() returns. Thus it makes sense that you have a sense of
+// how name() behaves in your implementation.
 //
 // http://www.cplusplus.com/reference/typeinfo/type_info/name/
 //   Returns a null-terminated character sequence that may identify the type.
@@ -86,6 +87,4 @@ TEST(introduction,know_your_implementations_type_info_name_scheme)
   EXPECT_STREQ( ____, typeid(char*).name() );
   EXPECT_STREQ( ____, typeid(int[]).name() );
   EXPECT_STREQ( ____, typeid(int[3]).name() );
-
-  // qualifiers: const, volatile, register, mutable, ...
 }
