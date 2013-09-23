@@ -22,8 +22,8 @@ TEST(about_integer_types,available_types)
   EXPECT_EQ( __, typeid(long) == typeid(unsigned long) );
 
   EXPECT_EQ( __, std::numeric_limits<long long>::is_signed );
-  EXPECT_EQ( __, typeid(long) == typeid(signed long) );
-  EXPECT_EQ( __, typeid(long) == typeid(unsigned long) );
+  EXPECT_EQ( __, typeid(long long) == typeid(signed long long) );
+  EXPECT_EQ( __, typeid(long long) == typeid(unsigned long long) );
 
   // recapitulation
   EXPECT_EQ( __, std::numeric_limits<char>::is_signed );
