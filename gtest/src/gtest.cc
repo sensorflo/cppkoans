@@ -197,6 +197,20 @@ bool IsImplementationDefined(const char* expression)
     ImplSpecExpressions.end();
 }
 
+static std::list<std::string> UndefinedBehaviorExpressions;
+
+void SetUndefinedBehaviorExpressions(const std::list<std::string>& expressions)
+{
+  UndefinedBehaviorExpressions = expressions;
+}
+
+bool IsUndefinedBehavior(const char* expression)
+{
+  return
+    std::find( UndefinedBehaviorExpressions.begin(), UndefinedBehaviorExpressions.end(), expression) !=
+    UndefinedBehaviorExpressions.end();
+}
+
 static const char* GetDefaultFilter() {
   return kUniversalFilter;
 }
@@ -1033,7 +1047,8 @@ AssertionResult EqFailure(const char* expected_expression,
       msg << " (ignoring case)";
     }
     if ( (expected_value != expected_expression) &&
-         (strcmp(expected_expression,"implementation_defined")!=0) ) {
+         (strcmp(expected_expression,"implementation_defined")!=0) &&
+         (strcmp(expected_expression,"undefined_behavior")!=0)) {
       msg << "\n  Which is: " << expected_value;
     }
 
@@ -1043,7 +1058,11 @@ AssertionResult EqFailure(const char* expected_expression,
       if (IsImplementationDefined(actual_expression)) {
         msg << "implementation_defined"
             << "\n          : in your current implementation it is: ";
-      } 
+      }
+      else if (IsUndefinedBehavior(actual_expression)) {
+          msg << "undefined_behavior"
+              << "\n          : right now it happens to be: ";
+        }
       msg << actual_value;
     }
   }

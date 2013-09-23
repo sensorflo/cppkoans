@@ -82,6 +82,7 @@
 // heuristically.
 
 const double implementation_defined = 42.0;
+const double undefined_behavior = 42.0;
 
 namespace testing {
 
@@ -173,6 +174,9 @@ void SetImplementationDefinedExpressions(const std::list<std::string>& expressio
 // Returns true iff the given expression is 'implementation defined' according
 // to what was defined by SetImplementationDefinedExpressions.
 bool IsImplementationDefined(const char* expression);
+void SetUndefinedBehaviorExpressions(const std::list<std::string>& expressions);
+// Analgous to IsImplementationDefined
+bool IsUndefinedBehavior(const char* expression);
 
 
 // The friend relationship of some of these classes is cyclic.
@@ -1467,9 +1471,15 @@ AssertionResult CmpHelperEQ(const char* expected_expression,
     success = strcmp("implementation_defined",expected_expression)==0;
   }
 
-  // the identifier implementation_defined within the expected expression is a
-  // failure iff the actual expression is not implementation defined
-  else if (strstr(expected_expression,"implementation_defined")!=NULL) {
+  else if (IsUndefinedBehavior(actual_expression)) {
+    success = strcmp("undefined_behavior",expected_expression)==0;
+  }
+
+  // the identifiers implementation_defined etc within the expected expression
+  // is a failure iff the actual expression is not implementation defined,
+  // undefined behavior etc
+  else if (strstr(expected_expression,"implementation_defined")!=NULL ||
+           strstr(expected_expression,"undefined_behavior")!=NULL) {
     success = false;
   }
 #ifdef _MSC_VER
