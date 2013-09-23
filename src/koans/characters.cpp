@@ -126,7 +126,7 @@ TEST(about_characters,size_of_char_is_always_one)
 //   base digits) in the representation
 TEST(about_characters,a_char_has_at_least_8_bits)
 {
-  // two ways how to retreive the number of bits in a char in the current
+  // two ways how to retrieve the number of bits in a char in the current
   // implementation
   EXPECT_EQ(__,CHAR_BIT == std::numeric_limits<unsigned char>::digits);
 
