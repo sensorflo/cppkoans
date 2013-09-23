@@ -5,7 +5,7 @@
 // unsigned. Unlike plain char s, plain integers s are always signed and are
 // just aliases for their signed form, i.e. no distinct type. In addition,
 // orthogonally, integers come in four sizes: short, int, long and long long.
-// 
+//
 // TC++PL 6.2.4 Integer Types
 TEST(about_integer_types,available_types)
 {
@@ -97,6 +97,6 @@ TEST(about_integer_types,hex_and_oct_literals_define_bit_patterns)
 // (u|)int(|least|fast)(8|16|32|64)_t. Exactly given bit width, no other integer
 // type exists with lesser size and at least the specified width, at least as
 // fast as any other integer type with at least the specified width.
-// 
+//
 // - TC++PL 43.7
 // - http://www.cplusplus.com/reference/cstdint/
