@@ -76,8 +76,8 @@ TEST(about_integer_types,literals_and_available_suffixes)
 // {
 // }
 
-// still assuming it's an implementation implementing negative integers with two's
-// complement
+// still assuming this is an implementation which implements negative integers
+// with two's complement
 // 0xFFFF is -1, not 65...
 TEST(about_integer_types,hex_and_oct_literals_define_bit_patterns)
 {
