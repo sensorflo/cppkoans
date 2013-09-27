@@ -1,11 +1,11 @@
 #include "cppkoans.h"
 #include <climits>
 
-// Like char, each integer type type comes in three forms: "plain", signed, and
+// Like char, each integer type comes in three forms: "plain", signed, and
 // unsigned. Unlike plain char s, plain integers s are always signed and are
 // just aliases for their signed form, i.e. no distinct type. In addition,
 // orthogonally, integers come in four sizes: short, int, long and long long.
-// 
+//
 // TC++PL 6.2.4 Integer Types
 TEST(about_integer_types,available_types)
 {
@@ -22,8 +22,8 @@ TEST(about_integer_types,available_types)
   EXPECT_EQ( __, typeid(long) == typeid(unsigned long) );
 
   EXPECT_EQ( __, std::numeric_limits<long long>::is_signed );
-  EXPECT_EQ( __, typeid(long) == typeid(signed long) );
-  EXPECT_EQ( __, typeid(long) == typeid(unsigned long) );
+  EXPECT_EQ( __, typeid(long long) == typeid(signed long long) );
+  EXPECT_EQ( __, typeid(long long) == typeid(unsigned long long) );
 
   // recapitulation
   EXPECT_EQ( __, std::numeric_limits<char>::is_signed );
@@ -76,8 +76,8 @@ TEST(about_integer_types,literals_and_available_suffixes)
 // {
 // }
 
-// still assuming it's an implementation implementing negative integers with two's
-// complement
+// still assuming this is an implementation which implements negative integers
+// with two's complement
 // 0xFFFF is -1, not 65...
 TEST(about_integer_types,hex_and_oct_literals_define_bit_patterns)
 {
@@ -97,6 +97,6 @@ TEST(about_integer_types,hex_and_oct_literals_define_bit_patterns)
 // (u|)int(|least|fast)(8|16|32|64)_t. Exactly given bit width, no other integer
 // type exists with lesser size and at least the specified width, at least as
 // fast as any other integer type with at least the specified width.
-// 
+//
 // - TC++PL 43.7
 // - http://www.cplusplus.com/reference/cstdint/

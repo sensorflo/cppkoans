@@ -8,7 +8,7 @@
 // - unsigned char
 // - signed char
 // - wchar_t  (there is no 'unsigned wchar_t' or 'signed wchar_t')
-// 
+//
 // TC++PL chapter 6.2.3 Character Types
 TEST(about_characters,char_and_signed_char_and_unsigned_char_are_distinct_types)
 {
@@ -19,7 +19,7 @@ TEST(about_characters,char_and_signed_char_and_unsigned_char_are_distinct_types)
 // TC++PL 6.2.3.1 Signed and Unsigned Characters
 // ... A char must behave identically to either a signed char or an unsigned
 // char.
-TEST(about_characters,wheter_char_is_signed_or_unsigned_is_implementation_defined)
+TEST(about_characters,whether_char_is_signed_or_unsigned_is_implementation_defined)
 {
   EXPECT_EQ(__,std::numeric_limits<char>::is_signed);
   EXPECT_EQ(__,int(char(std::numeric_limits<unsigned char>::max())));
@@ -57,10 +57,10 @@ TEST(about_characters,the_integer_value_of_a_char_is_its_code_point)
 }
 
 // TC++PL 6.2.3.2 Character Literals
-//   ... A few characters have standart names that use the backslash, \, as an
+//   ... A few characters have standard names that use the backslash, \, as an
 //   escape character:
 //   Newline             NL (LF)  \n
-//   Horizontal tab      HT       \t   
+//   Horizontal tab      HT       \t
 //   Vertical tab        VT       \v
 //   Backspace           BS       \b
 //   Carriage return     CR       \r
@@ -72,7 +72,7 @@ TEST(about_characters,the_integer_value_of_a_char_is_its_code_point)
 //   Double quote        "        \"
 //   Octal number                 \ooo
 //   Hexadecimal number           \xhhh...
-// 
+//
 // http://en.wikipedia.org/wiki/Ascii#ASCII_control_code_chart
 TEST(about_characters,escape_sequences)
 {
@@ -98,12 +98,12 @@ TEST(about_characters,character_types_are_integral_types)
 // TC++PL 6.2.8 Sizes
 //   Sizes of C++ objects are expressed in terms of multiples of the size of a
 //   char, so by definition the size of a char is 1.
-//   
+//
 // TStd 5.3.3/1
 //   sizeof(char), sizeof(signed char) and sizeof(unsigned char) are 1; the
 //   result of sizeof applied to any other fundamental type is
 //   implementation-defined.
-// 
+//
 // C++FAQ 26.1:
 //   sizeof(char) is always 1. Always. It is never 2. Never, never, never.
 TEST(about_characters,size_of_char_is_always_one)
@@ -113,7 +113,7 @@ TEST(about_characters,size_of_char_is_always_one)
 
 // TC++PL 40.2.1 Limit Macros
 //   CHAR_BIT: Number of bits in a char (usually 8)
-// 
+//
 // C++FAQ 26.2
 // - Each of these things that the C++ language calls a byte has at least 8
 //   bits, but might have more than 8 bits.
@@ -126,7 +126,7 @@ TEST(about_characters,size_of_char_is_always_one)
 //   base digits) in the representation
 TEST(about_characters,a_char_has_at_least_8_bits)
 {
-  // two ways how to retreive the number of bits in a char in the current
+  // two ways how to retrieve the number of bits in a char in the current
   // implementation
   EXPECT_EQ(__,CHAR_BIT == std::numeric_limits<unsigned char>::digits);
 

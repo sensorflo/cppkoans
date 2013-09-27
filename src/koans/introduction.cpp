@@ -19,14 +19,14 @@ TEST(introduction,assert_equality)
 // Most koans are amended with information on the topic, with references to
 // further information and possibly with extracts from those sources. Often used
 // references are referred to by aliases defined in the following list:
-// 
+//
 // - TC++PL: The book 'The C++ Programming Language Fourth Edition' by Bjarne
 //   Stroustrup
-// 
+//
 // - TStd: The ISO C++ standard. In short just 'the standard'. Officially known
 //   as 'ISO International Standard ISO/IEC 14882:2011(E) – Programming Language
 //   C++'. http://isocpp.org/std/the-standard.
-// 
+//
 // - C++FAQ: The web site http://www.parashift.com/c++-faq/. There is also a
 //   book 'C++ FAQs' by Cline, Lomow, and Girou.
 TEST(introduction,koans_are_amended_with_info_and_references)
@@ -42,7 +42,7 @@ TEST(introduction,koans_are_amended_with_info_and_references)
 // ... implementation-defined ... This means that each implementation must
 // provide a specific, well-defined behavior for a construct and that behavior
 // must be documented.
-// 
+//
 // TStd 3.4.1 1 implementation-defined behavior
 // unspecified behavior where each implementation documents how the choice is
 // made
@@ -59,10 +59,10 @@ TEST(introduction,implementation_defined)
 //
 // http://www.cplusplus.com/reference/typeinfo/type_info/name/
 //   Returns a null-terminated character sequence that may identify the type.
-// 
+//
 //   The particular representation pointed by the returned value is
 //   implementation-defined, and may or may not be different for different
-//   types. 
+//   types.
 TEST(introduction,know_your_implementations_type_info_name_scheme)
 {
   // the point is to get a feeling, a sense of how the scheme works in your
