@@ -51,7 +51,7 @@ TEST(about_arrays,out_of_range_access)
 //   There is no array assignment
 //
 // Also, due to array decay rules, the array decays, and thus you get an
-// assignment to an Rvalue pointer
+// assignment to an Rvalue pointer.
 //
 // TC++PL 7.3.1 Array Initializers
 //
