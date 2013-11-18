@@ -1,6 +1,6 @@
 #include "cppkoans.h"
 
-// TC++PL 7.3 Arrays
+// TC++PL4 7.3 Arrays
 //   For a type T, T[size] is the type "array of size elements of type T."
 TEST(about_arrays,arrays_are_distinct_types)
 {
@@ -20,40 +20,40 @@ TEST(about_arrays,arrays_are_distinct_types)
   DontWarnAboutUnreferencedVars(a,a2,a3);
 }
 
-// TC++PL 7.3 Arrays
+// TC++PL4 7.3 Arrays
 //   The elements are indexed from 0 to size-1...
 TEST(about_arrays,arrays_elements_are_indexed_from_0_to_size_minus_1)
 {
 }
 
-// TC++PL 7.3 Arrays
+// TC++PL4 7.3 Arrays
 //   The number of elements of the array, the array bound, must be a constant
 //   expression ($10.4).
 TEST(about_arrays,array_bound_must_be_a_const_expr)
 {
 }
 
-// TC++PL 7.3 Arrays
+// TC++PL4 7.3 Arrays
 //   Access out of range of an array is undefined...
 //
-// TC++PL 7.4 Pointers into Arrays
+// TC++PL4 7.4 Pointers into Arrays
 //   Taking a pointer to the element one beyond the end of an array is
 //   guaranteed to work. ... it may not be used for reading or writing.
 //
-// TC++PL 7.4 Pointers into Arrays
+// TC++PL4 7.4 Pointers into Arrays
 //   The result of taking the address of the element before the initial element
 //   or beyond one-past-the-last element is undefined ...
 TEST(about_arrays,out_of_range_access)
 {
 }
 
-// TC++PL 7.3 Arrays
+// TC++PL4 7.3 Arrays
 //   There is no array assignment
 //
 // Also, due to array decay rules, the array decays, and thus you get an
 // assignment to an Rvalue pointer 
 //
-// TC++PL 7.3.1 Array Initializers
+// TC++PL4 7.3.1 Array Initializers
 //
 // array decay: T[size] (i.e. array of size elements of type T) is converted to
 // T* unless most of the cases. For exceptions see next koan

@@ -15,7 +15,7 @@
 // 23==35                   ==
 // false
 //
-// TC++PL 10.3 Operator summary
+// TC++PL4 10.3 Operator summary
 //
 // http://en.wikipedia.org/wiki/Operator_precedence
 TEST(about_expressions,operator_precedence_define_which_operator_among_operators_with_different_precedence_is_performed_first)
@@ -30,7 +30,7 @@ TEST(about_expressions,operator_precedence_define_which_operator_among_operators
 //
 // Right associative: a=b=c=d is equivalent to (a=(b=(c=d)))
 //
-// TC++PL 10.3 Operator summary
+// TC++PL4 10.3 Operator summary
 //
 // http://en.wikipedia.org/wiki/Operator_associativity
 TEST(about_expressions,foo)
@@ -40,7 +40,7 @@ TEST(about_expressions,foo)
 
 // overwrite (or clarify) with parenthesis
 
-// TC++PL 10.3.2 order of evaluation
+// TC++PL4 10.3.2 order of evaluation
 //   The order of evaluation of subexpressions within an expression is
 //   undefined. In particular, you cannot assume that the expression is
 //   evaluated left-to-right.

@@ -6,7 +6,7 @@
 // just aliases for their signed form, i.e. no distinct type. In addition,
 // orthogonally, integers come in four sizes: short, int, long and long long.
 //
-// TC++PL 6.2.4 Integer Types
+// TC++PL4 6.2.4 Integer Types
 TEST(about_integer_types,available_types)
 {
   EXPECT_EQ( __, std::numeric_limits<short>::is_signed );
@@ -29,7 +29,7 @@ TEST(about_integer_types,available_types)
   EXPECT_EQ( __, std::numeric_limits<char>::is_signed );
 }
 
-// TC++PL 6.2.4.1 Integer Literals
+// TC++PL4 6.2.4.1 Integer Literals
 // Integer literals come in three guises: decimal, octal, and hexadecimal. ...
 // Decimal literals ... look as you would expect them to. ... A literal starting
 // with zero followed by x or X (0x or 0X) is a hexadecimal (base 16) number. A
@@ -45,7 +45,7 @@ TEST(about_integer_types,literals_and_available_prefixes)
   EXPECT_EQ( __, 011 );
 }
 
-// TC++PL 6.2.4.1 Integer Literals
+// TC++PL4 6.2.4.1 Integer Literals
 // The suffix U [or u] can be used to write explicitly unsigned literals.
 // Similarly, the suffix L [or l] can be used to write explicitly long literals.
 // [Similarly, the suffix LL [or ll] can be used to write explicit long long
@@ -61,7 +61,7 @@ TEST(about_integer_types,literals_and_available_suffixes)
   EXPECT_EQ( __, 0xF0UL );
 }
 
-// TC++PL 6.2.4.1 Integer Literals
+// TC++PL4 6.2.4.1 Integer Literals
 //
 // regarding size:
 //   no suffix: starts at int (i.e. skip short)
@@ -98,5 +98,5 @@ TEST(about_integer_types,hex_and_oct_literals_define_bit_patterns)
 // type exists with lesser size and at least the specified width, at least as
 // fast as any other integer type with at least the specified width.
 //
-// - TC++PL 43.7
+// - TC++PL4 43.7 Etc.
 // - http://www.cplusplus.com/reference/cstdint/

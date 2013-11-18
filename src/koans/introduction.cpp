@@ -20,7 +20,7 @@ TEST(introduction,assert_equality)
 // further information and possibly with extracts from those sources. Often used
 // references are referred to by aliases defined in the following list:
 //
-// - TC++PL: The book 'The C++ Programming Language Fourth Edition' by Bjarne
+// - TC++PL4: The book 'The C++ Programming Language Fourth Edition' by Bjarne
 //   Stroustrup
 //
 // - TStd: The ISO C++ standard. In short just 'the standard'. Officially known
@@ -38,14 +38,14 @@ TEST(introduction,koans_are_amended_with_info_and_references)
 // by the C++ standard. The correct answer for such an expression is the
 // identifier implementation_defined.
 //
-// TC++PL C.2 The Standard
-// ... implementation-defined ... This means that each implementation must
-// provide a specific, well-defined behavior for a construct and that behavior
-// must be documented.
+// TC++PL4 C.2 The Standard
+//   ... implementation-defined ... This means that each implementation must
+//   provide a specific, well-defined behavior for a construct and that behavior
+//   must be documented.
 //
 // TStd 3.4.1 1 implementation-defined behavior
-// unspecified behavior where each implementation documents how the choice is
-// made
+//   unspecified behavior where each implementation documents how the choice is
+//   made
 TEST(introduction,implementation_defined)
 {
   EXPECT_EQ( __, sizeof(int) );
