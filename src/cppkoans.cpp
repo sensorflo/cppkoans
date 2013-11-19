@@ -1,5 +1,5 @@
 /*
-cppkoans: learn C++ by little exercises
+cppkoans: improve your C++ by little exercises
 Copyright (C) 2013 Kaufmann Florian
 
 This program is free software: you can redistribute it and/or modify it under
