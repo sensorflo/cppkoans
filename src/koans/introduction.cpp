@@ -75,12 +75,17 @@ TEST(introduction,know_your_implementations_type_info_name_scheme)
   EXPECT_STREQ( ____, typeid(unsigned char).name() );
   EXPECT_STREQ( ____, typeid(wchar_t).name() );
 
+  EXPECT_STREQ( ____, typeid(bool).name() );
+
   EXPECT_STREQ( ____, typeid(short).name() );
   EXPECT_STREQ( ____, typeid(unsigned short).name() );
   EXPECT_STREQ( ____, typeid(int).name() );
   EXPECT_STREQ( ____, typeid(unsigned int).name() );
   EXPECT_STREQ( ____, typeid(long).name() );
   EXPECT_STREQ( ____, typeid(unsigned long).name() );
+
+  EXPECT_STREQ( ____, typeid(float).name() );
+  EXPECT_STREQ( ____, typeid(double).name() );
 
   // compound
   EXPECT_STREQ( ____, typeid(int*).name() );
