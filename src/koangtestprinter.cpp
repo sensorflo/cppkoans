@@ -128,5 +128,5 @@ void KoanGTestPrinter::OnTestProgramEnd(const UnitTest& unit_test) {
 
   // in case of failure, OnTestEnd already printed all the info and
   // StopOnFirstFailureListener aborted running the koans, i.e. in case of
-  // failure we never reach this point
+  // failure we never reach this point.
 }
