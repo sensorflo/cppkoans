@@ -48,15 +48,15 @@ TEST(about_arrays,out_of_range_access)
 }
 
 // TC++PL 7.3 Arrays
-//   There is no array assignment
+//   There is no array assignment.
 //
 // Also, due to array decay rules, the array decays, and thus you get an
-// assignment to an Rvalue pointer 
+// assignment to an Rvalue pointer.
 //
 // TC++PL 7.3.1 Array Initializers
 //
 // array decay: T[size] (i.e. array of size elements of type T) is converted to
-// T* unless most of the cases. For exceptions see next koan
+// T* unless most of the cases. For exceptions see next koan.
 TEST(about_arrays,array_decay)
 {
   int* p = NULL;

@@ -34,7 +34,7 @@ TEST(about_characters,type_of_single_quote_literal_is_char)
 }
 
 // TC++PL 6.2.3.2 Character Literals
-//   Wide character literals are of the form L'ab' and are of type wchar_t
+//   Wide character literals are of the form L'ab' and are of type wchar_t.
 TEST(about_characters,type_of_single_quote_literal_prefixed_by_L_is_wchar_t)
 {
   EXPECT_EQ(typeid(________),typeid(L'x'));
@@ -78,7 +78,7 @@ TEST(about_characters,escape_sequences)
 {
   // This koan assumes your C++ implementation's character set is a superset of
   // the ASCII character set, and it assumes that the ASCII characters use the
-  // same character encoding
+  // same character encoding.
   EXPECT_EQ(__,'\n'=='\x0a');
   EXPECT_EQ(__,'\t'=='\011');
 }
@@ -112,7 +112,7 @@ TEST(about_characters,size_of_char_is_always_one)
 }
 
 // TC++PL 40.2.1 Limit Macros
-//   CHAR_BIT: Number of bits in a char (usually 8)
+//   CHAR_BIT: Number of bits in a char (usually 8).
 //
 // C++FAQ 26.2
 // - Each of these things that the C++ language calls a byte has at least 8
@@ -127,7 +127,7 @@ TEST(about_characters,size_of_char_is_always_one)
 TEST(about_characters,a_char_has_at_least_8_bits)
 {
   // two ways how to retrieve the number of bits in a char in the current
-  // implementation
+  // implementation.
   EXPECT_EQ(__,CHAR_BIT == std::numeric_limits<unsigned char>::digits);
 
   EXPECT_EQ(__,std::numeric_limits<unsigned char>::digits);

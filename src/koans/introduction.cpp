@@ -21,7 +21,7 @@ TEST(introduction,assert_equality)
 // references are referred to by aliases defined in the following list:
 //
 // - TC++PL: The book 'The C++ Programming Language Fourth Edition' by Bjarne
-//   Stroustrup
+//   Stroustrup.
 //
 // - TStd: The ISO C++ standard. In short just 'the standard'. Officially known
 //   as 'ISO International Standard ISO/IEC 14882:2011(E) – Programming Language
@@ -45,7 +45,7 @@ TEST(introduction,koans_are_amended_with_info_and_references)
 //
 // TStd 3.4.1 1 implementation-defined behavior
 // unspecified behavior where each implementation documents how the choice is
-// made
+// made.
 TEST(introduction,implementation_defined)
 {
   EXPECT_EQ( __, sizeof(int) );
