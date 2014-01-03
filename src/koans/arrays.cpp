@@ -1,6 +1,5 @@
 #include "cppkoans.h"
 
-#if 0
 // TC++PL4 7.3 Arrays
 //   For a type T, T[size] is the type "array of size elements of type T."
 TEST(about_arrays,arrays_are_distinct_types)
@@ -20,7 +19,17 @@ TEST(about_arrays,arrays_are_distinct_types)
 
   DontWarnAboutUnreferencedVars(a,a2,a3);
 }
-#endif
+
+// TC++PL4 7.3 Arrays
+//   The elements are indexed from 0 to size-1.... You can access an array using
+//   the subscript operator []
+TEST(about_arrays,arrays_elements_are_indexed_from_0_to_size_minus_1)
+{
+  int a[] = {3,5,8};
+  EXPECT_EQ( a[_________], 3);  
+  EXPECT_EQ( a[_________], 5); 
+  EXPECT_EQ( a[_________], 8); 
+}
 
 // TC++PL4 7.3 Arrays
 //   The number of elements of the array, the array bound, must be a constant
@@ -40,37 +49,101 @@ TEST(about_arrays,array_bound_must_be_a_const_expr)
   #endif
 }
 
-// TC++PL4 7.3 Arrays
-//   The elements are indexed from 0 to size-1...
-TEST(about_arrays,arrays_elements_are_indexed_from_0_to_size_minus_1)
+// TStd 8.3.4 Arrays / 1
+//   ... the constant-expression (5.19) [defining the array's size] ... and its
+//   value shall be greater than zero
+//
+// However zero-sized arrays are supported by some implementations, e.g. GCC.
+// They are very useful as the last element of a structure that is really a
+// header for a variable-length object.
+// http://gcc.gnu.org/onlinedocs/gcc/Zero-Length.html
+TEST(about_arrays,array_bound_must_be_greater_than_zero)
 {
-  EXPECT_COMPILEABLE(false);
-  #if 0
-  lksj;s;skj;
-  int i;
-  #endif
+#if 0
+  int a[0];   // compile error
+#endif 
+  EXPECT_TRUE(_________);//	acknowledge you understood this koan
 }
+
+// TC++PL4 7.3.1 Array Initializers
+//   An array can be initialized by a list of values.... When an array is
+//   declared without a specific size, but with an initializer list, the size is
+//   calculated by counting the elements of the initializer list.
+//
+//   If the initializer supplies too few elements for an array, 0 is used for
+//   the rest.
+TEST(about_arrays,)
+{
+  EXPECT_EQ( __, sizeof(char) ); // quick refresher from about_characters koans
+
+  char a1[] = {'a','b','c'};
+  EXPECT_EQ( __, sizeof(a1) );
+
+  int a2[4] = {42,31};
+  EXPECT_EQ( __, a2[0] );
+  EXPECT_EQ( __, a2[1] );
+  EXPECT_EQ( __, a2[2] );
+  EXPECT_EQ( __, a2[3] );
+}
+
+// TC++PL4 7.3.1 Array Initializers
+//   If a size is explicitly specified, it is an error to give surplus elements
+//   in an initializer list.
+TEST(about_arrays,)
+{
+#if 0
+  char a2[2] = {'a','b','c'}; // compile error: to many elements in initializer
+
+  char a3[]; // compile error: array size neither given explicitely nor
+  // implicitely through an initializer list
+#endif 
+}
+
+size 0??
+
+what happens with values if not initialized? where is the _exact_ answer in TC++PL4; undefined behaviour? 
+
 
 // TC++PL4 7.3 Arrays
 //   Access out of range of an array is undefined...
-//
-// TC++PL4 7.4 Pointers into Arrays
+// 
+// TC++PL4 7.??? Pointers into Arrays
 //   Taking a pointer to the element one beyond the end of an array is
 //   guaranteed to work. ... it may not be used for reading or writing.
 //
-// TC++PL4 7.4 Pointers into Arrays
+// TC++PL4 7.???? Pointers into Arrays
 //   The result of taking the address of the element before the initial element
 //   or beyond one-past-the-last element is undefined ...
-TEST(about_arrays,out_of_range_access)
+
+
+// TC++PL4 7.3.1 Array Initializers
+//  There is no built-in copy operation for arrays. You cannot initialize one
+//  array with another (not even of exactly the same type), and there is no
+//  array assignment:
+TEST(about_arrays,there_is_no_copy_operation_for_arrays)
 {
+#if 0
+  int a1[2];
+  int a2[2] = a1; // compile error: cannot initialize an array with another
+  a2 = a1; // compile error: there is no array assignment 
+#endif
+  EXPECT_TRUE(_________);//	acknowledge you understood this koan
 }
 
+
 // TC++PL4 7.3 Arrays
-//   There is no array assignment
-//
-// Also, due to array decay rules, the array decays, and thus you get an
-// assignment to an Rvalue pointer 
-//
+//  If you allocate an array on the free store, be sure to delete[] [opposed to
+//  delete without brackets] its pointer once only and only after its last use
+//  (§11.2.2).
+
+
+TEST(about_arrays,out_of_range_access)
+{
+  
+}
+
+ 
+
 // TC++PL4 7.3.1 Array Initializers
 //
 // array decay: T[size] (i.e. array of size elements of type T) is converted to
@@ -141,3 +214,7 @@ TEST(about_arrays,passing_arrays)
 // template<int N>
 // void fred(char(&)[N]) {  };
 
+//
+// Also, due to array decay rules, the array decays, and thus you get an
+// assignment to an Rvalue pointer 
+//
