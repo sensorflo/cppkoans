@@ -25,7 +25,10 @@ TEST(introduction,assert_equality)
 //
 // - TStd: The ISO C++ standard. In short just 'the standard'. Officially known
 //   as 'ISO International Standard ISO/IEC 14882:2011(E) – Programming Language
-//   C++'. http://isocpp.org/std/the-standard.
+//   C++'. http://isocpp.org/std/the-standard. You have to pay for the document,
+//   however a draft, which is said to be the same appart from minor editorial
+//   changes, is freely available at
+//   http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3337.pdf
 //
 // - C++FAQ: The web site http://www.parashift.com/c++-faq/. There is also a
 //   book 'C++ FAQs' by Cline, Lomow, and Girou.
@@ -34,7 +37,7 @@ TEST(introduction,koans_are_amended_with_info_and_references)
   EXPECT_TRUE(_________);
 }
 
-// Some things such as sizeof(int) are defined as being implementation defined
+// Some things such as sizeof(int) are defined as being implementation-defined
 // by the C++ standard. The correct answer for such an expression is the
 // identifier implementation_defined.
 //
@@ -43,9 +46,9 @@ TEST(introduction,koans_are_amended_with_info_and_references)
 //   provide a specific, well-defined behavior for a construct and that behavior
 //   must be documented.
 //
-// TStd 3.4.1 1 implementation-defined behavior
-//   unspecified behavior where each implementation documents how the choice is
-//   made
+// TStd 1.3.10 implementation-defined behavior
+//   behavior, for a well-formed program construct and correct data, that
+//   depends on the implementation and that each implementation documents
 TEST(introduction,implementation_defined)
 {
   EXPECT_EQ( __, sizeof(int) );
