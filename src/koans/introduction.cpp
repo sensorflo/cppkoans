@@ -96,3 +96,21 @@ TEST(introduction,know_your_implementations_type_info_name_scheme)
   EXPECT_STREQ( ____, typeid(int[]).name() );
   EXPECT_STREQ( ____, typeid(int[3]).name() );
 }
+
+// Sometimes a koan may querry your wisdom on whether a code fragment is
+// compileable or not. Note that the question is about compiling only, i.e.
+// excluding linking.
+TEST(introduction,expectations_on_compileability)
+{
+  // The code fragment in question is enclosed by the #if / #endif lines
+
+  EXPECT_COMPILEABLE(__); // true (=compileable) or false (= _not_ compileable)? 
+  #if 0
+  bla bla % ^ & foo bar ??;
+  #endif  
+
+  EXPECT_COMPILEABLE(__); // true (=compileable) or false (= _not_ compileable)? 
+  #if 0
+  int i;
+  #endif  
+}

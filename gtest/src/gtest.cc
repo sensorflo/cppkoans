@@ -47,6 +47,7 @@
 #include <iomanip>
 #include <limits>
 #include <ostream>  // NOLINT
+#include <fstream>
 #include <sstream>
 #include <vector>
 #include <list>
@@ -5058,6 +5059,56 @@ void InitGoogleTest(int* argc, char** argv) {
 // UNICODE mode.
 void InitGoogleTest(int* argc, wchar_t** argv) {
   internal::InitGoogleTestImpl(argc, argv);
+}
+
+::testing::AssertionResult expect_compileable(
+  const char* is_compileable_expr,
+  const char*,
+  const char*,
+  bool is_compileable,
+  const char* srcfilename,
+  int srclinenostart)
+{
+  if (strstr(is_compileable_expr,"__")) {
+    return AssertionFailure() << "_";
+  }
+
+  std::ifstream srcfile(srcfilename);
+  if (!srcfile.good()) {
+    printf("Could not open '%s' for reading", srcfilename);
+    abort();
+  }
+  int lineno=0;
+  for (; lineno<srclinenostart && srcfile.good(); ++lineno) 
+    srcfile.ignore( std::numeric_limits<std::streamsize>::max(), '\n' );
+  
+  {
+    std::ofstream dstfile("geil.cpp");
+    if (!dstfile.good()) {
+      printf("Could not open '%s' for writing", "geil.cpp");
+      abort();
+    }
+    std::string buf;
+    std::getline( srcfile, buf );
+    while ( srcfile.good() && std::string::npos==buf.find("#endif") ) {
+      dstfile << buf << std::endl;
+      std::getline( srcfile, buf );
+    };
+  }
+
+  std::string compile_cmd = "g++ -c geil.cpp";
+  bool is_compileable_actual = (0==std::system(compile_cmd.c_str()));
+  if (is_compileable == is_compileable_actual) 
+    return ::testing::AssertionSuccess();
+
+  return ::testing::AssertionFailure() <<
+    "Expected: " << (is_compileable ? "is compileable\n" : "is not compileable\n") <<
+    "Actual  : " << (is_compileable_actual ? "is compileable\n" : "is not compileable\n");
+
+  // todo:
+  // - behave as if the macro calling us is effectively the EXPECT_....
+  // - do something nicer with the compiler's output
+  // - implementation-defined etc not recognized
 }
 
 }  // namespace testing
