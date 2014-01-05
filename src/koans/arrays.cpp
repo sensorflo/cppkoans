@@ -1,5 +1,6 @@
 #include "cppkoans.h"
 
+#if 0
 // TC++PL4 7.3 Arrays
 //   For a type T, T[size] is the type "array of size elements of type T."
 TEST(about_arrays,arrays_are_distinct_types)
@@ -19,18 +20,35 @@ TEST(about_arrays,arrays_are_distinct_types)
 
   DontWarnAboutUnreferencedVars(a,a2,a3);
 }
-
-// TC++PL4 7.3 Arrays
-//   The elements are indexed from 0 to size-1...
-TEST(about_arrays,arrays_elements_are_indexed_from_0_to_size_minus_1)
-{
-}
+#endif
 
 // TC++PL4 7.3 Arrays
 //   The number of elements of the array, the array bound, must be a constant
 //   expression ($10.4).
 TEST(about_arrays,array_bound_must_be_a_const_expr)
 {
+  EXPECT_COMPILEABLE(__);
+  #if 0
+  int n;
+  int a[n];
+  #endif
+
+  EXPECT_COMPILEABLE(__);
+  #if 0
+  const int n = 3;
+  int a[n];
+  #endif
+}
+
+// TC++PL4 7.3 Arrays
+//   The elements are indexed from 0 to size-1...
+TEST(about_arrays,arrays_elements_are_indexed_from_0_to_size_minus_1)
+{
+  EXPECT_COMPILEABLE(false);
+  #if 0
+  lksj;s;skj;
+  int i;
+  #endif
 }
 
 // TC++PL4 7.3 Arrays
