@@ -12,9 +12,9 @@ TEST(about_booleans,when_converted_to_an_integer_true_is_one_and_false_is_zero)
 # pragma warning(disable:4800)
 #endif
 // TC++PL4 10.5.2.5 Boolean conversions
-// Pointer, integral and floating-point values can be implicitly converted to
-// bool ($6.2.2). A nonzero value converts to true; a zero value converts to
-// false.
+//   Pointer, integral and floating-point values can be implicitly converted to
+//   bool ($6.2.2). A nonzero value converts to true; a zero value converts to
+//   false.
 TEST(about_booleans,non_zero_is_true__zero_is_false)
 {
   EXPECT_EQ(__,bool(1));

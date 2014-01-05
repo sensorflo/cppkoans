@@ -17,8 +17,8 @@ TEST(about_characters,char_and_signed_char_and_unsigned_char_are_distinct_types)
 }
 
 // TC++PL4 6.2.3.1 Signed and Unsigned Characters
-// ... A char must behave identically to either a signed char or an unsigned
-// char.
+//   ... A char must behave identically to either a signed char or an unsigned
+//   char.
 TEST(about_characters,whether_char_is_signed_or_unsigned_is_implementation_defined)
 {
   EXPECT_EQ(__,std::numeric_limits<char>::is_signed);
