@@ -11,7 +11,7 @@ GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
 
 CPPFLAGS += -isystem $(GTEST_DIR)/include
-CXXFLAGS += -g -Wall -Wextra -pthread
+CXXFLAGS += -g -Wall -Wextra -pthread -pedantic-errors -std=c++11
 
 
 all: cppkoans run
@@ -66,3 +66,7 @@ cppkoans: cppkoans.o koangtestprinter.o pathtoenlightenment.o introduction.o cha
 run:
 	@echo "make: autorun of cppkoans:"
 	@./cppkoans
+
+test-compileable:
+	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c tmp.cpp >tmp.log 2>&1
+

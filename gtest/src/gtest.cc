@@ -5083,9 +5083,9 @@ void InitGoogleTest(int* argc, wchar_t** argv) {
     srcfile.ignore( std::numeric_limits<std::streamsize>::max(), '\n' );
   
   {
-    std::ofstream dstfile("geil.cpp");
+    std::ofstream dstfile("tmp.cpp");
     if (!dstfile.good()) {
-      printf("Could not open '%s' for writing", "geil.cpp");
+      printf("Could not open '%s' for writing", "tmp.cpp");
       abort();
     }
     std::string buf;
@@ -5096,14 +5096,20 @@ void InitGoogleTest(int* argc, wchar_t** argv) {
     };
   }
 
-  std::string compile_cmd = "g++ -c geil.cpp";
-  bool is_compileable_actual = (0==std::system(compile_cmd.c_str()));
+  bool is_compileable_actual = (0==std::system("make test-compileable >/dev/null 2>&1"));
   if (is_compileable == is_compileable_actual) 
     return ::testing::AssertionSuccess();
 
+  std::ifstream compilationlog("tmp.log");
+  if (!compilationlog.good()) {
+    printf("Could not open '%s' for reading", "tmp.log");
+    abort();
+  }
   return ::testing::AssertionFailure() <<
     "Expected: " << (is_compileable ? "is compileable\n" : "is not compileable\n") <<
-    "Actual  : " << (is_compileable_actual ? "is compileable\n" : "is not compileable\n");
+    "Actual  : " << (is_compileable_actual ? "is compileable\n" : "is not compileable\n") <<
+    "Compilation output:\n" <<
+    compilationlog.rdbuf();
 
   // todo:
   // - behave as if the macro calling us is effectively the EXPECT_....
