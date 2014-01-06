@@ -16,7 +16,7 @@ const void* const    __________ = "123456";
 
 /** Pass variables which otherwise would make the compiler output warnings about
 unreferenced variables.*/ 
-inline void DontWarnAboutUnreferencedVars(...) {};
+inline void DontWarnAboutUnreferencedVars(...) {}
 
 ::std::ostream& operator<<(::std::ostream& os, const std::type_info& ti);
 

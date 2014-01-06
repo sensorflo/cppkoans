@@ -59,19 +59,19 @@ TEST(about_characters,the_integer_value_of_a_char_is_its_code_point)
 // TC++PL4 6.2.3.2 Character Literals
 //   ... A few characters have standard names that use the backslash, \, as an
 //   escape character:
-//   Newline             NL (LF)  \n
-//   Horizontal tab      HT       \t
-//   Vertical tab        VT       \v
-//   Backspace           BS       \b
-//   Carriage return     CR       \r
-//   Form feed           FF       \f
-//   Alert               BEL      \a
-//   Backslash           \        \\
-//   Question mark       ?        \?
-//   Single quote        '        \'
-//   Double quote        "        \"
-//   Octal number                 \ooo
-//   Hexadecimal number           \xhhh...
+//   Newline             \n    NL (LF)
+//   Horizontal tab      \t    HT  
+//   Vertical tab        \v    VT
+//   Backspace           \b    BS
+//   Carriage return     \r    CR
+//   Form feed           \f    FF
+//   Alert               \a    BEL
+//   Backslash           \\    \
+//   Question mark       \?    ?
+//   Single quote        \'    '
+//   Double quote        \"    "
+//   Octal number        \ooo
+//   Hexadecimal number  \xhhh...
 //
 // http://en.wikipedia.org/wiki/Ascii#ASCII_control_code_chart
 TEST(about_characters,escape_sequences)
