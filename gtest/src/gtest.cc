@@ -5069,10 +5069,12 @@ void InitGoogleTest(int* argc, wchar_t** argv) {
   const char* srcfilename,
   int srclinenostart)
 {
+  // nothing to do if disciple hasn't answered this assertion yet
   if (strstr(is_compileable_expr,"__")) {
     return AssertionFailure() << "_";
   }
 
+  // skip lines up to the start of the code fragment
   std::ifstream srcfile(srcfilename);
   if (!srcfile.good()) {
     printf("Could not open '%s' for reading", srcfilename);
@@ -5082,6 +5084,7 @@ void InitGoogleTest(int* argc, wchar_t** argv) {
   for (; lineno<srclinenostart && srcfile.good(); ++lineno) 
     srcfile.ignore( std::numeric_limits<std::streamsize>::max(), '\n' );
   
+  // copy lines being part of code fragment to temporary file
   {
     std::ofstream dstfile("tmp.cpp");
     if (!dstfile.good()) {
@@ -5096,10 +5099,14 @@ void InitGoogleTest(int* argc, wchar_t** argv) {
     };
   }
 
+  // compile temporary file
   bool is_compileable_actual = (0==std::system("make test-compileable >/dev/null 2>&1"));
+
+  // assertion success
   if (is_compileable == is_compileable_actual) 
     return ::testing::AssertionSuccess();
 
+  // assertion failure
   std::ifstream compilationlog("tmp.log");
   if (!compilationlog.good()) {
     printf("Could not open '%s' for reading", "tmp.log");
@@ -5110,11 +5117,6 @@ void InitGoogleTest(int* argc, wchar_t** argv) {
     "Actual  : " << (is_compileable_actual ? "is compileable\n" : "is not compileable\n") <<
     "Compilation output:\n" <<
     compilationlog.rdbuf();
-
-  // todo:
-  // - behave as if the macro calling us is effectively the EXPECT_....
-  // - do something nicer with the compiler's output
-  // - implementation-defined etc not recognized
 }
 
 }  // namespace testing
