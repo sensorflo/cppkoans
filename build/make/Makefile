@@ -14,10 +14,9 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include
 CXXFLAGS += -g -Wall -Wextra -pthread -pedantic-errors -std=c++11
 
 
-all: cppkoans run
+all: librarian cppkoans run
 
 .PHONY: clean
-
 clean:
 	rm -f cppkoans *.o gtest.a
 
@@ -67,6 +66,26 @@ run:
 	@echo "make: autorun of cppkoans:"
 	@./cppkoans
 
+LIBRARIANS_KOANS := $(wildcard $(SRC_DIR)/library/*.cpp)
+KOANS := $(subst $(SRC_DIR)/library, $(SRC_DIR)/koans, $(LIBRARIANS_KOANS))
+
+librarian: $(SRC_DIR)/librarian.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $< -o $@
+
+# rewrites koans for discple based on library's koans
+.PHONY: write_koans
+write_koans: librarian
+	-rm $(SRC_DIR)/koans/*.cpp
+	./librarian disciple $(SRC_DIR)/koans/ $(SRC_DIR)/library/*.cpp
+
+.PHONY: write_masters_koans
+write_masters_koans: librarian $(KOANS)
+
+$(SRC_DIR)/koans/%.cpp: $(SRC_DIR)/library/%.cpp
+	@if [ ! -d $(SRC_DIR)/koans]; then mkdir $(SRC_DIR)/koans; fi
+	./librarian master $(SRC_DIR)/koans/ $<
+
+.PHONY: test-compileable
 test-compileable:
 	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c tmp.cpp >tmp.log 2>&1
 

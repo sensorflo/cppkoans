@@ -4,7 +4,8 @@ build/msvc/ipch
 gtest/msvc/Debug
 gtest/msvc/Release
 gtest/msvc/ipch
-/build/make/cppkoans
+cppkoans
+librarian
 *.o
 *.a
 *.opensdf
@@ -12,3 +13,4 @@ gtest/msvc/ipch
 *.suo
 *.vcxproj.user
 README.html
+src/koans
