@@ -14,12 +14,12 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include
 CXXFLAGS += -g -Wall -Wextra -pthread -pedantic-errors -std=c++11
 
 
-all: librarian cppkoans run
+.PHONY: all
+all: write_disciples_koans cppkoans run
 
 .PHONY: clean
 clean:
-	rm -f cppkoans *.o gtest.a
-
+	rm -f cppkoans librarian *.o gtest.a
 
 # For simplicity and to avoid depending on Google Test's
 # implementation details, the dependencies specified below are
@@ -72,17 +72,22 @@ KOANS := $(subst $(SRC_DIR)/library, $(SRC_DIR)/koans, $(LIBRARIANS_KOANS))
 librarian: $(SRC_DIR)/librarian.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $< -o $@
 
-# rewrites koans for discple based on library's koans
-.PHONY: write_koans
-write_koans: librarian
+$(SRC_DIR)/koans:
+	mkdir $(SRC_DIR)/koans
+
+.PHONY: write_disciples_koans
+write_disciples_koans: librarian $(SRC_DIR)/koans
+	if [ ! -f $(SRC_DIR)/koans/introduction.cpp ]; then ./librarian disciple $(SRC_DIR)/koans/ $(SRC_DIR)/library/*.cpp; fi
+
+.PHONY: rewrite_disciples_koans
+rewrite_disciples_koans:
 	-rm $(SRC_DIR)/koans/*.cpp
-	./librarian disciple $(SRC_DIR)/koans/ $(SRC_DIR)/library/*.cpp
+	make write_disciples_koans
 
 .PHONY: write_masters_koans
-write_masters_koans: librarian $(KOANS)
+write_masters_koans: $(KOANS)
 
-$(SRC_DIR)/koans/%.cpp: $(SRC_DIR)/library/%.cpp
-	@if [ ! -d $(SRC_DIR)/koans]; then mkdir $(SRC_DIR)/koans; fi
+$(SRC_DIR)/koans/%.cpp: $(SRC_DIR)/library/%.cpp librarian $(SRC_DIR)/koans 
 	./librarian master $(SRC_DIR)/koans/ $<
 
 .PHONY: test-compileable
