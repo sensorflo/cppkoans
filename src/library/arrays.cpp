@@ -67,6 +67,9 @@ TEST(about_arrays,subscript_operator_is_defined_via_plus_and_dereferening_and_is
 // GCC 4.8.1 by default uses it's own dialact of C++98 which supports
 // variable-length arrays; use -std=c++11 or -std=c++98 to be standard
 // conforming.
+however what is typeid(new(T[n]))?
+how to define a ppointer to an array, e.g. (int[3])* a = new int[3]? Does that work for variable size?  
+how to properly parentise arbitray types array of ptr to array of some memberfunc for example
 TEST(about_arrays,array_bound_must_be_a_const_expr)
 {
   EXPECT_COMPILEABLE(true);
