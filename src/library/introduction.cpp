@@ -5,15 +5,15 @@
 TEST(introduction,assert_truth)
 {
   // insert 'true' or 'false'
-  EXPECT_TRUE(_________);
-  EXPECT_FALSE(__);
+  EXPECT_TRUE(_________/*answer=true*/);
+  EXPECT_FALSE(__/*answer=false*/);
 }
 
 // To understand reality, you must compare your expectations against actual
 // reality.
 TEST(introduction,assert_equality)
 {
-  EXPECT_EQ( __ /*your expected value*/, 1+1 /*actual value*/ );
+  EXPECT_EQ( __/*answer=2*/ /*your expected value*/, 1+1 /*actual value*/ );
 }
 
 // Most koans are amended with information on the topic, with references to
@@ -34,7 +34,7 @@ TEST(introduction,assert_equality)
 //   book 'C++ FAQs' by Cline, Lomow, and Girou.
 TEST(introduction,koans_are_amended_with_info_and_references)
 {
-  EXPECT_TRUE(_________);
+  EXPECT_TRUE(_________/*answer=true*/);
 }
 
 // Some things such as sizeof(int) are defined as being implementation-defined
@@ -51,7 +51,7 @@ TEST(introduction,koans_are_amended_with_info_and_references)
 //   depends on the implementation and that each implementation documents
 TEST(introduction,implementation_defined)
 {
-  EXPECT_EQ( __, sizeof(int) );
+  EXPECT_EQ( __/*answer=implementation_defined*/, sizeof(int) );
 }
 
 // typeid(...)'s return type is std::type_info (from #include <typeinfo>), which
@@ -73,28 +73,28 @@ TEST(introduction,know_your_implementations_type_info_name_scheme)
   // implementation. It's not the point to actually remember the exact answers.
 
   // fundamental types
-  EXPECT_STREQ( ____, typeid(char).name() );
-  EXPECT_STREQ( ____, typeid(signed char).name() );
-  EXPECT_STREQ( ____, typeid(unsigned char).name() );
-  EXPECT_STREQ( ____, typeid(wchar_t).name() );
+  EXPECT_STREQ( ____/*answer="c"*/, typeid(char).name() );
+  EXPECT_STREQ( ____/*answer="a"*/, typeid(signed char).name() );
+  EXPECT_STREQ( ____/*answer="h"*/, typeid(unsigned char).name() );
+  EXPECT_STREQ( ____/*answer="w"*/, typeid(wchar_t).name() );
 
-  EXPECT_STREQ( ____, typeid(bool).name() );
+  EXPECT_STREQ( ____/*answer="b"*/, typeid(bool).name() );
 
-  EXPECT_STREQ( ____, typeid(short).name() );
-  EXPECT_STREQ( ____, typeid(unsigned short).name() );
-  EXPECT_STREQ( ____, typeid(int).name() );
-  EXPECT_STREQ( ____, typeid(unsigned int).name() );
-  EXPECT_STREQ( ____, typeid(long).name() );
-  EXPECT_STREQ( ____, typeid(unsigned long).name() );
+  EXPECT_STREQ( ____/*answer="s"*/, typeid(short).name() );
+  EXPECT_STREQ( ____/*answer="t"*/, typeid(unsigned short).name() );
+  EXPECT_STREQ( ____/*answer="i"*/, typeid(int).name() );
+  EXPECT_STREQ( ____/*answer="j"*/, typeid(unsigned int).name() );
+  EXPECT_STREQ( ____/*answer="l"*/, typeid(long).name() );
+  EXPECT_STREQ( ____/*answer="m"*/, typeid(unsigned long).name() );
 
-  EXPECT_STREQ( ____, typeid(float).name() );
-  EXPECT_STREQ( ____, typeid(double).name() );
+  EXPECT_STREQ( ____/*answer="f"*/, typeid(float).name() );
+  EXPECT_STREQ( ____/*answer="d"*/, typeid(double).name() );
 
   // compound
-  EXPECT_STREQ( ____, typeid(int*).name() );
-  EXPECT_STREQ( ____, typeid(char*).name() );
-  EXPECT_STREQ( ____, typeid(int[]).name() );
-  EXPECT_STREQ( ____, typeid(int[3]).name() );
+  EXPECT_STREQ( ____/*answer="Pi"*/, typeid(int*).name() );
+  EXPECT_STREQ( ____/*answer="Pc"*/, typeid(char*).name() );
+  EXPECT_STREQ( ____/*answer="A_i"*/, typeid(int[]).name() );
+  EXPECT_STREQ( ____/*answer="A3_i"*/, typeid(int[3]).name() );
 }
 
 // Sometimes a koan may querry your wisdom on whether a code fragment is
@@ -104,12 +104,12 @@ TEST(introduction,expectations_on_compileability)
 {
   // The code fragment in question is enclosed by the #if / #endif lines
 
-  EXPECT_COMPILEABLE(__); // true (=compileable) or false (= _not_ compileable)? 
+  EXPECT_COMPILEABLE(__/*answer=false*/); // true (=compileable) or false (= _not_ compileable)? 
   #if 0
   bla bla % ^ & foo bar ??;
   #endif  
 
-  EXPECT_COMPILEABLE(__); // true (=compileable) or false (= _not_ compileable)? 
+  EXPECT_COMPILEABLE(__/*answer=true*/); // true (=compileable) or false (= _not_ compileable)? 
   #if 0
   int i;
   #endif  
