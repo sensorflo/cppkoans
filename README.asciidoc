@@ -6,14 +6,74 @@
 This project is in it's construction phase. The currently provided koans (aka
 exercises) are far from complete and are thus not yet usable for an end user.
 
+
 cppkoans
 --------
-
 cppkoans are a set of little exercises to improve and strengthen your knowledge
-of C\\++. As with most things, humans learn stuff by repetition and hands-on
-practice. The provided koans are intended for intermediate to advanced C++
-programmers.
+of C\++. The exercises are in the form of regular code, which is to be edited in
+place, typically by replacing ++__++ with the correct answer.
 
+
+Quick start
+~~~~~~~~~~
+- *nix platforms from any terminal window: type ++./cppkoans.sh++
+- Windows: Open ++build/msvc/cppkoans.sln++ with Visual Studio and do `Build
+  Solution', by default on F7.
+
+The output will direct you to the koan area, a .cpp file within src/koans, and
+the line number where you have to give your next answer. Probably your IDE will
+treat that line like a compile error, and you can jump to that location by the
+usual means of your IDE, e.g. double clicking it. After editing, repeat the
+procedure.
+
+
+Introduction
+~~~~~~~~~~~~
+cppkoans are a set of little exercises to improve and strengthen your knowledge
+of C++. Humans learn stuff by hands-on practice and repetition. The koans are
+solved by editing directly real-world code, so that is the hands-on practice
+part. You can get repetition by restarting the koans multiple times. It's also
+planned to enhance cppkoans with features similar to a vocabulary trainer: the
+more often you answer a koan wrongly the more often you have to answer it
+correctly.
+
+To learn something, it's often useful to hear / read the same thing in multiple
+ways. Also, often you may want to read more detailed information than these
+koans can give you. Thus most koans are amended with links to further
+documents, typically the book `The C\\++ programming language' and `The ISO C++
+standard'
+
+The provided koans are tailored towards intermediate to advanced C\\++
+programmers which want to strengthen their knowledge of C\\++. As a consequence,
+grouping the koans into themes (e.g. arrays, pointers, ...) has a higher
+priority than presenting information in a strict bottom-up way. Also, the koans
+sometimes dig quite deep into the details of the C\\++ language. Explaining the
+very basics of C++ or of programming languages in general has no priority.
+
+
+Building and running the koans
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The koans aka exercises are regular C++ files which first have to be build
+(compiled and linked). The resulting executable is then executed. The output
+will direct you to the koan area, a .cpp file within src/koans, and the line
+number where you have to give your next answer. Probably your IDE will treat
+that line like a compile error, and you can jump to that location by the usual
+means of your IDE, e.g. double clicking it. After editing, repeat the procedure.
+
+Currently supported build tools are make and Microsoft visual studio C++ 2010,
+also known as msvc. Building by default also runs the koans.
+
+*nix / make::
+In any terminal window, type ++./cppkoans.sh++. Internally, that just runs make
+within build/make. 
+
+Windows / msvc 2010::
+Open ++build/msvc/cppkoans.sln++ with Visual Studio and do `Build Solution', by
+default on F7. 
+
+
+Similar projects
+~~~~~~~~~~~~~~~~
 cppkoans are inspired by http://rubykoans.com/[ruby koans]. There are also
 further cppkoans projects. The way they can interrogate the disciple and react
 to the disciple's answers is in general more limited than this cppkoans. Also
@@ -22,33 +82,3 @@ and usually lack references to further documentation.
 
 - https://github.com/bkleinen/CPPKoans
 - https://github.com/torbjoernk/CppKoans
-
-build
-~~~~~
-Currently supported build tools are make and Microsoft visual studio C++ 2010,
-also known as msvc. Building by default also runs the koans.
-
-make
-^^^^
-In the shell, in directory build/make, run just +make+ with no arguments. The
-cppkoans executable is generated in build/make.
-
-msvc 2010
-^^^^^^^^^
-The cppkoans.exe executable is generated in build/msvc/{Debug,Release}.
-
-running the koans
-~~~~~~~~~~~~~~~~~
-Building, see chapter `build', by default also runs the koans. If you want to
-run them explicitly, execute the cppkoans executable from your command line.
-See the chapter `build' where the executables are located.
-
-To make this a little bit more convenient, you can run them also as explained in
-the following:
-
-make / *nix::
-In directory build/make/, run +make run+.
-
-msvc::
-In msvc, you can run the executable explicitly via menu `Debug | Start
-Debugging' (F5) or `Debug | Start Without Debugging' (Ctrl+F5).
