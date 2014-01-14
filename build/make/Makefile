@@ -19,7 +19,7 @@ all: cppkoans run
 .PHONY: clean
 
 clean:
-	rm -f cppkoans *.o gtest.a
+	@rm -f cppkoans *.o gtest.a
 
 
 # For simplicity and to avoid depending on Google Test's
@@ -27,42 +27,41 @@ clean:
 # conservative and not optimized.  This is fine as Google Test
 # compiles fast and for ordinary users its source rarely changes.
 gtest-all.o : $(GTEST_SRCS_)
-	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
+	@$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
             $(GTEST_DIR)/src/gtest-all.cc
 
 gtest.a : gtest-all.o
-	$(AR) $(ARFLAGS) $@ $^
+	@$(AR) $(ARFLAGS) $@ $^
 
 cppkoans.o: $(SRC_DIR)/cppkoans.cpp ${INCLUDES}
-	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/cppkoans.cpp
+	@$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/cppkoans.cpp
 
 koangtestprinter.o: $(SRC_DIR)/koangtestprinter.cpp ${INCLUDES}
-	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koangtestprinter.cpp
+	@$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koangtestprinter.cpp
 
 pathtoenlightenment.o: $(SRC_DIR)/pathtoenlightenment.cpp ${INCLUDES}
-	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/pathtoenlightenment.cpp
+	@$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/pathtoenlightenment.cpp
 
 
 introduction.o: $(SRC_DIR)/koans/introduction.cpp ${INCLUDES}
-	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/introduction.cpp
+	@$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/introduction.cpp
 booleans.o: $(SRC_DIR)/koans/booleans.cpp ${INCLUDES}
-	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/booleans.cpp
+	@$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/booleans.cpp
 characters.o: $(SRC_DIR)/koans/characters.cpp ${INCLUDES}
-	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/characters.cpp
+	@$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/characters.cpp
 integer_types.o: $(SRC_DIR)/koans/integer_types.cpp ${INCLUDES}
-	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/integer_types.cpp
+	@$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/integer_types.cpp
 pointers.o: $(SRC_DIR)/koans/pointers.cpp ${INCLUDES}
-	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/pointers.cpp
+	@$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/pointers.cpp
 expressions.o: $(SRC_DIR)/koans/expressions.cpp ${INCLUDES}
-	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/expressions.cpp
+	@$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/expressions.cpp
 arrays.o: $(SRC_DIR)/koans/arrays.cpp ${INCLUDES}
-	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/arrays.cpp
+	@$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/arrays.cpp
 strings.o: $(SRC_DIR)/koans/strings.cpp ${INCLUDES}
-	$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/strings.cpp
+	@$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/strings.cpp
 
 cppkoans: cppkoans.o koangtestprinter.o pathtoenlightenment.o introduction.o characters.o integer_types.o booleans.o pointers.o expressions.o arrays.o strings.o gtest.a
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
 
 run:
-	@echo "make: autorun of cppkoans:"
 	@./cppkoans
