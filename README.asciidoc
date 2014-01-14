@@ -10,8 +10,9 @@ exercises) are far from complete and are thus not yet usable for an end user.
 cppkoans
 --------
 cppkoans are a set of little exercises to improve and strengthen your knowledge
-of C\++. The exercises are in the form of regular code, which is to be edited in
-place, typically by replacing ++__++ with the correct answer.
+of C++. The exercises are in the form of regular code, which is to be edited in
+place, typically by replacing an all-underscore identifier __ with the correct
+answer.
 
 
 Quick start
