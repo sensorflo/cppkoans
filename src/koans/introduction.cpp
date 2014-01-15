@@ -57,6 +57,28 @@ TEST(introduction,implementation_defined)
   EXPECT_EQ( __, sizeof(int) );
 }
 
+// cppkoans are based upon the C++11 standart.
+//
+// Some implementations do not support all of the features which the C++11
+// standart defines. In order that cppkoans is still usefull on multiple
+// implementations, features potentially not supported are only conditionally
+// compiled using preprocessor conditionals (e.g. #if) and are thus inexistent
+// on some implementations. In such a case you sadly can't learn from practical
+// experience since as said the respective code fragment is technically
+// inexistent, but at least you can read the concepts.
+//
+// Note that the directives used, e.g. __HAS_LONG_LONG, are non-standard; they
+// are defined internally by cppkoans.
+TEST(introduction,potentially_unsupported_features_are_conditionally_compiled)
+{
+  #if __HAS_TYPE_LONG_LONG
+  long long l = 42;
+  EXPECT_EQ( __, l );
+  #endif
+
+  EXPECT_TRUE( _________ ); // just aknowledge you understand this koan
+}
+
 // typeid(...)'s return type is std::type_info (from #include <typeinfo>), which
 // has a member method 'const char* name() const'. What it returns is
 // implementation defined. Many koans make use of typeid to teach you type

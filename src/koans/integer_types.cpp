@@ -5,6 +5,7 @@
 // unsigned. Unlike plain char s, plain integers s are always signed and are
 // just aliases for their signed form, i.e. no distinct type. In addition,
 // orthogonally, integers come in four sizes: short, int, long and long long.
+// long long was added in C++11.
 //
 // TC++PL4 6.2.4 Integer Types
 TEST(about_integer_types,available_types)
@@ -21,9 +22,11 @@ TEST(about_integer_types,available_types)
   EXPECT_EQ( __, typeid(long) == typeid(signed long) );
   EXPECT_EQ( __, typeid(long) == typeid(unsigned long) );
 
+  #if __HAS_TYPE_LONG_LONG
   EXPECT_EQ( __, std::numeric_limits<long long>::is_signed );
   EXPECT_EQ( __, typeid(long long) == typeid(signed long long) );
   EXPECT_EQ( __, typeid(long long) == typeid(unsigned long long) );
+  #endif
 
   // recapitulation
   EXPECT_EQ( __, std::numeric_limits<char>::is_signed );
@@ -48,16 +51,18 @@ TEST(about_integer_types,literals_and_available_prefixes)
 // TC++PL4 6.2.4.1 Integer Literals
 // The suffix U [or u] can be used to write explicitly unsigned literals.
 // Similarly, the suffix L [or l] can be used to write explicitly long literals.
-// [Similarly, the suffix LL [or ll] can be used to write explicit long long
-// literals] ... Combination of suffixes are allowed. [So are combinations with
-// a prefix. ]
+// [Similarly, the suffix LL [or ll], added in C++11, can be used to write
+// explicit long long literals] ... Combination of suffixes are allowed. [So are
+// combinations with a prefix. ]
 TEST(about_integer_types,literals_and_available_suffixes)
 {
   EXPECT_EQ( typeid(________), typeid(42U) );
   EXPECT_EQ( typeid(________), typeid(42L) );
-  EXPECT_EQ( typeid(________), typeid(42LL) );
   EXPECT_EQ( typeid(________), typeid(42Ul) );
   EXPECT_EQ( typeid(________), typeid(42lu) );
+  #if __HAS_TYPE_LONG_LONG
+  EXPECT_EQ( typeid(________), typeid(42LL) );
+  #endif 
   EXPECT_EQ( __, 0xF0UL );
 }
 
