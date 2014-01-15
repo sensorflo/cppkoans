@@ -17,8 +17,14 @@ TEST(introduction,assert_equality)
 }
 
 // Most koans are amended with information on the topic, with references to
-// further information and possibly with extracts from those sources. Often used
-// references are referred to by aliases defined in the following list:
+// further information and possibly with extracts from those sources. The 2nd
+// argument of the TEST macro is the test (aka koan) name which really is a
+// brief sentence stating the essence of what the koans tries to teach you. So
+// you're adviced to always first read that sentence, and after that read the
+// information in the comment preceding the koan.
+//
+// Often used references are referred to by aliases defined in the following
+// list:
 //
 // - TC++PL4: The book 'The C++ Programming Language Fourth Edition' by Bjarne
 //   Stroustrup
