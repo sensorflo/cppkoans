@@ -285,8 +285,8 @@ class ValuesInIteratorRangeGenerator : public ParamGeneratorInterface<T> {
   class Iterator : public ParamIteratorInterface<T> {
    public:
     Iterator(const ParamGeneratorInterface<T>* base,
-             typename ContainerType::const_iterator iterator)
-        : base_(base), iterator_(iterator) {}
+             typename ContainerType::const_iterator i)
+        : base_(base), iterator_(i) {}
     virtual ~Iterator() {}
 
     virtual const ParamGeneratorInterface<T>* BaseGenerator() const {
