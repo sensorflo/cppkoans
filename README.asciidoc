@@ -1,7 +1,5 @@
 // The markup language of this file is AsciiDoc, see
-// http://www.methods.co.nz/asciidoc/. Note for authors: it is expected to
-// display nicely on github (see https://github.com/sensorflo/cppkoans) and when
-// running "asciidoc README.asciidoc".
+// http://www.methods.co.nz/asciidoc/.
 
 This project is in it's construction phase. The currently provided koans (aka
 exercises) are far from complete and are thus not yet usable for an end user.
@@ -10,9 +8,9 @@ exercises) are far from complete and are thus not yet usable for an end user.
 cppkoans
 --------
 cppkoans are a set of little exercises to improve and strengthen your knowledge
-of C++. The exercises are in the form of regular code, which is to be edited in
-place, typically by replacing an all-underscore identifier __ with the correct
-answer.
+of C&plus;&plus;. The exercises are in the form of regular code, which is to be
+edited in place, typically by replacing an all-underscore identifier __ with the
+correct answer.
 
 
 Quick start
@@ -31,38 +29,40 @@ procedure.
 Introduction
 ~~~~~~~~~~~~
 cppkoans are a set of little exercises to improve and strengthen your knowledge
-of C++. Humans learn stuff by hands-on practice and repetition. The koans are
-solved by editing directly real-world code, so that is the hands-on practice
-part. You can get repetition by restarting the koans multiple times. It's also
-planned to enhance cppkoans with features similar to a vocabulary trainer: the
-more often you answer a koan wrongly the more often you have to answer it
-correctly.
+of C&plus;&plus;. Humans learn stuff by hands-on practice and repetition. The
+koans are solved by editing directly real-world code, so that is the hands-on
+practice part. You can get repetition by restarting the koans multiple times.
+It's also planned to enhance cppkoans with features similar to a vocabulary
+trainer: the more often you answer a koan wrongly the more often you have to
+answer it correctly.
 
 To learn something, it's often useful to hear / read the same thing in multiple
 ways. Also, often you may want to read more detailed information than these
-koans can give you. Thus most koans are amended with links to further
-documents, typically the book `The C\\++ programming language' and `The ISO C++
-standard'
+koans can give you. Thus most koans are amended with links to further documents,
+typically the book `The C&plus;&plus; programming language' and `The ISO
+C&plus;&plus; standard'
 
-The provided koans are tailored towards intermediate to advanced C\\++
-programmers which want to strengthen their knowledge of C\\++. As a consequence,
-grouping the koans into themes (e.g. arrays, pointers, ...) has a higher
-priority than presenting information in a strict bottom-up way. Also, the koans
-sometimes dig quite deep into the details of the C\\++ language. Explaining the
-very basics of C++ or of programming languages in general has no priority.
+The provided koans are tailored towards intermediate to advanced C&plus;&plus;
+programmers which want to strengthen their knowledge of C&plus;&plus;. As a
+consequence, grouping the koans into themes (e.g. arrays, pointers, ...) has a
+higher priority than presenting information in a strict bottom-up way. Also, the
+koans sometimes dig quite deep into the details of the C&plus;&plus; language.
+Explaining the very basics of C&plus;&plus; or of programming languages in
+general has no priority.
 
 
 Building and running the koans
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The koans aka exercises are regular C++ files which first have to be build
-(compiled and linked). The resulting executable is then executed. The output
-will direct you to the koan area, a .cpp file within src/koans, and the line
-number where you have to give your next answer. Probably your IDE will treat
-that line like a compile error, and you can jump to that location by the usual
-means of your IDE, e.g. double clicking it. After editing, repeat the procedure.
+The koans aka exercises are regular C&plus;&plus; files which first have to be
+build (compiled and linked). The resulting executable is then executed. The
+output will direct you to the koan area, a .cpp file within src/koans, and the
+line number where you have to give your next answer. Probably your IDE will
+treat that line like a compile error, and you can jump to that location by the
+usual means of your IDE, e.g. double clicking it. After editing, repeat the
+procedure.
 
-Currently supported build tools are make and Microsoft visual studio C++ 2010,
-also known as msvc. Building by default also runs the koans.
+Currently supported build tools are make and Microsoft visual studio
+C&plus;&plus; 2010, also known as msvc. Building by default also runs the koans.
 
 *nix / make::
 In any terminal window, type ++./cppkoans.sh++. Internally, that just runs make
@@ -83,3 +83,18 @@ and usually lack references to further documentation.
 
 - https://github.com/bkleinen/CPPKoans
 - https://github.com/torbjoernk/CppKoans
+
+// Note to authors of this document:
+// 
+// - it is expected to display nicely
+//   * on GitHub (see https://github.com/sensorflo/cppkoans) 
+//   * and when running "asciidoc README.asciidoc"
+//   Note that GitHub apparently does _not_ internally use the asciidoc python
+//   script, since the two above points sometimes produce different results
+// 
+// - Since ++ is interpreted by AsciiDoc as an unconstrained quote delimiter,
+//   using C++ a lot is a small problem. Then it needs to be escaped like C\\++,
+//   however only when needed, i.e. only when there is a further ++ in the same
+//   paragraph. Also due to the differences between AsciiDoc and GitHub's
+//   parser, that still is not good enough sometimes. So the solution is to
+//   consequently use C&plus;&plus; instead.
