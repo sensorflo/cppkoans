@@ -1,9 +1,9 @@
 #include "cppkoans.h"
 
 // TC++PL4 7.2 Pointers
-//   For a type T, T* is the type "pointer to T"
+//   For a type T, T* is the type "pointer to T".
 //
-// I.e. T and T* are two distinct types
+// I.e. T and T* are two distinct types.
 TEST(about_pointers,a_type_amended_with_star_is_a_new_distinct_type)
 {
   EXPECT_EQ(__,typeid(int)==typeid(int*));

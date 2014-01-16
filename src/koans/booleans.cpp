@@ -40,7 +40,7 @@ TEST(about_booleans,non_zero_is_true__zero_is_false)
 //   sizeof(char), sizeof(signed char) and sizeof(unsigned char) are 1; the
 //   result of sizeof applied to any other fundamental type is
 //   implementation_defined. In particular, sizeof(bool) and ... are
-//   implementation_defined
+//   implementation_defined.
 TEST(about_booleans,sizeof_bool_is_implementation_defined)
 {
   EXPECT_EQ(__,sizeof(bool));
