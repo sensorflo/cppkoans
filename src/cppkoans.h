@@ -4,6 +4,9 @@
 
 struct dummytype {};
 
+// don't use only a single underscore since that is used already by gmock. They
+// put it into the testing namespace, but cppkoans makes 'using namespace
+// testing'.
 const int            __ = 123456; 
 const double         ___ = 123.456; 
 const char* const    ____ = "123456"; 
@@ -11,8 +14,8 @@ const wchar_t* const _____ = L"123456";
 const char           ______ = '@'; 
 const wchar_t        _______ = L'@'; 
 typedef dummytype    ________;
-const int            _________ = 0;
-const void* const    __________ = "123456";
+const void* const    _________ = "123456";
+#define              __________
 
 /** Pass variables which otherwise would make the compiler output warnings about
 unreferenced variables.*/ 

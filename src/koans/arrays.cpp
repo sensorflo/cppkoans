@@ -12,10 +12,10 @@ TEST(about_arrays,arrays_are_distinct_types)
   EXPECT_EQ( __, typeid(a) == typeid(int[4]));
 
   int a2[2];
-  EXPECT_EQ( typeid(__________), typeid(a2));
+  EXPECT_EQ( typeid(________), typeid(a2));
 
   int* a3[4];
-  EXPECT_EQ( typeid(__________), typeid(a3));
+  EXPECT_EQ( typeid(________), typeid(a3));
 
   DontWarnAboutUnreferencedVars(a,a2,a3);
 }
@@ -51,7 +51,7 @@ TEST(about_arrays,out_of_range_access)
 //   There is no array assignment.
 //
 // Also, due to array decay rules, the array decays, and thus you get an
-// assignment to an Rvalue pointer 
+// assignment to an Rvalue pointer
 //
 // TC++PL4 7.3.1 Array Initializers
 //
@@ -89,11 +89,11 @@ TEST(about_arrays,array_decay_exceptions)
   EXPECT_EQ( __, typeid(a) == typeid(char[3]) );
   EXPECT_EQ( __, typeid(&a) == typeid(char*) );
   EXPECT_EQ( __, typeid(&a) == typeid(char(*)[3]) );
-  EXPECT_EQ( typeid(__________), typeid(a[0]));
+  EXPECT_EQ( typeid(________), typeid(a[0]));
 
   char a2[] = "hello";
-  EXPECT_EQ( typeid(__________), typeid(a2));
-  EXPECT_EQ( typeid(__________), typeid("hello"));
+  EXPECT_EQ( typeid(________), typeid(a2));
+  EXPECT_EQ( typeid(________), typeid("hello"));
   EXPECT_EQ( __, sizeof(a2));
   EXPECT_EQ( __, sizeof("hello"));
 
@@ -101,11 +101,11 @@ TEST(about_arrays,array_decay_exceptions)
 }
 
 // passing arrays
-void foo1(char a[])    { EXPECT_EQ( typeid(__________), typeid(a)); DontWarnAboutUnreferencedVars(a); }
-void foo2(char a[3])   { EXPECT_EQ( typeid(__________), typeid(a)); DontWarnAboutUnreferencedVars(a); }
-void foo3(char* a)     { EXPECT_EQ( typeid(__________), typeid(a)); DontWarnAboutUnreferencedVars(a); }
-void foo4(char(&a)[3]) { EXPECT_EQ( typeid(__________), typeid(a)); DontWarnAboutUnreferencedVars(a); }
-void foo5(char(*a)[3]) { EXPECT_EQ( typeid(__________), typeid(a)); DontWarnAboutUnreferencedVars(a); }
+void foo1(char a[])    { EXPECT_EQ( typeid(________), typeid(a)); DontWarnAboutUnreferencedVars(a); }
+void foo2(char a[3])   { EXPECT_EQ( typeid(________), typeid(a)); DontWarnAboutUnreferencedVars(a); }
+void foo3(char* a)     { EXPECT_EQ( typeid(________), typeid(a)); DontWarnAboutUnreferencedVars(a); }
+void foo4(char(&a)[3]) { EXPECT_EQ( typeid(________), typeid(a)); DontWarnAboutUnreferencedVars(a); }
+void foo5(char(*a)[3]) { EXPECT_EQ( typeid(________), typeid(a)); DontWarnAboutUnreferencedVars(a); }
 TEST(about_arrays,passing_arrays)
 {
   char a[] = "om";

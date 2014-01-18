@@ -21,13 +21,13 @@ TEST(about_pointers,ampersand_references_and_star_dereferences)
   int i = 42;
   int* p = &i;
   EXPECT_EQ(__,*p);
-  EXPECT_EQ(__________,p);
+  EXPECT_EQ(_________,p);
   i = 31415;
   EXPECT_EQ(__,*p);
   int j = 666;
   p = &j;
   EXPECT_EQ(__,*p);
-  EXPECT_EQ(__________,p);
+  EXPECT_EQ(_________,p);
   *p = 0;
   EXPECT_EQ(__,*p);
   EXPECT_EQ(__,i);

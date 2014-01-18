@@ -5,7 +5,7 @@
 TEST(introduction,assert_truth)
 {
   // insert 'true' or 'false'
-  EXPECT_TRUE(_________);
+  EXPECT_TRUE(__);
   EXPECT_FALSE(__);
 }
 
