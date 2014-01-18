@@ -38,6 +38,7 @@ TEST(about_characters,type_of_single_quote_literal_is_char)
 TEST(about_characters,type_of_single_quote_literal_prefixed_by_L_is_wchar_t)
 {
   EXPECT_EQ(typeid(________),typeid(L'x'));
+  EXPECT_EQ(typeid(__________'y'),typeid(wchar_t));
 }
 
 // TC++PL4 6.2.3 Character Types

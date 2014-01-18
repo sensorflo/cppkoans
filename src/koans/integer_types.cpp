@@ -57,13 +57,13 @@ TEST(about_integer_types,literals_and_available_prefixes)
 TEST(about_integer_types,literals_and_available_suffixes)
 {
   EXPECT_EQ( typeid(________), typeid(42U) );
-  EXPECT_EQ( typeid(________), typeid(42L) );
-  EXPECT_EQ( typeid(________), typeid(42Ul) );
-  EXPECT_EQ( typeid(________), typeid(42lu) );
+  EXPECT_EQ( typeid(________), typeid(42l) );
+  EXPECT_EQ( typeid(42 __________), typeid(unsigned long) );
   #if __HAS_TYPE_LONG_LONG
-  EXPECT_EQ( typeid(________), typeid(42LL) );
+  EXPECT_EQ( typeid(31415 __________), typeid(long long) );
   #endif 
   EXPECT_EQ( __, 0xF0UL );
+  EXPECT_EQ( typeid(________), typeid(0xF0UL) );
 }
 
 // TC++PL4 6.2.4.1 Integer Literals
