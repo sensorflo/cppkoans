@@ -16,6 +16,15 @@ TEST(introduction,assert_equality)
   EXPECT_EQ( __ /*your expected value*/, 1+1 /*actual value*/ );
 }
 
+// In a few cases it is not possible for me to provide you with a proper
+// question which you can meditate upon and then try to answer it. I will then
+// teach you by written wisdom only. In such cases you only have to acknowledge
+// that you have read and hopefully understood the wisdom I gave you.
+TEST(introduction,acknowledge)
+{
+  ACKNOWLEDGE( __ ); // answer with 'true'
+}
+
 // Most koans are amended with information on the topic, with references to
 // further information and possibly with extracts from those sources. The 2nd
 // argument of the TEST macro is the test (aka koan) name which really is a
@@ -37,7 +46,7 @@ TEST(introduction,assert_equality)
 //   book 'C++ FAQs' by Cline, Lomow, and Girou.
 TEST(introduction,koans_are_amended_with_info_and_references)
 {
-  EXPECT_TRUE(_________);
+  ACKNOWLEDGE(__);
 }
 
 // Some things such as sizeof(int) are defined as being implementation defined
@@ -76,7 +85,7 @@ TEST(introduction,potentially_unsupported_features_are_conditionally_compiled)
   EXPECT_EQ( __, l );
   #endif
 
-  EXPECT_TRUE( _________ ); // just aknowledge you understand this koan
+  ACKNOWLEDGE( __ );
 }
 
 // typeid(...)'s return type is std::type_info (from #include <typeinfo>), which

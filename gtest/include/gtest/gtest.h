@@ -1971,6 +1971,15 @@ class TestWithParam : public Test, public WithParamInterface<T> {
   GTEST_TEST_BOOLEAN_(!(condition), #condition, true, false, \
                       GTEST_FATAL_FAILURE_)
 
+// Answering with exactly the keyword true is the only way to pass.
+#define ACKNOWLEDGE( answer ) \
+  GTEST_AMBIGUOUS_ELSE_BLOCKER_ \
+  if (const ::testing::AssertionResult gtest_ar_ = \
+      ::testing::AssertionResult(strcmp(#answer,"true")==0)) \
+    ::testing::internal::AssertHelper(::testing::TestPartResult::kSuccess, __FILE__, __LINE__, "") = ::testing::Message();\
+  else \
+    GTEST_NONFATAL_FAILURE_( strstr(#answer,"__")!=NULL ? "_" : "Acknowledge by answering with 'true'" )
+
 // Includes the auto-generated header that implements a family of
 // generic predicate assertion macros.
 #include "gtest/gtest_pred_impl.h"
