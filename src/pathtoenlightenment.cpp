@@ -2,6 +2,7 @@
 // in the given order.
 const char* path_to_enligthenment[] = {
   "introduction",
+  "about_types",
   "about_booleans",
   "about_characters",
   "about_integer_types",

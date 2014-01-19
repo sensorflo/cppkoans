@@ -6,6 +6,9 @@
     <ClCompile Include="..\..\src\koans\arrays.cpp">
       <Filter>koans</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\koans\types.cpp">
+      <Filter>koans</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\src\koans\booleans.cpp">
       <Filter>koans</Filter>
     </ClCompile>
