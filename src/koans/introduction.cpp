@@ -38,12 +38,14 @@ TEST(introduction,acknowledge)
 // - TC++PL4: The book 'The C++ Programming Language Fourth Edition' by Bjarne
 //   Stroustrup.
 //
-// - TStd: The ISO C++ standard. In short just 'the standard'. Officially known
-//   as 'ISO International Standard ISO/IEC 14882:2011(E) – Programming Language
-//   C++'. http://isocpp.org/std/the-standard.
+// - TStd11: The ISO C++ standard [for C++11]. In short just 'the standard'.
+//   Officially known as 'ISO International Standard ISO/IEC 14882:2011(E) –
+//   Programming Language C++'. http://isocpp.org/std/the-standard.
 //
 // - C++FAQ: The web site http://www.parashift.com/c++-faq/. There is also a
 //   book 'C++ FAQs' by Cline, Lomow, and Girou.
+// 
+// - cppref: The web site http://en.cppreference.com/w/
 TEST(introduction,koans_are_amended_with_info_and_references)
 {
   ACKNOWLEDGE(__);
