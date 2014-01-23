@@ -9,32 +9,36 @@ cppkoans
 --------
 cppkoans are a set of little exercises to improve and strengthen your knowledge
 of $$C++$$. The exercises are in the form of regular code, which is to be edited
-in place, typically by replacing an all-underscore identifier __ with the
-correct answer.
+in place using any editor, typically by replacing an all-underscore identifier
+__ with the correct answer.
 
 
 Quick start
 ~~~~~~~~~~
-- *nix platforms from any terminal window: type ++./cppkoans.sh++
-- Windows: Open ++build/msvc/cppkoans.sln++ with Visual Studio and do `Build
-  Solution', by default on F7.
+*nix platforms;;
+  From any terminal window: cd into cppkoan's root dir, then type
+  ++./cppkoans.sh++
+Windows;;
+  Open ++build/msvc/cppkoans.sln++ with Visual Studio and do `Build Solution',
+  by default on F7.
 
 The output will direct you to the koan area, a .cpp file within src/koans, and
-the line number where you have to give your next answer. Probably your IDE will
-treat that line like a compile error, and you can jump to that location by the
-usual means of your IDE, e.g. double clicking it. After editing, repeat the
-procedure.
+the line number where you have to give your next answer. Edit the file with your
+favorite editor/IDE. Probably your IDE will treat that line in the output like a
+compile error, and you can jump to the referred location by the usual means of
+your IDE, e.g. double clicking it. After editing, repeat the procedure.
 
 
 Introduction
 ~~~~~~~~~~~~
-cppkoans are a set of little exercises to improve and strengthen your knowledge
-of $$C++$$. Humans learn stuff by hands-on practice and repetition. The koans
-are solved by editing directly real-world code, so that is the hands-on practice
-part. You can get repetition by restarting the koans multiple times. It's also
-planned to enhance cppkoans with features similar to a vocabulary trainer: the
-more often you answer a koan wrongly the more often you have to answer it
-correctly.
+cppkoans are a set of little exercises (aka
+http://en.wikipedia.org/wiki/Koan[koans]) to improve and strengthen your
+knowledge of $$C++$$. Humans learn stuff by hands-on practice and repetition.
+The koans are solved by editing, using any editor/IDE, directly real-world code,
+so that is the hands-on practice part. You can get repetition by restarting the
+koans multiple times. It's also planned to enhance cppkoans with features
+similar to a vocabulary trainer: the more often you answer a koan wrongly the
+more often you have to answer it correctly.
 
 To learn something, it's often useful to hear / read the same thing in multiple
 ways. Also, often you may want to read more detailed information than these
@@ -51,26 +55,45 @@ Explaining the very basics of $$C++$$ or of programming languages in general has
 no priority.
 
 
+Installing cppkoans and it's prerequisites
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+. Install a toolchain to build $$C++$$ programs. See next chapter which
+  toolchains are supported. Since cppkoans is tailored towards medium to
+  advanced $$C++$$ programmers it is assumed that you know how to do that. Most
+  probably you already have a toolchain installed anyway.
+. Install cppkoans
+ ** Either via a zip file: Download
+    https://github.com/sensorflo/cppkoans/archive/master.zip[cppkoans], and
+    unpack it anywhere you like.
+ ** Or alternatively get it via http://git-scm.com/[git]: cd into the directory
+    where you want to have the new cppkoans directory created and type `git
+    clone https://github.com/sensorflo/cppkoans.git`
+
+
 Building and running the koans
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The koans aka exercises are regular $$C++$$ files which first have to be build
 (compiled and linked). The resulting executable is then executed. The output
 will direct you to the koan area, a .cpp file within src/koans, and the line
 number where you have to give your next answer. Probably your IDE will treat
-that line like a compile error, and you can jump to that location by the usual
-means of your IDE, e.g. double clicking it. After editing, repeat the procedure.
+that line in the output like a compile error, and you can jump to the referred
+location by the usual means of your IDE, e.g. double clicking it. After editing,
+repeat the procedure.
 
-Currently supported build tools are make and Microsoft visual studio $$C++$$
+Currently supported toolchains are make and Microsoft visual studio $$C++$$
 2010, also known as msvc. Building by default also runs the koans.
 
 *nix / make::
-In any terminal window, type ++./cppkoans.sh++. Internally, that just runs make
-within build/make. 
+In any terminal window, cd into cppkoan's root directory and type
+++./cppkoans.sh++. Internally, that just runs make within build/make.
 
 Windows / msvc 2010::
 Open ++build/msvc/cppkoans.sln++ with Visual Studio and do `Build Solution', by
 default on F7. 
 
+For the http://www.gnu.org/software/emacs/[Emacs] editor there is the minor mode
+https://github.com/sensorflo/cppkoans-mode[cppkoans-mode] available which helps
+you in editing the koans.
 
 Similar projects
 ~~~~~~~~~~~~~~~~
