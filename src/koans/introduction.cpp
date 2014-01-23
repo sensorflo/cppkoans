@@ -1,19 +1,19 @@
 #include "cppkoans.h"
 
-// We shall contemplate truth by testing reality, via asserts. Google test
-// (slightly modified) provides the ground to do so.
+// We shall contemplate truth by testing reality, via asserts. Google test,
+// slightly modified, provides the ground to do so.
 TEST(introduction,assert_truth)
 {
   // insert 'true' or 'false'
-  EXPECT_TRUE(__);
-  EXPECT_FALSE(__);
+  // EXPECT_TRUE(__);
+  // EXPECT_FALSE(__);
 }
 
 // To understand reality, you must compare your expectations against actual
 // reality.
 TEST(introduction,assert_equality)
 {
-  EXPECT_EQ( __ /*your expected value*/, 1+1 /*actual value*/ );
+  // EXPECT_EQ( __ /*your expected value*/, 1+1 /*actual value*/ );
 }
 
 // In a few cases it is not possible for me to provide you with a proper
@@ -22,7 +22,7 @@ TEST(introduction,assert_equality)
 // that you have read and hopefully understood the wisdom I gave you.
 TEST(introduction,acknowledge)
 {
-  ACKNOWLEDGE( __ ); // answer with 'true'
+  // ACKNOWLEDGE( __ ); // answer with 'true'
 }
 
 // Most koans are amended with information on the topic, with references to
@@ -48,7 +48,7 @@ TEST(introduction,acknowledge)
 // - cppref: The web site http://en.cppreference.com/w/
 TEST(introduction,koans_are_amended_with_info_and_references)
 {
-  ACKNOWLEDGE(__);
+  // ACKNOWLEDGE(__);
 }
 
 // Some things such as sizeof(int) are defined as being implementation defined
@@ -60,12 +60,12 @@ TEST(introduction,koans_are_amended_with_info_and_references)
 //   provide a specific, well-defined behavior for a construct and that behavior
 //   must be documented.
 //
-// TStd 3.4.1 1 implementation-defined behavior
+// TStd 3.4.1/1 implementation-defined behavior
 //   unspecified behavior where each implementation documents how the choice is
 //   made.
 TEST(introduction,implementation_defined)
 {
-  EXPECT_EQ( __, sizeof(int) );
+  // EXPECT_EQ( __, sizeof(int) );
 }
 
 // cppkoans are based upon the C++11 standard.
@@ -82,12 +82,12 @@ TEST(introduction,implementation_defined)
 // are defined internally by cppkoans.
 TEST(introduction,potentially_unsupported_features_are_conditionally_compiled)
 {
-  #if __HAS_TYPE_LONG_LONG
-  long long l = 42;
-  EXPECT_EQ( __, l );
-  #endif
+  // #if __HAS_TYPE_LONG_LONG
+  // long long l = 42;
+  // EXPECT_EQ( __, l );
+  // #endif
 
-  ACKNOWLEDGE( __ );
+  // ACKNOWLEDGE( __ );
 }
 
 // typeid(...)'s return type is std::type_info (from #include <typeinfo>), which
@@ -109,26 +109,99 @@ TEST(introduction,know_your_implementations_type_info_name_scheme)
   // implementation. It's not the point to actually remember the exact answers.
 
   // fundamental types
-  EXPECT_STREQ( ____, typeid(char).name() );
-  EXPECT_STREQ( ____, typeid(signed char).name() );
-  EXPECT_STREQ( ____, typeid(unsigned char).name() );
-  EXPECT_STREQ( ____, typeid(wchar_t).name() );
+  {
+    // arithemtic types
+    {
+      // integral types
+      {
+        // integer types
+        {
+          EXPECT_STREQ( "", typeid(signed char).name() );
+          EXPECT_STREQ( "", typeid(unsigned char).name() );
+          EXPECT_STREQ( "", typeid(short).name() );
+          EXPECT_STREQ( "", typeid(unsigned short).name() );
+          EXPECT_STREQ( "", typeid(int).name() );
+          EXPECT_STREQ( "", typeid(unsigned int).name() );
+          EXPECT_STREQ( "", typeid(long).name() );
+          EXPECT_STREQ( "", typeid(unsigned long).name() );
+          #if __HAS_TYPE_LONG_LONG
+          EXPECT_STREQ( "", typeid(long long).name() );
+          EXPECT_STREQ( "", typeid(unsigned long long).name() );
+          #endif
+        }
 
-  EXPECT_STREQ( ____, typeid(bool).name() );
+        // character types
+        {
+          EXPECT_STREQ( "", typeid(char).name() );
+          #if __HAS_TYPE_WCHAR_T
+          EXPECT_STREQ( "", typeid(wchar_t).name() );
+          #endif
+          #if __HAS_TYPE_CHAR16_T
+          EXPECT_STREQ( "", typeid(char16_t).name() );
+          #endif
+          #if __HAS_TYPE_CHAR32_T
+          EXPECT_STREQ( "", typeid(char32_t).name() );
+          #endif
+        }
 
-  EXPECT_STREQ( ____, typeid(short).name() );
-  EXPECT_STREQ( ____, typeid(unsigned short).name() );
-  EXPECT_STREQ( ____, typeid(int).name() );
-  EXPECT_STREQ( ____, typeid(unsigned int).name() );
-  EXPECT_STREQ( ____, typeid(long).name() );
-  EXPECT_STREQ( ____, typeid(unsigned long).name() );
+        EXPECT_STREQ( "", typeid(bool).name() );
+      }
 
-  EXPECT_STREQ( ____, typeid(float).name() );
-  EXPECT_STREQ( ____, typeid(double).name() );
+      // floating point types
+      {
+        EXPECT_STREQ( "", typeid(float).name() );
+        EXPECT_STREQ( "", typeid(double).name() );
+        #if __HAS_TYPE_LONG_DOUBLE
+        EXPECT_STREQ( "", typeid(long double).name() );
+        #endif
+      }
+    }
 
-  // compound
-  EXPECT_STREQ( ____, typeid(int*).name() );
-  EXPECT_STREQ( ____, typeid(char*).name() );
-  EXPECT_STREQ( ____, typeid(int[]).name() );
-  EXPECT_STREQ( ____, typeid(int[3]).name() );
+    EXPECT_STREQ( "", typeid(void).name() );
+    #if __HAS_TYPE_STD_NULLPTR_T
+    EXPECT_STREQ( "", typeid(std::nullptr_t).name() );
+    #endif
+  }
+
+  // compound types
+  {
+    EXPECT_STREQ( "", typeid(int[]).name() );   // ????????????????????????????????????????????????????????????????? array
+    EXPECT_STREQ( "", typeid(int[3]).name() );  // arrary
+    EXPECT_STREQ( "", typeid(int*).name() );    // ordinary pointer
+    class C { };
+    EXPECT_STREQ( "", typeid(int C::*).name() );// pointer to member
+    EXPECT_STREQ( "", typeid(int&).name() );    // lvalue reference
+    #if __HAS_TYPE_RVALUE_REFERENCE
+    EXPECT_STREQ( "", typeid(int&&).name() );   // rvalue reference
+    #endif
+    EXPECT_STREQ( "", typeid(int(int)).name() );// function
+    union U {}; EXPECT_STREQ( "", typeid(U).name() );// union
+
+    // user defined types
+    {
+      class C {}; EXPECT_STREQ( "", typeid(C).name() ); // class
+      enum E {};  EXPECT_STREQ( "", typeid(E).name() ); // enum
+      enum class EC {}; EXPECT_STREQ( "", typeid(EC).name() ); // enum class
+    }
+  }
+
+  EXPECT_EQ( typeid(int), typeid(int&) );
+  EXPECT_EQ( typeid(int), typeid(int&&) );
+
+
+ typeid ignores cv-qualifiers and for references it returns the referenced type
+
+
+  // cv-qualified
+  EXPECT_STREQ( "", typeid(const int).name() );
+  EXPECT_STREQ( "", typeid(volatile int).name() );
+  EXPECT_STREQ( "", typeid(const volatile int).name() );
+
+  EXPECT_STREQ( "", typeid(const int&).name() );
+  EXPECT_STREQ( "", typeid(volatile int&).name() );
+  EXPECT_STREQ( "", typeid(const volatile int&).name() );
+
+  EXPECT_STREQ( "", typeid(int *const).name() );
+  EXPECT_STREQ( "", typeid(int *volatile).name() );
+  EXPECT_STREQ( "", typeid(int *const volatile).name() );
 }

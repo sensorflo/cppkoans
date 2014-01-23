@@ -112,4 +112,8 @@ TEST(about_types,cv_qualifiers)
 //     are meant to be built-in types !!!!!!
 //   character types: char, signed char, unsigned char, wchar_t, char16_t, char32_t
 // 
+//
+// cppref Variables and types / Fundamental data types
+//   http://www.cplusplus.com/doc/tutorial/variables/
+// 
 // which of the type groups have a corresponding type trait predicate?

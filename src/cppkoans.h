@@ -37,6 +37,13 @@ inline void DontWarnAboutUnreferencedVars(...) {}
      (__cplusplus>201103L))
 
   #define __HAS_TYPE_LONG_LONG  __VERSION_LARGER_THAN(4,3) 
+  #define __HAS_TYPE_LONG_DOUBLE 1
+  #define __HAS_TYPE_WCHAR_T 1
+  #define __HAS_TYPE_CHAR16_T 1
+  #define __HAS_TYPE_CHAR32_T 1
+  #define __HAS_TYPE_STD_NULLPTR_T 1
+  #define __HAS_TYPE_RVALUE_REFERENCE 1
+  #define __HAS_TYPE_LONG_DOUBLE 1
 
 // Clang
 // =====
