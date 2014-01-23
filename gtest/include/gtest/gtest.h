@@ -326,6 +326,7 @@ class GTEST_API_ AssertionResult {
 
 // Makes a successful assertion result.
 GTEST_API_ AssertionResult AssertionSuccess();
+ !!!!!!!! Should not be callable if discple hasn't answered assertion yet !!!!!!!!!!!!!!!!!!!!!!
 
 // Makes a failed assertion result.
 GTEST_API_ AssertionResult AssertionFailure();
@@ -1954,6 +1955,10 @@ class TestWithParam : public Test, public WithParamInterface<T> {
   GTEST_TEST_NO_THROW_(statement, GTEST_FATAL_FAILURE_)
 #define ASSERT_ANY_THROW(statement) \
   GTEST_TEST_ANY_THROW_(statement, GTEST_FATAL_FAILURE_)
+
+!!!! maybe the simplest thing is find all EXPECT_xxxx/ASSERT_xxxx and wrap the expectation part into something
+that first tests wheter the discpile has answered?? However these macros are far appart from a point where
+I could return assertionfailure !!!!
 
 // Boolean assertions. Condition can be either a Boolean expression or an
 // AssertionResult. For more information on how to use AssertionResult with
