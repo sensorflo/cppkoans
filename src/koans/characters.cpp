@@ -67,7 +67,7 @@ TEST(about_characters,the_integer_value_of_a_char_is_its_code_point)
 //   Carriage return     CR       \r
 //   Form feed           FF       \f
 //   Alert               BEL      \a
-//   Backslash           \        \\
+//   Backslash           \        \\                  .
 //   Question mark       ?        \?
 //   Single quote        '        \'
 //   Double quote        "        \"
