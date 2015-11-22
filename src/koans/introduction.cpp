@@ -60,9 +60,9 @@ TEST(introduction,koans_are_amended_with_info_and_references)
 //   provide a specific, well-defined behavior for a construct and that behavior
 //   must be documented.
 //
-// TStd 3.4.1 1 implementation-defined behavior
-//   unspecified behavior where each implementation documents how the choice is
-//   made.
+// TStd 1.3.10 implementation-defined behavior
+//   Behavior, for a well-formed program construct and correct data, that
+//   depends on the implementation and that each implementation documents.
 TEST(introduction,implementation_defined)
 {
   EXPECT_EQ( __, sizeof(int) );
