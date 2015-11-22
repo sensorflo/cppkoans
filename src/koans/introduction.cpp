@@ -1,7 +1,7 @@
 #include "cppkoans.h"
 
-// We shall contemplate truth by testing reality, via asserts. Google test
-// (slightly modified) provides the ground to do so.
+// We shall contemplate truth by testing reality, via asserts. Google test,
+// slightly modified, provides the ground to do so.
 TEST(introduction,assert_truth)
 {
   // insert 'true' or 'false'
@@ -18,19 +18,21 @@ TEST(introduction,assert_equality)
 
 // In a few cases it is not possible for me to provide you with a proper
 // question which you can meditate upon and then try to answer it. I will then
-// teach you by written wisdom only. In such cases you only have to acknowledge
-// that you have read and hopefully understood the wisdom I gave you.
+// teach you by written wisdom only. In such cases you only have to
+// acknowledge that you have read and hopefully understood the wisdom I gave
+// you.
 TEST(introduction,acknowledge)
 {
   ACKNOWLEDGE( __ ); // answer with 'true'
 }
 
-// Most koans are amended with information on the topic, with references to
-// further information and possibly with extracts from those sources. The 2nd
-// argument of the TEST macro is the test (aka koan) name which really is a
-// brief sentence stating the essence of what the koans tries to teach you. So
-// you're adviced to always first read that sentence, and after that read the
-// information in the comment preceding the koan.
+// The 2nd argument of the TEST macro is a brief sentence stating the essence
+// of the koan's wisdom. So you're adviced to first read that sentence, before
+// reading the more detailed information in the comment preceding the koan.
+//
+// The detailed information often contains references to further
+// information. Often multipe references are given, so you also learn where
+// within a given source to find more information on a given topic.
 //
 // Often used references are referred to by aliases defined in the following
 // list:
@@ -38,9 +40,11 @@ TEST(introduction,acknowledge)
 // - TC++PL4: The book 'The C++ Programming Language Fourth Edition' by Bjarne
 //   Stroustrup.
 //
-// - TStd11: The ISO C++ standard [for C++11]. In short just 'the standard'.
+// - TStd11: The ISO C++ standard [C++11]. In short just 'the standard'.
 //   Officially known as 'ISO International Standard ISO/IEC 14882:2011(E) –
 //   Programming Language C++'. http://isocpp.org/std/the-standard.
+//
+// - TStd14: Analogous to TStd11, but for C++14.
 //
 // - C++FAQ: The web site http://www.parashift.com/c++-faq/. There is also a
 //   book 'C++ FAQs' by Cline, Lomow, and Girou.
@@ -57,8 +61,8 @@ TEST(introduction,koans_are_amended_with_info_and_references)
 //
 // TC++PL4 C.2 The Standard
 //   ... implementation-defined ... This means that each implementation must
-//   provide a specific, well-defined behavior for a construct and that behavior
-//   must be documented.
+//   provide a specific, well-defined behavior for a construct and that
+//   behavior must be documented.
 //
 // TStd 1.3.10 implementation-defined behavior
 //   Behavior, for a well-formed program construct and correct data, that
@@ -74,9 +78,9 @@ TEST(introduction,implementation_defined)
 // standard defines. In order that cppkoans is still useful on multiple
 // implementations, features potentially not supported are only conditionally
 // compiled using preprocessor conditionals (e.g. #if) and are thus inexistent
-// on some implementations. In such a case you sadly can't learn from practical
-// experience since as said the respective code fragment is technically
-// inexistent, but at least you can read the concepts.
+// on some implementations. In such a case you sadly can't learn from
+// practical experience since as said the respective code fragment is
+// technically inexistent, but at least you can read the concepts.
 //
 // Note that the directives used, e.g. __HAS_LONG_LONG, are non-standard; they
 // are defined internally by cppkoans.
@@ -90,12 +94,12 @@ TEST(introduction,potentially_unsupported_features_are_conditionally_compiled)
   ACKNOWLEDGE( __ );
 }
 
-// typeid(...)'s return type is std::type_info (from #include <typeinfo>), which
-// has a member method 'const char* name() const'. What it returns is
+// typeid(...)'s return type is std::type_info (from #include <typeinfo>),
+// which has a member method 'const char* name() const'. What it returns is
 // implementation defined. Many koans make use of typeid to teach you type
 // related knowledge. In case you give a wrong answer, you get printed what
-// std::type_info::name() returns. Thus it makes sense that you have a sense of
-// how name() behaves in your implementation.
+// std::type_info::name() returns. Thus it makes sense that you have a sense
+// of how name() behaves in your implementation.
 //
 // http://www.cplusplus.com/reference/typeinfo/type_info/name/
 //   Returns a null-terminated character sequence that may identify the type.
@@ -106,7 +110,8 @@ TEST(introduction,potentially_unsupported_features_are_conditionally_compiled)
 TEST(introduction,know_your_implementations_type_info_name_scheme)
 {
   // the point is to get a feeling, a sense of how the scheme works in your
-  // implementation. It's not the point to actually remember the exact answers.
+  // implementation. It's not the point to actually remember the exact
+  // answers.
 
   // fundamental types
   EXPECT_STREQ( ____, typeid(char).name() );
