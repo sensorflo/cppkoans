@@ -23,12 +23,7 @@ KoanGTestPrinter::KoanGTestPrinter() :
 
 void KoanGTestPrinter::OnTestProgramStart(const UnitTest&)
 {
-  // since running the koans is normally preceded by building them which also
-  // produced output, make a banner so start of the koans is more easily
-  // recognized.
-  printf("-------------------------------------------------------\n");
-  printf("------ setting off on your path to enlightenment ------\n");
-  printf("-------------------------------------------------------\n");
+  printf("The master is examining your answers:\n");
 }
 
 void KoanGTestPrinter::OnTestEnd(const TestInfo& test_info)
@@ -56,7 +51,7 @@ void KoanGTestPrinter::OnTestEnd(const TestInfo& test_info)
 
     if (all_unanswered) {
       ColoredPrintf(COLOR_RED,
-        "Koan %s in area %s shall be your next step on your path to enlightenment.\n",
+        "\nKoan %s in area %s shall be your next step on your path to enlightenment.\n",
         test_info.name(), test_info.test_case_name());
       const TestPartResult& part_result = test_result.GetTestPartResult(0);
       printf("Meditate on the following code:\n");
@@ -65,7 +60,7 @@ void KoanGTestPrinter::OnTestEnd(const TestInfo& test_info)
 
     else {
       ColoredPrintf(COLOR_RED,
-        "Your answer to koan %s in area %s has damaged your karma.\n",
+        "\nYour answer to koan %s in area %s has damaged your karma.\n",
         test_info.name(), test_info.test_case_name());
 
       for (int i=0; i<test_result.total_part_count(); i++) {
@@ -116,7 +111,6 @@ void KoanGTestPrinter::OnTestEnd(const TestInfo& test_info)
 
     printf("Your path to enlightenment thus far: %d of %d koans\n",
       m_PassedKoansCount, UnitTest::GetInstance()->test_to_run_count());
-    printf("-----------------------------------------------------\n");
   }
 }
 

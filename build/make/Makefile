@@ -14,7 +14,9 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include
 CXXFLAGS += -g -Wall -Wextra -pthread -std=c++11 -pedantic-errors
 
 
-all: cppkoans run
+all:
+	@echo "The master is preparing himself, be patient."
+	@make -s -j 4 cppkoans &&	make -s run
 
 .PHONY: clean
 
@@ -64,6 +66,8 @@ strings.o: $(SRC_DIR)/koans/strings.cpp ${INCLUDES}
 
 cppkoans: cppkoans.o koangtestprinter.o pathtoenlightenment.o introduction.o characters.o integer_types.o types.o booleans.o pointers.o expressions.o arrays.o strings.o gtest.a
 	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+
+.IGNORE: run
 
 run:
 	@./cppkoans
