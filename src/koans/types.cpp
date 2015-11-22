@@ -5,16 +5,16 @@
 // But you should know all the available concrete types (i.e. not a grouping)
 // like int, double, array etc. Having this cheat sheet is handy since TStd11,
 // TC++PL4 and thus also cppkoans often refer to these groupings.
-// 
+//
 // Legend
 // - @foo reads 'foo types', it means that foo is a grouping of types
 // - column headers: @b=@builtin, @s=@scalar
 // - cells of b/s columns: X=is member of, -=is _not_ member of, ?=only some of
 //   sub-nodes are member of, "=see parent node
 // - {...}C++11: enclosed types added in C++11
-// 
+//
 //                           @b @s keywords / pseudo code
-// @fundamental              X  ?  
+// @fundamental              X  ?
 //   @arithmetic             "  X
 //     @integral             "  "
 //       @integer            "  "
@@ -25,16 +25,16 @@
 //     @floating point       "  "  float, double {, long double}C++11
 //   void                    "  -  void
 //   std::nullptr_t          "  X  {std::nullptr_t}C++11
-// @compound                 ?  ?  
+// @compound                 ?  ?
 //   array                   X  -  T[size]
 //   (ordinary) pointer      X  X  T*
 //   pointer to member       X  X  T classname::*
-//   @reference              X  -  
+//   @reference              X  -
 //     lvalue reference      "  "  T&
 //     rvalue reference      "  "  T&&
-//   function                X  -  
+//   function                X  -
 //   union                   X  -  union name {...}
-//   @user-defined           -  ?  
+//   @user-defined           -  ?
 //     class                 "  -  class name {...}, struct name {...}
 //     enumeration           "  X  enum name {...}, enum class name {...}
 //
@@ -53,7 +53,7 @@ TEST(about_types,cv_qualifiers)
 
 
 // The following is only a scratch pad for koan authors
-// 
+//
 // Types = {fundamental types, compound types} (TStd11 3.9/1)
 //
 // fundamental types = (TStd11 3.9.1)
@@ -111,5 +111,5 @@ TEST(about_types,cv_qualifiers)
 //     !!! most certainly also the other compound types not being user-defined types
 //     are meant to be built-in types !!!!!!
 //   character types: char, signed char, unsigned char, wchar_t, char16_t, char32_t
-// 
+//
 // which of the type groups have a corresponding type trait predicate?

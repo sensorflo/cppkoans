@@ -5,4 +5,3 @@ TEST(about_strings,dummy)
 {
   EXPECT_TRUE(__);
 }
-

@@ -12,7 +12,7 @@ todo
  * char and character are 'not' the same thing
 - conversions to T. They syntactically works always(?) with any type, i.e. also
   built-in
- * T(...)  
+ * T(...)
  * static_cast<T>(...)
  * (T)...
 - TEST(introduction,know_your_implementations_type_info_name_scheme)

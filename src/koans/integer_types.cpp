@@ -61,7 +61,7 @@ TEST(about_integer_types,literals_and_available_suffixes)
   EXPECT_EQ( typeid(42 __________), typeid(unsigned long) );
   #if __HAS_TYPE_LONG_LONG
   EXPECT_EQ( typeid(31415 __________), typeid(long long) );
-  #endif 
+  #endif
   EXPECT_EQ( __, 0xF0UL );
   EXPECT_EQ( typeid(________), typeid(0xF0UL) );
 }

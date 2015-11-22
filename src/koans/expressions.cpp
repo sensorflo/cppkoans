@@ -35,7 +35,7 @@ TEST(about_expressions,operator_precedence_define_which_operator_among_operators
 // http://en.wikipedia.org/wiki/Operator_associativity
 TEST(about_expressions,foo)
 {
-  
+
 }
 
 // overwrite (or clarify) with parenthesis
@@ -48,4 +48,3 @@ TEST(about_expressions,foo3)
 {
 
 }
-

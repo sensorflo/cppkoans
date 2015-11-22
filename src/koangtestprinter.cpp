@@ -5,7 +5,7 @@ using namespace testing::internal;
 // kludge to get access to gtest internal stuff which cppkoans finds usefull but
 // which gtest did not intend to put on their public interface.
 namespace testing {
-  namespace internal {  
+  namespace internal {
     enum GTestColor {
       COLOR_DEFAULT,
       COLOR_RED,
@@ -41,7 +41,7 @@ void KoanGTestPrinter::OnTestEnd(const TestInfo& test_info)
       test_info.name(), test_info.test_case_name() );
     m_PassedKoansCount++;
 
-  } else { 
+  } else {
     bool all_unanswered = true;
     for (int i=0; i<test_result.total_part_count(); i++) {
       const TestPartResult& part_result = test_result.GetTestPartResult(i);
@@ -71,7 +71,7 @@ void KoanGTestPrinter::OnTestEnd(const TestInfo& test_info)
       for (int i=0; i<test_result.total_part_count(); i++) {
         const TestPartResult& part_result =
           test_result.GetTestPartResult(i);
-      
+
         if ( part_result.failed() ) {
           const char* summary = part_result.summary();
 
@@ -80,7 +80,7 @@ void KoanGTestPrinter::OnTestEnd(const TestInfo& test_info)
             printf("However mind that you will not reach enlightenment by going this path.\n");
             printf("Continue to faithfully meditate on the following code:\n");
             printf("%s(%d):\n", part_result.file_name(), part_result.line_number());
-            
+
           }
 
           else if (strcmp(summary,"_")==0) {
@@ -110,7 +110,7 @@ void KoanGTestPrinter::OnTestEnd(const TestInfo& test_info)
     case 2: statement = "Remember that silence is sometimes the best answer"; break;
     case 3: statement = "Sleep is the best meditation"; break;
     case 4: statement = "When you lose, don't lose the lesson"; break;
-    default: statement = "Things are not what they appear to be: nor are they otherwise"; 
+    default: statement = "Things are not what they appear to be: nor are they otherwise";
     }
     printf("\n%s\n",statement);
 

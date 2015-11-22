@@ -44,7 +44,7 @@ TEST(introduction,acknowledge)
 //
 // - C++FAQ: The web site http://www.parashift.com/c++-faq/. There is also a
 //   book 'C++ FAQs' by Cline, Lomow, and Girou.
-// 
+//
 // - cppref: The web site http://en.cppreference.com/w/
 TEST(introduction,koans_are_amended_with_info_and_references)
 {

@@ -89,11 +89,12 @@ In any terminal window, cd into cppkoan's root directory and type
 
 Windows / msvc 2010::
 Open ++build/msvc/cppkoans.sln++ with Visual Studio and do `Build Solution', by
-default on F7. 
+default on F7.
 
 For the http://www.gnu.org/software/emacs/[Emacs] editor there is the minor mode
 https://github.com/sensorflo/cppkoans-mode[cppkoans-mode] available which helps
 you in editing the koans.
+
 
 Similar projects
 ~~~~~~~~~~~~~~~~
@@ -107,13 +108,13 @@ and usually lack references to further documentation.
 - https://github.com/torbjoernk/CppKoans
 
 // Note to authors of this document:
-// 
+//
 // - it is expected to display nicely
-//   * on GitHub (see https://github.com/sensorflo/cppkoans) 
+//   * on GitHub (see https://github.com/sensorflo/cppkoans)
 //   * and when running "asciidoc README.asciidoc"
 //   Note that GitHub apparently does _not_ internally use the asciidoc python
 //   script, since the two above points sometimes produce different results
-// 
+//
 // - Since ++ is interpreted by AsciiDoc as an unconstrained quote delimiter,
 //   using C++ a lot is a small problem. Then it needs to be escaped like C\\++,
 //   however only when needed, i.e. only when there is a further ++ in the same

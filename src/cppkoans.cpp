@@ -51,4 +51,3 @@ int main(int argc, char* argv[])
 {
   return os << ti.name() << " [the name printed is implementation specific, see std::type_info::name()]";
 }
-

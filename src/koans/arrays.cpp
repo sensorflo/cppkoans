@@ -122,4 +122,3 @@ TEST(about_arrays,passing_arrays)
 // void bar(char(&)[3]) {  };
 // template<int N>
 // void fred(char(&)[N]) {  };
-
