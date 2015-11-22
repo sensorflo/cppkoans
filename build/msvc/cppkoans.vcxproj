@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -17,6 +17,7 @@
     <ClCompile Include="..\..\src\koans\expressions.cpp" />
     <ClCompile Include="..\..\src\koans\integer_types.cpp" />
     <ClCompile Include="..\..\src\koans\pointers.cpp" />
+    <ClCompile Include="..\..\src\koans\references.cpp" />
     <ClCompile Include="..\..\src\koans\strings.cpp" />
     <ClCompile Include="..\..\src\pathtoenlightenment.cpp" />
   </ItemGroup>

@@ -7,6 +7,7 @@ const char* path_to_enligthenment[] = {
   "about_characters",
   "about_integer_types",
   "about_pointers",
+  "about_references",
   "about_arrays",
   "about_strings",
   "about_expressions",

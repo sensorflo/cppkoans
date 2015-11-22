@@ -63,11 +63,14 @@ arrays.o: $(SRC_DIR)/koans/arrays.cpp ${INCLUDES}
 	@$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/arrays.cpp
 strings.o: $(SRC_DIR)/koans/strings.cpp ${INCLUDES}
 	@$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/strings.cpp
+references.o: $(SRC_DIR)/koans/references.cpp ${INCLUDES}
+	@$(CXX) $(CPPFLAGS) -I$(INC_DIR) -isystem ${GTEST_INC_DIR} $(CXXFLAGS) -c $(SRC_DIR)/koans/references.cpp
 
-cppkoans: cppkoans.o koangtestprinter.o pathtoenlightenment.o introduction.o characters.o integer_types.o types.o booleans.o pointers.o expressions.o arrays.o strings.o gtest.a
+cppkoans: cppkoans.o koangtestprinter.o pathtoenlightenment.o introduction.o characters.o integer_types.o types.o booleans.o pointers.o expressions.o arrays.o strings.o references.o gtest.a
 	@$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
 
 .IGNORE: run
 
 run:
+	@echo "make: autorun of cppkoans:"
 	@./cppkoans
