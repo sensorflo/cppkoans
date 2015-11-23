@@ -72,9 +72,9 @@ TEST(introduction,implementation_defined)
   EXPECT_EQ( __, sizeof(int) );
 }
 
-// cppkoans are based upon the C++11 standard.
+// cppkoans are based upon the C++14 standard.
 //
-// Some implementations do not support all of the features which the C++11
+// Some implementations do not support all of the features which the C++14
 // standard defines. In order that cppkoans is still useful on multiple
 // implementations, features potentially not supported are only conditionally
 // compiled using preprocessor conditionals (e.g. #if) and are thus inexistent
