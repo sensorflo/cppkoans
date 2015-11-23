@@ -206,3 +206,37 @@ TEST(about_references,a_reference_must_be_initialized_with_a_valid_object_and_ca
   ACKNOWLEDGE(__);
 }
 
+
+// Normaly a temporary is destroyed at the end of the enclosing full
+// expression. However when bound to a reference, the lifetime of the
+// temporary is extended so it lives as long as the reference.
+//
+// TStd14 12.2 temporary objects [class.temporary]
+//   3 ... Temporary objects are destroyed as the last step in evaluating the
+//     full-expression (1.9) that (lexically) contains the point where it was
+//     created.
+//   4 There are two context in which temporaries are destroyed at a different
+//     point than the end of the full-expression. ...
+//   5 The second context is when a reference is bound to a temporary.  The
+//     temporary to which the reference is bound or the temporary that is the
+//     complete object of a subobject to which the reference is bound persists
+//     for the lifetime of the reference except ...
+static std::string events;
+struct A { ~A() { events += ",~A"; } };
+struct B { ~B() { events += ",~B"; } };
+A makeA() { static A a; return a; }
+B makeB() { static B b; return b; }
+TEST(about_references,reference_extends_lifetime_of_temporary)
+{
+  // remember that calling a function which returns by value (opposed to
+  // return by reference) creates a temporary.
+
+  {
+    makeA();
+    events += ",foo";
+    const B& rb = makeB();
+    events += ",bar";
+  }
+
+  EXPECT_EQ( std::string(____), events);
+}
