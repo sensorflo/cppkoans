@@ -2,6 +2,11 @@
 #include <type_traits>
 #pragma GCC diagnostic ignored "-Wunused-variable"
 
+// C++11 added rvalue references, so since then there are two types of
+// references, the lvalue references already known to C++98 and the new rvalue
+// references. The term reference applies to both.
+
+
 // A reference declaration declares a named variable as a reference, that is,
 // an alias to an already-existing object or function. E.g. the following
 // declares a named variable 'ri' as a reference to the alrady-existing object
@@ -188,7 +193,7 @@ TEST(about_references,a_reference_always_refers_to_the_same_object)
 //   A reference shall be initialized to refer to a valid object or
 //   function. ... Note: in particular, a null reference cannot exist in a
 //   well-defined program, because the only way to create such a reference
-//   would be to bind it to the “object” obtained by dereferencing a null
+//   would be to bind it to the 'Object' obtained by dereferencing a null
 //   pointer, which causes undefined behavior. ...
 TEST(about_references,a_reference_must_be_initialized_with_a_valid_object_and_cannot_be_null)
 {
