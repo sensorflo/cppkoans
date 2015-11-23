@@ -72,5 +72,4 @@ cppkoans: cppkoans.o koangtestprinter.o pathtoenlightenment.o introduction.o cha
 .IGNORE: run
 
 run:
-	@echo "make: autorun of cppkoans:"
 	@./cppkoans
