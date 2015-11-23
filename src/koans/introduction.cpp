@@ -42,9 +42,15 @@ TEST(introduction,acknowledge)
 //
 // - TStd11: The ISO C++ standard [C++11]. In short just 'the standard'.
 //   Officially known as 'ISO International Standard ISO/IEC 14882:2011(E) –
-//   Programming Language C++'. http://isocpp.org/std/the-standard.
+//   Programming Language C++'. http://isocpp.org/std/the-standard. N3337 is
+//   the freely downloadable working draft version which for practical
+//   purposes is identical to the official proprietary version:
+//   http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3337.pdf.
 //
-// - TStd14: Analogous to TStd11, but for C++14.
+// - TStd14: Analogous to TStd11, but for C++14. N4140 is the freely
+//   downloadable working draft version which for practical purposes is
+//   identical to the official proprietary version:
+//   https://github.com/cplusplus/draft/blob/master/papers/n4140.pdf.
 //
 // - C++FAQ: The web site http://www.parashift.com/c++-faq/. There is also a
 //   book 'C++ FAQs' by Cline, Lomow, and Girou.
