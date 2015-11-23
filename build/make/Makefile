@@ -11,7 +11,7 @@ GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
 
 CPPFLAGS += -isystem $(GTEST_DIR)/include
-CXXFLAGS += -g -Wall -Wextra -pthread -std=c++11 -pedantic-errors
+CXXFLAGS += -g -Wall -Wextra -pthread -std=c++14 -pedantic-errors
 
 
 all:
