@@ -2,7 +2,7 @@
 
 // We shall contemplate truth by testing reality, via asserts. Google test,
 // slightly modified, provides the ground to do so.
-TEST(introduction,assert_truth)
+TEST(introduction, assert_truth)
 {
   // insert 'true' or 'false'
   EXPECT_TRUE(__);
@@ -11,9 +11,9 @@ TEST(introduction,assert_truth)
 
 // To understand reality, you must compare your expectations against actual
 // reality.
-TEST(introduction,assert_equality)
+TEST(introduction, assert_equality)
 {
-  EXPECT_EQ( __ /*your expected value*/, 1+1 /*actual value*/ );
+  EXPECT_EQ(__ /*your expected value*/, 1+1 /*actual value*/);
 }
 
 // In a few cases it is not possible for me to provide you with a proper
@@ -21,9 +21,9 @@ TEST(introduction,assert_equality)
 // teach you by written wisdom only. In such cases you only have to
 // acknowledge that you have read and hopefully understood the wisdom I gave
 // you.
-TEST(introduction,acknowledge)
+TEST(introduction, acknowledge)
 {
-  ACKNOWLEDGE( __ ); // answer with 'true'
+  ACKNOWLEDGE(__); // answer with 'true'
 }
 
 // The 2nd argument of the TEST macro is a brief sentence stating the essence
@@ -56,7 +56,7 @@ TEST(introduction,acknowledge)
 //   book 'C++ FAQs' by Cline, Lomow, and Girou.
 //
 // - cppref: The web site http://en.cppreference.com/w/
-TEST(introduction,koans_are_amended_with_info_and_references)
+TEST(introduction, koans_are_amended_with_info_and_references)
 {
   ACKNOWLEDGE(__);
 }
@@ -73,9 +73,9 @@ TEST(introduction,koans_are_amended_with_info_and_references)
 // TStd 1.3.10 implementation-defined behavior
 //   Behavior, for a well-formed program construct and correct data, that
 //   depends on the implementation and that each implementation documents.
-TEST(introduction,implementation_defined)
+TEST(introduction, implementation_defined)
 {
-  EXPECT_EQ( __, sizeof(int) );
+  EXPECT_EQ(__, sizeof(int));
 }
 
 // cppkoans are based upon the C++14 standard.
@@ -90,14 +90,14 @@ TEST(introduction,implementation_defined)
 //
 // Note that the directives used, e.g. __HAS_LONG_LONG, are non-standard; they
 // are defined internally by cppkoans.
-TEST(introduction,potentially_unsupported_features_are_conditionally_compiled)
+TEST(introduction, potentially_unsupported_features_are_conditionally_compiled)
 {
   #if __HAS_TYPE_LONG_LONG
   long long l = 42;
-  EXPECT_EQ( __, l );
+  EXPECT_EQ(__, l);
   #endif
 
-  ACKNOWLEDGE( __ );
+  ACKNOWLEDGE(__);
 }
 
 // typeid(...)'s return type is std::type_info (from #include <typeinfo>),
@@ -113,33 +113,33 @@ TEST(introduction,potentially_unsupported_features_are_conditionally_compiled)
 //   The particular representation pointed by the returned value is
 //   implementation-defined, and may or may not be different for different
 //   types.
-TEST(introduction,know_your_implementations_type_info_name_scheme)
+TEST(introduction, know_your_implementations_type_info_name_scheme)
 {
   // the point is to get a feeling, a sense of how the scheme works in your
   // implementation. It's not the point to actually remember the exact
   // answers.
 
   // fundamental types
-  EXPECT_STREQ( ____, typeid(char).name() );
-  EXPECT_STREQ( ____, typeid(signed char).name() );
-  EXPECT_STREQ( ____, typeid(unsigned char).name() );
-  EXPECT_STREQ( ____, typeid(wchar_t).name() );
+  EXPECT_STREQ(____, typeid(char).name());
+  EXPECT_STREQ(____, typeid(signed char).name());
+  EXPECT_STREQ(____, typeid(unsigned char).name());
+  EXPECT_STREQ(____, typeid(wchar_t).name());
 
-  EXPECT_STREQ( ____, typeid(bool).name() );
+  EXPECT_STREQ(____, typeid(bool).name());
 
-  EXPECT_STREQ( ____, typeid(short).name() );
-  EXPECT_STREQ( ____, typeid(unsigned short).name() );
-  EXPECT_STREQ( ____, typeid(int).name() );
-  EXPECT_STREQ( ____, typeid(unsigned int).name() );
-  EXPECT_STREQ( ____, typeid(long).name() );
-  EXPECT_STREQ( ____, typeid(unsigned long).name() );
+  EXPECT_STREQ(____, typeid(short).name());
+  EXPECT_STREQ(____, typeid(unsigned short).name());
+  EXPECT_STREQ(____, typeid(int).name());
+  EXPECT_STREQ(____, typeid(unsigned int).name());
+  EXPECT_STREQ(____, typeid(long).name());
+  EXPECT_STREQ(____, typeid(unsigned long).name());
 
-  EXPECT_STREQ( ____, typeid(float).name() );
-  EXPECT_STREQ( ____, typeid(double).name() );
+  EXPECT_STREQ(____, typeid(float).name());
+  EXPECT_STREQ(____, typeid(double).name());
 
   // compound
-  EXPECT_STREQ( ____, typeid(int*).name() );
-  EXPECT_STREQ( ____, typeid(char*).name() );
-  EXPECT_STREQ( ____, typeid(int[]).name() );
-  EXPECT_STREQ( ____, typeid(int[3]).name() );
+  EXPECT_STREQ(____, typeid(int*).name());
+  EXPECT_STREQ(____, typeid(char*).name());
+  EXPECT_STREQ(____, typeid(int[]).name());
+  EXPECT_STREQ(____, typeid(int[3]).name());
 }

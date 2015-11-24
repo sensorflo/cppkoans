@@ -1,10 +1,10 @@
 #include "cppkoans.h"
 
 // TC++PL4 6.2.2 Booleans
-TEST(about_booleans,when_converted_to_an_integer_true_is_one_and_false_is_zero)
+TEST(about_booleans, when_converted_to_an_integer_true_is_one_and_false_is_zero)
 {
-  EXPECT_EQ(__,int(true));
-  EXPECT_EQ(__,int(false));
+  EXPECT_EQ(__, int(true));
+  EXPECT_EQ(__, int(false));
 }
 
 #ifdef _MSC_VER
@@ -15,19 +15,19 @@ TEST(about_booleans,when_converted_to_an_integer_true_is_one_and_false_is_zero)
 // Pointer, integral and floating-point values can be implicitly converted to
 // bool ($6.2.2). A nonzero value converts to true; a zero value converts to
 // false.
-TEST(about_booleans,non_zero_is_true__zero_is_false)
+TEST(about_booleans, non_zero_is_true__zero_is_false)
 {
-  EXPECT_EQ(__,bool(1));
-  EXPECT_EQ(__,bool(-42));
-  EXPECT_EQ(__,bool(0));
-  EXPECT_EQ(__,bool(1.0));
-  EXPECT_EQ(__,bool(0.0));
-  EXPECT_EQ(__,bool(42));
-  EXPECT_EQ(__,bool(3.1415));
-  EXPECT_EQ(__,bool(NULL));
+  EXPECT_EQ(__, bool(1));
+  EXPECT_EQ(__, bool(-42));
+  EXPECT_EQ(__, bool(0));
+  EXPECT_EQ(__, bool(1.0));
+  EXPECT_EQ(__, bool(0.0));
+  EXPECT_EQ(__, bool(42));
+  EXPECT_EQ(__, bool(3.1415));
+  EXPECT_EQ(__, bool(NULL));
   int i = 0;
   int* p = &i;
-  EXPECT_EQ(__,bool(p));
+  EXPECT_EQ(__, bool(p));
 }
 #ifdef _MSC_VER
 # pragma warning(pop)
@@ -41,8 +41,8 @@ TEST(about_booleans,non_zero_is_true__zero_is_false)
 //   result of sizeof applied to any other fundamental type is
 //   implementation_defined. In particular, sizeof(bool) and ... are
 //   implementation_defined.
-TEST(about_booleans,sizeof_bool_is_implementation_defined)
+TEST(about_booleans, sizeof_bool_is_implementation_defined)
 {
-  EXPECT_EQ(__,sizeof(bool));
-  EXPECT_EQ(__,sizeof(bool)==sizeof(int));
+  EXPECT_EQ(__, sizeof(bool));
+  EXPECT_EQ(__, sizeof(bool)==sizeof(int));
 }

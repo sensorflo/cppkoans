@@ -36,22 +36,22 @@
 //
 // TStd14 8.3.2 References [dcl.ref]
 //   1 ... A reference can be thought of as a name of an object. ...
-TEST(about_references,a_reference_is_an_alias_to_an_object)
+TEST(about_references, a_reference_is_an_alias_to_an_object)
 {
   //
   int i = 1;
   int& ri = i;
 
-  EXPECT_EQ( __, ri );
+  EXPECT_EQ(__, ri);
 
   ri = 2;
-  EXPECT_EQ( __, i );
-  EXPECT_EQ( __, ri );
+  EXPECT_EQ(__, i);
+  EXPECT_EQ(__, ri);
 
   i = 3;
-  EXPECT_EQ( __, ri );
+  EXPECT_EQ(__, ri);
 
-  EXPECT_EQ( __ /*true or false*/, &i == &ri );
+  EXPECT_EQ(__ /*true or false*/, &i == &ri);
 }
 
 // Concerning the topic of references, loosly speaking, typeid(x) always
@@ -69,12 +69,12 @@ TEST(about_references,a_reference_is_an_alias_to_an_object)
 //    object, not the reference.
 //
 // cppref: http://en.cppreference.com/w/cpp/language/typeid
-TEST(about_references,typeid_returns_type_info_of_referenced_type) {
-  EXPECT_EQ( true/*true or false*/, typeid(int) == typeid(int&));
+TEST(about_references, typeid_returns_type_info_of_referenced_type) {
+  EXPECT_EQ(true/*true or false*/, typeid(int) == typeid(int&));
 
   int i = 0;
   int& ri = i;
-  EXPECT_EQ( true/*true or false*/, typeid(i) == typeid(ri));
+  EXPECT_EQ(true/*true or false*/, typeid(i) == typeid(ri));
 }
 
 // Concerning the topic of references, loosly speaking, sizeof(x) always
@@ -99,17 +99,17 @@ TEST(about_references,typeid_returns_type_info_of_referenced_type) {
 //
 // TStd14 5.3. Unary expressions [expr.unary]
 //   1 [grammar fragment showing syntax variants of sizeof]
-TEST(about_references,sizeof_returns_size_of_referenced_type) {
+TEST(about_references, sizeof_returns_size_of_referenced_type) {
 
   // if you fail on this question, repeat koans in area 'characters'
-  EXPECT_EQ( __, sizeof(char));
+  EXPECT_EQ(__, sizeof(char));
 
-  EXPECT_EQ( __, sizeof(char&));
+  EXPECT_EQ(__, sizeof(char&));
 
   char c;
   char& rc = c;
-  EXPECT_EQ( __, sizeof c);
-  EXPECT_EQ( __, sizeof rc);
+  EXPECT_EQ(__, sizeof c);
+  EXPECT_EQ(__, sizeof rc);
 }
 
 // Concerning the topic of references, loosly speaking, decltype(e) is the
@@ -129,35 +129,35 @@ TEST(about_references,sizeof_returns_size_of_referenced_type) {
 //      - otherwise, if e is an lvalue, decltype(e) is T&, where T is the type
 //        of e;
 //      - otherwise [i.e. e is an prvalue], decltype(e) is the type of e.
-TEST(about_references,decltype) {
+TEST(about_references, decltype) {
 
   // always answer with true or false
 
   // tiny intro to std::is_reference in case you don't know it yet
-  EXPECT_EQ( __, std::is_reference<int>::value);
-  EXPECT_EQ( __, std::is_reference<int&>::value);
+  EXPECT_EQ(__, std::is_reference<int>::value);
+  EXPECT_EQ(__, std::is_reference<int&>::value);
 
   int i = 0;
   int& ri = i;
   int fi();
   int& fri();
 
-  EXPECT_EQ( __, std::is_reference<decltype(i)>::value);
-  EXPECT_EQ( __, std::is_reference<decltype(ri)>::value);
+  EXPECT_EQ(__, std::is_reference<decltype(i)>::value);
+  EXPECT_EQ(__, std::is_reference<decltype(ri)>::value);
 
-  EXPECT_EQ( __, std::is_reference<decltype((i))>::value);
-  EXPECT_EQ( __, std::is_reference<decltype((ri))>::value);
+  EXPECT_EQ(__, std::is_reference<decltype((i))>::value);
+  EXPECT_EQ(__, std::is_reference<decltype((ri))>::value);
 
-  EXPECT_EQ( __, std::is_reference<decltype(42)>::value);
-  EXPECT_EQ( __, std::is_reference<decltype(fi())>::value);
-  EXPECT_EQ( __, std::is_reference<decltype(fri())>::value);
+  EXPECT_EQ(__, std::is_reference<decltype(42)>::value);
+  EXPECT_EQ(__, std::is_reference<decltype(fi())>::value);
+  EXPECT_EQ(__, std::is_reference<decltype(fri())>::value);
 }
 
 // References are not objects, and because of that, there are no references to
 // references, no arrays of references and no pointers to references.
 //
 // TStd14 8.3.2/5 References [decl.ref]
-TEST(about_references,a_reference_is_not_an_object)
+TEST(about_references, a_reference_is_not_an_object)
 {
   #if 0
   int&& ri;    // error - there are no references to references
@@ -177,7 +177,7 @@ TEST(about_references,a_reference_is_not_an_object)
 // a szenario where a reference is an object which can be modified to refer to
 // another object. Then some special syntax would be needed to refer to the
 // reference object (in order to modify it), opposed to the referenced object.
-TEST(about_references,a_reference_always_refers_to_the_same_object)
+TEST(about_references, a_reference_always_refers_to_the_same_object)
 {
   ACKNOWLEDGE(__);
 }
@@ -195,7 +195,7 @@ TEST(about_references,a_reference_always_refers_to_the_same_object)
 //   well-defined program, because the only way to create such a reference
 //   would be to bind it to the 'Object' obtained by dereferencing a null
 //   pointer, which causes undefined behavior. ...
-TEST(about_references,a_reference_must_be_initialized_with_a_valid_object_and_cannot_be_null)
+TEST(about_references, a_reference_must_be_initialized_with_a_valid_object_and_cannot_be_null)
 {
   #if 0
   int& ri; // error
@@ -226,7 +226,7 @@ struct A { ~A() { events += ",~A"; } };
 struct B { ~B() { events += ",~B"; } };
 A makeA() { static A a; return a; }
 B makeB() { static B b; return b; }
-TEST(about_references,reference_extends_lifetime_of_temporary)
+TEST(about_references, reference_extends_lifetime_of_temporary)
 {
   // remember that calling a function which returns by value (opposed to
   // return by reference) creates a temporary.
@@ -238,5 +238,5 @@ TEST(about_references,reference_extends_lifetime_of_temporary)
     events += ",bar";
   }
 
-  EXPECT_EQ( std::string(____), events);
+  EXPECT_EQ(std::string(____), events);
 }

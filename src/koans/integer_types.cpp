@@ -8,28 +8,28 @@
 // long long was added in C++11.
 //
 // TC++PL4 6.2.4 Integer Types
-TEST(about_integer_types,available_types)
+TEST(about_integer_types, available_types)
 {
-  EXPECT_EQ( __, std::numeric_limits<short>::is_signed );
-  EXPECT_EQ( __, typeid(short) == typeid(signed short) );
-  EXPECT_EQ( __, typeid(short) == typeid(unsigned short) );
+  EXPECT_EQ(__, std::numeric_limits<short>::is_signed);
+  EXPECT_EQ(__, typeid(short) == typeid(signed short));
+  EXPECT_EQ(__, typeid(short) == typeid(unsigned short));
 
-  EXPECT_EQ( __, std::numeric_limits<int>::is_signed );
-  EXPECT_EQ( __, typeid(int) == typeid(signed int) );
-  EXPECT_EQ( __, typeid(int) == typeid(unsigned int) );
+  EXPECT_EQ(__, std::numeric_limits<int>::is_signed);
+  EXPECT_EQ(__, typeid(int) == typeid(signed int));
+  EXPECT_EQ(__, typeid(int) == typeid(unsigned int));
 
-  EXPECT_EQ( __, std::numeric_limits<long>::is_signed );
-  EXPECT_EQ( __, typeid(long) == typeid(signed long) );
-  EXPECT_EQ( __, typeid(long) == typeid(unsigned long) );
+  EXPECT_EQ(__, std::numeric_limits<long>::is_signed);
+  EXPECT_EQ(__, typeid(long) == typeid(signed long));
+  EXPECT_EQ(__, typeid(long) == typeid(unsigned long));
 
   #if __HAS_TYPE_LONG_LONG
-  EXPECT_EQ( __, std::numeric_limits<long long>::is_signed );
-  EXPECT_EQ( __, typeid(long long) == typeid(signed long long) );
-  EXPECT_EQ( __, typeid(long long) == typeid(unsigned long long) );
+  EXPECT_EQ(__, std::numeric_limits<long long>::is_signed);
+  EXPECT_EQ(__, typeid(long long) == typeid(signed long long));
+  EXPECT_EQ(__, typeid(long long) == typeid(unsigned long long));
   #endif
 
   // recapitulation
-  EXPECT_EQ( __, std::numeric_limits<char>::is_signed );
+  EXPECT_EQ(__, std::numeric_limits<char>::is_signed);
 }
 
 // TC++PL4 6.2.4.1 Integer Literals
@@ -38,14 +38,14 @@ TEST(about_integer_types,available_types)
 // with zero followed by x or X (0x or 0X) is a hexadecimal (base 16) number. A
 // literal starting with zero but not followed by x or X is an octal (base 8)
 // number.
-TEST(about_integer_types,literals_and_available_prefixes)
+TEST(about_integer_types, literals_and_available_prefixes)
 {
   // answer with the decimal literal equivalent
-  EXPECT_EQ( __, 0xa );
-  EXPECT_EQ( __, 0xb );
-  EXPECT_EQ( __, 0xA );
-  EXPECT_EQ( __, 0xfF );
-  EXPECT_EQ( __, 011 );
+  EXPECT_EQ(__, 0xa);
+  EXPECT_EQ(__, 0xb);
+  EXPECT_EQ(__, 0xA);
+  EXPECT_EQ(__, 0xfF);
+  EXPECT_EQ(__, 011);
 }
 
 // TC++PL4 6.2.4.1 Integer Literals
@@ -54,16 +54,16 @@ TEST(about_integer_types,literals_and_available_prefixes)
 // [Similarly, the suffix LL [or ll], added in C++11, can be used to write
 // explicit long long literals] ... Combination of suffixes are allowed. [So are
 // combinations with a prefix. ]
-TEST(about_integer_types,literals_and_available_suffixes)
+TEST(about_integer_types, literals_and_available_suffixes)
 {
-  EXPECT_EQ( typeid(________), typeid(42U) );
-  EXPECT_EQ( typeid(________), typeid(42l) );
-  EXPECT_EQ( typeid(42 __________), typeid(unsigned long) );
+  EXPECT_EQ(typeid(________), typeid(42U));
+  EXPECT_EQ(typeid(________), typeid(42l));
+  EXPECT_EQ(typeid(42 __________), typeid(unsigned long));
   #if __HAS_TYPE_LONG_LONG
-  EXPECT_EQ( typeid(31415 __________), typeid(long long) );
+  EXPECT_EQ(typeid(31415 __________), typeid(long long));
   #endif
-  EXPECT_EQ( __, 0xF0UL );
-  EXPECT_EQ( typeid(________), typeid(0xF0UL) );
+  EXPECT_EQ(__, 0xF0UL);
+  EXPECT_EQ(typeid(________), typeid(0xF0UL));
 }
 
 // TC++PL4 6.2.4.1 Integer Literals
@@ -84,17 +84,17 @@ TEST(about_integer_types,literals_and_available_suffixes)
 // still assuming this is an implementation which implements negative integers
 // with two's complement.
 // 0xFFFF is -1, not 65...
-TEST(about_integer_types,hex_and_oct_literals_define_bit_patterns)
+TEST(about_integer_types, hex_and_oct_literals_define_bit_patterns)
 {
   #if UINT_MAX == 0xFFFF
-  EXPECT_EQ( __, 0xFFFF );
-  EXPECT_EQ( typeid(________), typeid(0xFFFF) );
+  EXPECT_EQ(__, 0xFFFF);
+  EXPECT_EQ(typeid(________), typeid(0xFFFF));
   #elif UINT_MAX == 0xFFFFFFFF
-  EXPECT_EQ( -2, 0xFFFFFFFF );
-  EXPECT_EQ( typeid(int), typeid(0xFFFFFFFF) );
-  EXPECT_EQ( typeid(unsigned), typeid(0xFFFFFFFF) );
-  EXPECT_EQ( typeid(long), typeid(0xFFFFFFFF) );
-  EXPECT_EQ( typeid(unsigned long), typeid(0xFFFFFFFF) );
+  EXPECT_EQ(-2, 0xFFFFFFFF);
+  EXPECT_EQ(typeid(int), typeid(0xFFFFFFFF));
+  EXPECT_EQ(typeid(unsigned), typeid(0xFFFFFFFF));
+  EXPECT_EQ(typeid(long), typeid(0xFFFFFFFF));
+  EXPECT_EQ(typeid(unsigned long), typeid(0xFFFFFFFF));
   #endif
 }
 

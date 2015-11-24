@@ -40,15 +40,15 @@
 //
 //  Notes
 //  - the keywords typedef and using define type aliases, not distinct new types
-TEST(about_types,cheat_sheet_for_all_available_types_and_often_used_groupings_of_types)
+TEST(about_types, cheat_sheet_for_all_available_types_and_often_used_groupings_of_types)
 {
-  ACKNOWLEDGE( __ );
+  ACKNOWLEDGE(__);
 }
 
 // to be written - TStd11 3.9.3
-TEST(about_types,cv_qualifiers)
+TEST(about_types, cv_qualifiers)
 {
-  ACKNOWLEDGE( __ );
+  ACKNOWLEDGE(__);
 }
 
 

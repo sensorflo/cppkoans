@@ -18,7 +18,7 @@
 // TC++PL4 10.3 Operator summary
 //
 // http://en.wikipedia.org/wiki/Operator_precedence
-TEST(about_expressions,operator_precedence_define_which_operator_among_operators_with_different_precedence_is_performed_first)
+TEST(about_expressions, operator_precedence_define_which_operator_among_operators_with_different_precedence_is_performed_first)
 {
 
 }
@@ -33,7 +33,7 @@ TEST(about_expressions,operator_precedence_define_which_operator_among_operators
 // TC++PL4 10.3 Operator summary
 //
 // http://en.wikipedia.org/wiki/Operator_associativity
-TEST(about_expressions,foo)
+TEST(about_expressions, foo)
 {
 
 }
@@ -44,7 +44,7 @@ TEST(about_expressions,foo)
 //   The order of evaluation of subexpressions within an expression is
 //   undefined. In particular, you cannot assume that the expression is
 //   evaluated left-to-right.
-TEST(about_expressions,foo3)
+TEST(about_expressions, foo3)
 {
 
 }
