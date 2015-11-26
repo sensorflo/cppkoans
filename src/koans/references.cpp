@@ -206,7 +206,6 @@ TEST(about_references, a_reference_must_be_initialized_with_a_valid_object_and_c
   ACKNOWLEDGE(__);
 }
 
-
 // Normaly a temporary is destroyed at the end of the enclosing full
 // expression. However when bound to a reference, the lifetime of the
 // temporary is extended so it lives as long as the reference.
@@ -221,6 +220,7 @@ TEST(about_references, a_reference_must_be_initialized_with_a_valid_object_and_c
 //     temporary to which the reference is bound or the temporary that is the
 //     complete object of a subobject to which the reference is bound persists
 //     for the lifetime of the reference except ...
+namespace dummy1 {
 static std::string events;
 struct A { ~A() { events += ",~A"; } };
 struct B { ~B() { events += ",~B"; } };
@@ -239,4 +239,54 @@ TEST(about_references, reference_extends_lifetime_of_temporary)
   }
 
   EXPECT_EQ(std::string(____), events);
+}
+}
+
+// cppref http://en.cppreference.com/w/cpp/language/reference_initialization
+//   ... if the reference is either rvalue reference or lvalue reference to
+//   const:
+//   - ...
+//   - If object is a class type expression (that is not reference-related to
+//     T and (since C++17)) that can be implicitly converted to an xvalue, a
+//     class prvalue, or a function value of type that is either T or derived
+//     from T, equally or less cv-qualified, then the reference is bound to
+//     the result of the conversion or to its base subobject. (User-defined
+//     conversions are not considered (since C++17))
+//   - Otherwise, a temporary of type T is constructed and copy-initialized
+//     from object. The reference is then bound to this temporary.
+//     Copy-initialization rules apply (explicit constructors are not
+//     considered).
+namespace dummy2 {
+static std::string events;
+struct A {
+  ~A() { events += ",~A"; }
+};
+struct B {
+  B(const A&) { }
+  ~B() { events += ",~B"; }
+};
+TEST(about_references, reference_initialized_with_object_needing_implicit_conversion)
+{
+  // using explicit type for reference
+  {
+    A a;
+    events += ",foo";
+    const B& r = a;
+    events += ",bar";
+    EXPECT_EQ(__,
+      reinterpret_cast<const void*>(&a) == reinterpret_cast<const void*>(&r));
+  }
+  EXPECT_EQ(std::string(____), events);
+
+  // exactly the same but for using auto for reference type
+  events.clear();
+  {
+    A a;
+    events += ",foo";
+    const auto& r = a;
+    events += ",bar";
+    EXPECT_EQ(__, &a == &r);
+  }
+  EXPECT_EQ(std::string(____), events);
+}
 }
