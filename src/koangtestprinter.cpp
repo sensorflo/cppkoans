@@ -16,6 +16,16 @@ namespace testing {
   }
 }
 
+namespace {
+  void printFileAndLineNo(const TestPartResult& part_result) {
+    #ifdef _MSC_VER
+    printf("%s(%d): error:\n", part_result.file_name(), part_result.line_number());
+    #else
+    printf("%s:%d:\n", part_result.file_name(), part_result.line_number());
+    #endif
+  }
+}
+
 KoanGTestPrinter::KoanGTestPrinter() :
   m_PassedKoansCount(0)
 {
@@ -55,7 +65,7 @@ void KoanGTestPrinter::OnTestEnd(const TestInfo& test_info)
         test_info.name(), test_info.test_case_name());
       const TestPartResult& part_result = test_result.GetTestPartResult(0);
       printf("Meditate on the following code:\n");
-      printf("%s(%d):\n", part_result.file_name(), part_result.line_number());
+      printFileAndLineNo(part_result);
     }
 
     else {
@@ -74,13 +84,12 @@ void KoanGTestPrinter::OnTestEnd(const TestInfo& test_info)
             printf("\nDon't try to cheat me - you will succeed eventually.\n");
             printf("However mind that you will not reach enlightenment by going this path.\n");
             printf("Continue to faithfully meditate on the following code:\n");
-            printf("%s(%d):\n", part_result.file_name(), part_result.line_number());
-
+            printFileAndLineNo(part_result);
           }
 
           else if (strcmp(summary,"_")==0) {
             printf("\nYou did not yet answer the following question, continue to meditate on it:\n");
-            printf("%s(%d):\n", part_result.file_name(), part_result.line_number());
+            printFileAndLineNo(part_result);
           }
 
           else {
@@ -90,7 +99,7 @@ void KoanGTestPrinter::OnTestEnd(const TestInfo& test_info)
             // msvc, so one can easily jump to the file/line in the IDE by double
             // clicking on that line in the output
             printf("You must continue to meditate on the following code:\n");
-            printf("%s(%d):\n", part_result.file_name(), part_result.line_number());
+            printFileAndLineNo(part_result);
           }
         }
       }
